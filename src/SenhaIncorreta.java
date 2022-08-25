@@ -57,8 +57,6 @@ public class SenhaIncorreta extends JFrame {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-				JanelaCadastrarAcesso j1 = new JanelaCadastrarAcesso();
-				j1.setVisible(false);
 			}
 		});
 		btnOk.setFont(new Font("Tahoma", Font.PLAIN, 17));

@@ -61,13 +61,16 @@ public class JanelaCadastrarAcesso extends JFrame {
 		JButton btnOk = new JButton("Ok");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String str1 = textField.getText();
-				if(str1=="123") {
+				
+				int senha = Integer. parseInt(textField.getText());
+				if(senha==123) {
 					JanelaCadastrar j1 = new JanelaCadastrar();
 					j1.setVisible(true);
-				}else if (str1!="123"){
+					setVisible(false);
+				}else if (senha!=123){
 					SenhaIncorreta j2 = new SenhaIncorreta();
 					j2.setVisible(true);
+					setVisible(false);
 				}
 			}
 		});

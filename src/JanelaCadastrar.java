@@ -45,11 +45,6 @@ public class JanelaCadastrar extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(64, 224, 208));
-		panel.setBounds(-370, 309, 482, 287);
-		contentPane.add(panel);
-		
 		textNome = new JTextField();
 		textNome.setBounds(229, 84, 182, 27);
 		contentPane.add(textNome);
@@ -86,5 +81,10 @@ public class JanelaCadastrar extends JFrame {
 		lblSenhaCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSenhaCadastro.setBounds(153, 203, 77, 14);
 		contentPane.add(lblSenhaCadastro);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(64, 224, 208));
+		panel.setBounds(37, 38, 482, 287);
+		contentPane.add(panel);
 	}
 }
