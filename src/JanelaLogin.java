@@ -67,6 +67,11 @@ public class JanelaLogin extends JFrame {
 		textSenha.setColumns(10);
 		
 		JButton btnLogar = new JButton("Logar");
+		btnLogar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLogar.setBackground(new Color(30, 144, 255));
 		btnLogar.setBounds(236, 263, 89, 23);
