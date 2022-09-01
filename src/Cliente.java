@@ -1,4 +1,4 @@
-
+import java.sql.*;
 public class Cliente {
 	private String nomeCli, telefone, emailCli, cpfCli;
 

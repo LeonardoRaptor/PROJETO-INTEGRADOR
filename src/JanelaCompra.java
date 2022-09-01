@@ -10,7 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextPane;
-
+import java.sql.*;
 public class JanelaCompra extends JFrame {
 
 	private JPanel contentPane;

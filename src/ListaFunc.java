@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.sql.*;
 public class ListaFunc {
 	ArrayList <Funcionario> func = new ArrayList <Funcionario> ();
 	public void addFunc(Funcionario f) {

@@ -1,4 +1,4 @@
-
+import java.sql.*;
 public class Funcionario {
 	private String emailFunc, nomeFunc, cpfFunc, senhaFunc;
 	private int idFunc;

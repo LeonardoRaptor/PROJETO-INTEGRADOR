@@ -1,6 +1,6 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
+import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -24,6 +24,7 @@ public class JanelaCadastrar extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -102,6 +103,15 @@ public class JanelaCadastrar extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cadastrar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					// Parte 1 - Conectando
+					// Estabelecendo a conex�o
+					Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/Pi", "root", "aluno");
+					System.out.println("Conectado � base de dados com sucesso.");
+				
+				} catch (SQLException a) {
+						System.out.println("Erro ao conectar � base de dados.");
+				}
 			}
 		});
 		btnNewButton_1.setBounds(351, 344, 89, 23);

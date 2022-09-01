@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-
+import java.sql.*;
 public class JanelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
