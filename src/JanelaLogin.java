@@ -69,7 +69,17 @@ public class JanelaLogin extends JFrame {
 		JButton btnLogar = new JButton("Logar");
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				String login = lblLogin.getText();
+				String senha = lblSenha.getText();
+				if((login.equals("ldmraptor"))&&(senha.equals("Aall.123"))){
+					Menu menu = new Menu();
+					menu.setVisible(true);
+					setVisible(false);
+				}else if((login.equals("ldmraptor19@gmail.com"))&&(senha.equals("Aall.1233"))){
+					Menu menu = new Menu();
+					menu.setVisible(true);
+					setVisible(false);
+				}
 			}
 		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 14));
