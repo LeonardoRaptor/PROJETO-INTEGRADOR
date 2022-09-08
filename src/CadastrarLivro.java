@@ -1,4 +1,7 @@
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -12,12 +15,16 @@ import javax.swing.JButton;
 public class CadastrarLivro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-
+	private JTextField textID;
+	private JTextField textNome;
+	private JTextField textQntd;
+	private JTextField textAutor;
+	private JTextField textPreco;
+	
+	//variaveis 
+	public String nome, autor, genero;
+	public int quantidade, id, preco;
+	public ArrayList<Cadastro> cadastro = new ArrayList<Cadastro>();
 	/**
 	 * Launch the application.
 	 */
@@ -38,6 +45,8 @@ public class CadastrarLivro extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastrarLivro() {
+		
+		Cadastro x =new Cadastro();
 		setTitle("Cadastro de Livros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,41 +87,75 @@ public class CadastrarLivro extends JFrame {
 		lblNewLabel_5.setBounds(39, 136, 46, 14);
 		contentPane.add(lblNewLabel_5);
 		
-		textField = new JTextField();
-		textField.setBounds(95, 8, 329, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textID = new JTextField();
+		textID.setBounds(95, 8, 329, 20);
+		contentPane.add(textID);
+		textID.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(95, 33, 329, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		textNome = new JTextField();
+		textNome.setBounds(95, 33, 329, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(95, 57, 329, 22);
-		contentPane.add(comboBox);
+		JComboBox boxGenero = new JComboBox();
+		boxGenero.setBounds(95, 57, 329, 22);
+		contentPane.add(boxGenero);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(95, 83, 329, 20);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		textQntd = new JTextField();
+		textQntd.setBounds(95, 83, 329, 20);
+		contentPane.add(textQntd);
+		textQntd.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(95, 108, 329, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		textAutor = new JTextField();
+		textAutor.setBounds(95, 108, 329, 20);
+		contentPane.add(textAutor);
+		textAutor.setColumns(10);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(95, 133, 329, 20);
-		contentPane.add(textField_4);
-		textField_4.setColumns(10);
+		textPreco = new JTextField();
+		textPreco.setBounds(95, 133, 329, 20);
+		contentPane.add(textPreco);
+		textPreco.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Cancelar");
-		btnNewButton.setBounds(335, 227, 89, 23);
-		contentPane.add(btnNewButton);
+		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setBounds(335, 227, 89, 23);
+		btnCancelar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				
+			}
+		});
+		contentPane.add(btnCancelar);
 		
-		JButton btnNewButton_1 = new JButton("Cadastrar");
-		btnNewButton_1.setBounds(236, 227, 89, 23);
-		contentPane.add(btnNewButton_1);
+		JButton btnCadastrar = new JButton("Cadastrar"); //começa aqui o botão de cadastro
+		btnCadastrar.setBounds(236, 227, 89, 23);
+		btnCadastrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String ids=textID.getText();
+				String quantidades =textQntd.getText();
+				if((ids!=null)&&(nome!=null)&&(autor!=null)&&(genero!=null)&&(quantidades!=null)) {
+                    
+					//colocando tudo q vai ser cadastrado, todas as variáveis.. eu acho?
+					id = Integer.parseInt(ids); 
+					
+					nome=textNome.getText();
+					
+					autor=textAutor.getText();
+										
+					quantidade = Integer.parseInt(quantidades);
+					
+					x.setId(id);
+					x.setNome(nome);
+					x.setAutor(autor);
+					x.setGenero(genero); //enquanto não tiver banco de dados integrado, o botao nao vai rodar pq precisa integrar 
+					x.setQuantidade(quantidade);
+					x.setPreco(preco);
+					
+					Adicionado frame1 = new Adicionado();
+					frame1.setVisible(true);
+					btnCadastrar.setEnabled(false);
+				}
+			}	
+		});
+		contentPane.add(btnCadastrar);
 	}
 }
