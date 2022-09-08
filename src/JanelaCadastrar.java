@@ -11,6 +11,7 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class JanelaCadastrar extends JFrame {
 
@@ -41,8 +42,9 @@ public class JanelaCadastrar extends JFrame {
 	 * Create the frame.
 	 */
 	public JanelaCadastrar() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 565, 417);
+		setBounds(100, 100, 719, 417);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -89,11 +91,6 @@ public class JanelaCadastrar extends JFrame {
 		lblSenhaCadastro.setBounds(153, 203, 77, 23);
 		contentPane.add(lblSenhaCadastro);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(64, 224, 208));
-		panel.setBounds(32, 35, 482, 287);
-		contentPane.add(panel);
-		
 		JButton btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -115,9 +112,15 @@ public class JanelaCadastrar extends JFrame {
 				} catch (SQLException a) {
 						System.out.println("Erro ao conectar � base de dados.");
 				}
+				String query1 = "insert into funcionarios values (1, 'Pedro','ADS')";
 			}
 		});
 		btnNewButton_1.setBounds(344, 344, 96, 23);
 		contentPane.add(btnNewButton_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\2.png"));
+		lblNewLabel.setBounds(0, 0, 703, 378);
+		contentPane.add(lblNewLabel);
 	}
 }
