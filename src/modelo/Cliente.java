@@ -1,4 +1,5 @@
-import java.sql.*;
+package modelo;
+
 public class Cliente {
 	private String nomeCli, telefone, emailCli, cpfCli, idCLi;
 
@@ -41,5 +42,5 @@ public class Cliente {
 	public void setIdCLi(String idCLi) {
 		this.idCLi = idCLi;
 	}
-	
+
 }

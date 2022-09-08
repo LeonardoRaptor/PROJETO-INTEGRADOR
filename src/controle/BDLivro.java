@@ -1,7 +1,9 @@
+package controle;
 import java.util.ArrayList;
-import java.sql.*;
 
-public class ListaLiv {
+import modelo.Livro;
+
+public class BDLivro {
 	ArrayList <Livro> li = new ArrayList <Livro> ();
 	public void addLivro(Livro l) {
 		li.add(l);

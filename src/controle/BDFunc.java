@@ -1,6 +1,8 @@
+package controle;
 import java.util.ArrayList;
-import java.sql.*;
-public class ListaFunc {
+
+import modelo.Funcionario;
+public class BDFunc {
 	ArrayList <Funcionario> func = new ArrayList <Funcionario> ();
 	public void addFunc(Funcionario f) {
 		func.add(f);

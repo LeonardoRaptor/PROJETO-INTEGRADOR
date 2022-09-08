@@ -1,3 +1,4 @@
+package visao;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.sql.*;
@@ -20,7 +21,8 @@ public class JanelaCadastrar extends JFrame {
 	private JTextField textEmail;
 	private JTextField textCPF;
 	private JTextField textSenha;
-
+	private JTextField textId;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -70,6 +72,11 @@ public class JanelaCadastrar extends JFrame {
 		textSenha.setBounds(229, 199, 182, 27);
 		contentPane.add(textSenha);
 		textSenha.setColumns(10);
+
+		textId = new JTextField();
+		textId.setColumns(10);
+		textId.setBounds(229, 48, 182, 27);
+		contentPane.add(textId);
 		
 		JLabel lblNomeCadastro = new JLabel("Nome:");
 		lblNomeCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -90,7 +97,15 @@ public class JanelaCadastrar extends JFrame {
 		lblSenhaCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSenhaCadastro.setBounds(153, 203, 77, 23);
 		contentPane.add(lblSenhaCadastro);
+
 		
+		JLabel lblId = new JLabel("Id:");
+		lblId.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblId.setBounds(153, 43, 63, 26);
+		contentPane.add(lblId);
+		
+		
+	
 		JButton btnNewButton = new JButton("Cancelar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -104,23 +119,23 @@ public class JanelaCadastrar extends JFrame {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					// Parte 1 - Conectando
-					// Estabelecendo a conex�o
-					Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
+					Connection conexao;
+					Statement st;
+					conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
 					System.out.println("Conectado � base de dados com sucesso.");
-				
+					st = conexao.createStatement();
+					
+					st.executeUpdate("Insert into funcionarios (idFuncionario, NomeFuncionario,EmailFunc,CPF, SenhaFunc) values ('" + Integer.parseInt(textId.getText()) + "','" + textNome.getText() + "', '" + textEmail.getText() + "', '" + textCPF.getText() + "', '" + textSenha.getText() + "')");
+					
 				} catch (SQLException a) {
+					System.out.println(a.getMessage());
 						System.out.println("Erro ao conectar � base de dados.");
 				}
-				String query1 = "insert into funcionarios values (1, 'Pedro','ADS')";
+				
 			}
 		});
 		btnNewButton_1.setBounds(344, 344, 96, 23);
 		contentPane.add(btnNewButton_1);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\2.png"));
-		lblNewLabel.setBounds(0, 0, 703, 378);
-		contentPane.add(lblNewLabel);
 	}
 }
