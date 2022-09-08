@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Funcionarios` (
   `idFuncionario` INT NOT NULL,
   `NomeFuncionario` VARCHAR(35) NOT NULL,
   `EmailFunc` VARCHAR(35) NOT NULL,
+  `CPF` VARCHAR(16) NOT NULL,
   `SenhaFunc` VARCHAR(20) NOT NULL,
   `tipoAcesso` CHAR(1) NULL,
   PRIMARY KEY (`idFuncionario`),
@@ -91,7 +92,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Produtos` (
   `idProdutos` INT NOT NULL,
-  `PreçoProduto` DOUBLE NOT NULL,
+  `PreÃ§oProduto` DOUBLE NOT NULL,
   `Nome` VARCHAR(30) NOT NULL,
   `qt_estoque` INT NOT NULL,
   `Autor` VARCHAR(25) NOT NULL,
