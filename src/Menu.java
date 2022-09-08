@@ -75,11 +75,23 @@ public class Menu extends JFrame {
 		contentPane.add(btnPesquisarClientes);
 		
 		JButton btnCadastrarClientes = new JButton("<html>CADASTRAR<br /><center>CLIENTES</center></html> \r\n");
+		btnCadastrarClientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadastrarCliente cadcli = new CadastrarCliente();
+				cadcli.setVisible(true);
+			}
+		});
 		btnCadastrarClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnCadastrarClientes.setBounds(113, 225, 171, 79);
 		contentPane.add(btnCadastrarClientes);
 		
 		JButton btnRegistrarLivro = new JButton("<html>REGISTRAR<br /><center>LIVRO</center></html>");
+		btnRegistrarLivro.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CadastrarLivro cadliv = new CadastrarLivro();
+				cadliv.setVisible(true);
+			}
+		});
 		btnRegistrarLivro.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnRegistrarLivro.setBounds(342, 225, 171, 79);
 		contentPane.add(btnRegistrarLivro);
