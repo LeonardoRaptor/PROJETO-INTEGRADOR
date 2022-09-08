@@ -1,6 +1,6 @@
 import java.sql.*;
 public class Cliente {
-	private String nomeCli, telefone, emailCli, cpfCli;
+	private String nomeCli, telefone, emailCli, cpfCli, idCLi;
 
 	public String getNomeCli() {
 		return nomeCli;
@@ -33,4 +33,13 @@ public class Cliente {
 	public void setCpfCli(String cpfCli) {
 		this.cpfCli = cpfCli;
 	}
+
+	public String getIdCLi() {
+		return idCLi;
+	}
+
+	public void setIdCLi(String idCLi) {
+		this.idCLi = idCLi;
+	}
+	
 }
