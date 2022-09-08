@@ -70,25 +70,28 @@ public class JanelaCadastrar extends JFrame {
 		textSenha.setColumns(10);
 		
 		JLabel lblNomeCadastro = new JLabel("Nome:");
-		lblNomeCadastro.setBounds(172, 104, 58, 17);
+		lblNomeCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNomeCadastro.setBounds(153, 85, 63, 26);
 		contentPane.add(lblNomeCadastro);
 		
 		JLabel lblEmailCadastro = new JLabel("E-mail:");
-		lblEmailCadastro.setBounds(172, 136, 46, 14);
+		lblEmailCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblEmailCadastro.setBounds(153, 126, 105, 23);
 		contentPane.add(lblEmailCadastro);
 		
 		JLabel lblCPFCadastro = new JLabel("CPF:");
-		lblCPFCadastro.setBounds(180, 167, 46, 14);
+		lblCPFCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblCPFCadastro.setBounds(153, 165, 78, 23);
 		contentPane.add(lblCPFCadastro);
 		
 		JLabel lblSenhaCadastro = new JLabel("Senha:");
 		lblSenhaCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSenhaCadastro.setBounds(153, 203, 77, 14);
+		lblSenhaCadastro.setBounds(153, 203, 77, 23);
 		contentPane.add(lblSenhaCadastro);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(64, 224, 208));
-		panel.setBounds(37, 38, 482, 287);
+		panel.setBounds(32, 35, 482, 287);
 		contentPane.add(panel);
 		
 		JButton btnNewButton = new JButton("Cancelar");
@@ -106,7 +109,7 @@ public class JanelaCadastrar extends JFrame {
 				try {
 					// Parte 1 - Conectando
 					// Estabelecendo a conex�o
-					Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/Pi", "root", "aluno");
+					Connection conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
 					System.out.println("Conectado � base de dados com sucesso.");
 				
 				} catch (SQLException a) {
@@ -114,7 +117,7 @@ public class JanelaCadastrar extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(351, 344, 89, 23);
+		btnNewButton_1.setBounds(344, 344, 96, 23);
 		contentPane.add(btnNewButton_1);
 	}
 }
