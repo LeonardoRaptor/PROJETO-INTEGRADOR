@@ -23,13 +23,15 @@ public class BDFunc {
 		try {
 			
 			Statement st;
-			
+			conexao = Conexao.ligar();
 			st = conexao.createStatement();
-			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
+			
 			System.out.println("Conectado � base de dados com sucesso.");
 			st.executeUpdate("Insert into funcionarios (NomeFuncionario,EmailFunc,CPF, SenhaFunc) values "
 					+ "('" + JanelaCadastrar.nome + "', '" + JanelaCadastrar.email + "', '" + JanelaCadastrar.cpf + "', "
 							+ "'" + JanelaCadastrar.senha + "')");
+			
+			Conexao.desligar();
 			
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -38,7 +40,7 @@ public class BDFunc {
 	}
 	public void logarConta() {
 		try {
-			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
+			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			
 			st = conexao.createStatement();
@@ -49,6 +51,7 @@ public class BDFunc {
 				Menu m = new Menu();
 				m.setVisible(true);
 			}
+			Conexao.desligar();
 			
 		}catch(SQLException a) {
 			System.out.println(a.getMessage());
