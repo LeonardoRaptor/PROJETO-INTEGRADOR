@@ -40,4 +40,8 @@ public class Livro {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
+	public void setQuantidade(int quantidade) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -148,11 +148,10 @@ public class CadastrarLivro extends JFrame {
 
 					quantidade = Integer.parseInt(quantidades);
 
-					x.setId(id);
-					x.setNome(nome);
+					x.setIdLi(id);
+					x.setNomeLi(nome);
 					x.setAutor(autor);
 					x.setGenero(genero); // enquanto não tiver banco de dados integrado, o botao nao vai rodar pq
-											// precisa integrar
 					x.setQuantidade(quantidade);
 					x.setPreco(preco);
 
