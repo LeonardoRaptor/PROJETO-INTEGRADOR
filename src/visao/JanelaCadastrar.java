@@ -5,6 +5,9 @@ import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import controle.BDFunc;
+
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -21,6 +24,7 @@ public class JanelaCadastrar extends JFrame {
 	private JTextField textEmail;
 	private JTextField textCPF;
 	private JTextField textSenha;
+	public static String nome, cpf, email, senha;
 	
 	/**
 	 * Launch the application.
@@ -106,20 +110,13 @@ public class JanelaCadastrar extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cadastrar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					Connection conexao;
-					Statement st;
-					conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
-					System.out.println("Conectado � base de dados com sucesso.");
-					st = conexao.createStatement();
-					
-					st.executeUpdate("Insert into funcionarios (NomeFuncionario,EmailFunc,CPF, SenhaFunc) values ('" + textNome.getText() + "', '" + textEmail.getText() + "', '" + textCPF.getText() + "', '" + textSenha.getText() + "')");
-					
-				} catch (SQLException a) {
-					System.out.println(a.getMessage());
-						System.out.println("Erro ao conectar � base de dados.");
-				}
+				nome = textNome.getText();
+				email = textEmail.getText();
+				cpf = textCPF.getText();
+				senha = textSenha.getText();
 				
+				BDFunc bdfu= new BDFunc();
+				bdfu.cadastro();
 			}
 		});
 		btnNewButton_1.setBounds(344, 344, 96, 23);

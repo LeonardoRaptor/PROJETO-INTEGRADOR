@@ -12,11 +12,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import controle.BDFunc;
+
 public class JanelaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textLogin;
 	private JTextField textSenha;
+	public static String login, senha;
 
 	/**
 	 * Launch the application.
@@ -69,17 +72,9 @@ public class JanelaLogin extends JFrame {
 		JButton btnLogar = new JButton("Logar");
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String login = textLogin.getText();
-				String senha = textSenha.getText();
-				if ((login.equals("ldmraptor")) && (senha.equals("Aall.123"))) {
-					Menu menu = new Menu();
-					menu.setVisible(true);
-					setVisible(false);
-				} else if ((login.equals("ldmraptor19@gmail.com")) && (senha.equals("Aall.1233"))) {
-					Menu menu = new Menu();
-					menu.setVisible(true);
-					setVisible(false);
-				}
+				login = textLogin.getText();
+				senha = textSenha.getText();
+				BDFunc bdf = new BDFunc();
 			}
 		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 14));
