@@ -1,6 +1,6 @@
 package controle;
 import java.sql.*;
-public class Conexão {
+public class Conexao {
 	Connection conexao;
 	private Statement st;
 	
