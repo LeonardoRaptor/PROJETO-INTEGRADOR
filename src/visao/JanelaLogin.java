@@ -75,6 +75,7 @@ public class JanelaLogin extends JFrame {
 				login = textLogin.getText();
 				senha = textSenha.getText();
 				BDFunc bdf = new BDFunc();
+				bdf.logarConta();
 			}
 		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 14));
