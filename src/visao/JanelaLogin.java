@@ -1,4 +1,5 @@
 package visao;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -8,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -19,7 +21,6 @@ public class JanelaLogin extends JFrame {
 	private JPanel contentPane;
 	private JTextField textLogin;
 	private JTextField textSenha;
-	public static String login, senha;
 
 	/**
 	 * Launch the application.
@@ -72,10 +73,15 @@ public class JanelaLogin extends JFrame {
 		JButton btnLogar = new JButton("Logar");
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				login = textLogin.getText();
-				senha = textSenha.getText();
-				BDFunc bdf = new BDFunc();
-				bdf.logarConta();
+				String login = textLogin.getText();
+				String senha = textSenha.getText();
+				if (!login.isEmpty() && !senha.isEmpty()) {
+					BDFunc bdf = new BDFunc();
+					bdf.logarConta(login, senha);
+				} else {
+					// erro
+					JOptionPane.showMessageDialog(btnLogar, "Erro login ou senha não confirmados" );
+				}
 			}
 		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 14));

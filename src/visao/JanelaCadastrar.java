@@ -7,10 +7,13 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import controle.BDFunc;
+import modelo.Funcionario;
 
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -24,7 +27,6 @@ public class JanelaCadastrar extends JFrame {
 	private JTextField textEmail;
 	private JTextField textCPF;
 	private JTextField textSenha;
-	public static String nome, cpf, email, senha;
 	
 	/**
 	 * Launch the application.
@@ -110,11 +112,22 @@ public class JanelaCadastrar extends JFrame {
 		JButton btnNewButton_1 = new JButton("Cadastrar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				nome = textNome.getText();
-				email = textEmail.getText();
-				cpf = textCPF.getText();
-				senha = textSenha.getText();
-				
+				String nome = textNome.getText();
+				String cpf = textCPF.getText();
+				String email = textEmail.getText();
+				String senha = textSenha.getText();
+				if (!nome.isEmpty() && !senha.isEmpty() && !cpf.isEmpty() && !email.isEmpty()) {
+					Funcionario f = new Funcionario();
+					f.setNomeFunc(textNome.getText());
+					f.setCpfFunc(textCPF.getText());
+					f.setEmailFunc(textEmail.getText());
+					f.setSenhaFunc(textSenha.getText());
+					BDFunc bdfu= new BDFunc();
+					bdfu.cadastro();
+				} else {
+					// erro
+					JOptionPane.showMessageDialog(btnNewButton_1, "Erro login ou senha não confirmados" );
+				}
 				BDFunc bdfu= new BDFunc();
 				bdfu.cadastro();
 			}

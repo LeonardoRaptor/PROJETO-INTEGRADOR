@@ -2,6 +2,7 @@ package controle;
 //import java.util.ArrayList;
 import java.sql.*;
 
+import modelo.Funcionario;
 import visao.JanelaCadastrar;
 import visao.JanelaLogin;
 import visao.Menu;
@@ -10,6 +11,7 @@ import visao.Menu;
 public class BDFunc {
 	Connection conexao;
 	private Statement st;
+	Funcionario f = new Funcionario();
 	
 	//ArrayList <Funcionario> func = new ArrayList <Funcionario> ();
 	//public void addFunc(Funcionario f) {
@@ -20,6 +22,7 @@ public class BDFunc {
 	//	func.remove(f);
 	//}
 	public void cadastro () {
+		
 		try {
 			
 			Statement st;
@@ -28,8 +31,8 @@ public class BDFunc {
 			
 			System.out.println("Conectado � base de dados com sucesso.");
 			st.executeUpdate("Insert into funcionarios (NomeFuncionario,EmailFunc,CPF, SenhaFunc) values "
-					+ "('" + JanelaCadastrar.nome + "', '" + JanelaCadastrar.email + "', '" + JanelaCadastrar.cpf + "', "
-							+ "'" + JanelaCadastrar.senha + "')");
+					+ "('" + f.getNomeFunc() + "', '" + f.getEmailFunc() + "', '" + f.getCpfFunc() + "', "
+							+ "'" + f.getSenhaFunc()+ "')");
 			
 			Conexao.desligar();
 			
@@ -38,13 +41,13 @@ public class BDFunc {
 				System.out.println("Erro ao conectar � base de dados.");
 		}
 	}
-	public void logarConta() {
+	public void logarConta(String login, String senha) {
 		try {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			
 			st = conexao.createStatement();
-			st.execute("select * from funcionarios where nomeFuncionario='" + JanelaLogin.login + "' and senhaFunc = '" + JanelaLogin.senha + "'");
+			st.execute("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
 			if(st!=null) {
 				JanelaLogin jl = new JanelaLogin();
 				jl.setVisible(false);
