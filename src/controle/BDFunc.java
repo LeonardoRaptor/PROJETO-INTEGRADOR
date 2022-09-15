@@ -41,8 +41,8 @@ public class BDFunc {
 			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
 			System.out.println("Conectado � base de dados com sucesso.");
 			
-			st = null;
-			st.executeUpdate("select * from funcionarios where nomeFuncionario='" + JanelaLogin.login + "' and senhaFunc = '" + JanelaLogin.senha + "'");
+			st = conexao.createStatement();
+			st.execute("select * from funcionarios where nomeFuncionario='" + JanelaLogin.login + "' and senhaFunc = '" + JanelaLogin.senha + "'");
 			if(st!=null) {
 				JanelaLogin jl = new JanelaLogin();
 				jl.setVisible(false);
