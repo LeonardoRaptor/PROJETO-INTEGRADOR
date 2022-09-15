@@ -21,7 +21,7 @@ USE `mydb` ;
 -- Table `mydb`.`Funcionarios`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Funcionarios` (
-  `idFuncionario` INT NOT NULL,
+  `idFuncionario` INT NOT NULL  auto_increment,
   `NomeFuncionario` VARCHAR(35) NOT NULL,
   `EmailFunc` VARCHAR(35) NOT NULL,
   `CPF` VARCHAR(16) NOT NULL,

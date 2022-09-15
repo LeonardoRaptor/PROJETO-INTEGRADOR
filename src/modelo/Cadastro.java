@@ -1,3 +1,4 @@
+package modelo;
 
 public class Cadastro {
 	public String nome, autor, genero;

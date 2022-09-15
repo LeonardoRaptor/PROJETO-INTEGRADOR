@@ -21,7 +21,6 @@ public class JanelaCadastrar extends JFrame {
 	private JTextField textEmail;
 	private JTextField textCPF;
 	private JTextField textSenha;
-	private JTextField textId;
 	
 	/**
 	 * Launch the application.
@@ -72,11 +71,6 @@ public class JanelaCadastrar extends JFrame {
 		textSenha.setBounds(229, 199, 182, 27);
 		contentPane.add(textSenha);
 		textSenha.setColumns(10);
-
-		textId = new JTextField();
-		textId.setColumns(10);
-		textId.setBounds(229, 48, 182, 27);
-		contentPane.add(textId);
 		
 		JLabel lblNomeCadastro = new JLabel("Nome:");
 		lblNomeCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -97,12 +91,6 @@ public class JanelaCadastrar extends JFrame {
 		lblSenhaCadastro.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblSenhaCadastro.setBounds(153, 203, 77, 23);
 		contentPane.add(lblSenhaCadastro);
-
-		
-		JLabel lblId = new JLabel("Id:");
-		lblId.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblId.setBounds(153, 43, 63, 26);
-		contentPane.add(lblId);
 		
 		
 	
@@ -125,7 +113,7 @@ public class JanelaCadastrar extends JFrame {
 					System.out.println("Conectado � base de dados com sucesso.");
 					st = conexao.createStatement();
 					
-					st.executeUpdate("Insert into funcionarios (idFuncionario, NomeFuncionario,EmailFunc,CPF, SenhaFunc) values ('" + Integer.parseInt(textId.getText()) + "','" + textNome.getText() + "', '" + textEmail.getText() + "', '" + textCPF.getText() + "', '" + textSenha.getText() + "')");
+					st.executeUpdate("Insert into funcionarios (NomeFuncionario,EmailFunc,CPF, SenhaFunc) values ('" + textNome.getText() + "', '" + textEmail.getText() + "', '" + textCPF.getText() + "', '" + textSenha.getText() + "')");
 					
 				} catch (SQLException a) {
 					System.out.println(a.getMessage());
