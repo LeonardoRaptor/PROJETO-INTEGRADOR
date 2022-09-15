@@ -53,7 +53,7 @@ public class BDFunc {
 		}catch(SQLException a) {
 			System.out.println(a.getMessage());
 			System.out.println("Erro ao conectar � base de dados.");
-			JanelaCadastrar.textCPF.getText();
+			
 		}
 	}
 }
