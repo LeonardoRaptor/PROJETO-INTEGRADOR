@@ -26,5 +26,14 @@ public class Funcionario {
 	public void setSenhaFunc(String senhaFunc) {
 		this.senhaFunc = senhaFunc;
 	}
+	public void setTelefone(String telefone) {
+		
+	}
+	public void setEndereco(String endereco) {
+		
+	}
+	public String getTelefone() {
+		return null;
+	}
 	
 }
