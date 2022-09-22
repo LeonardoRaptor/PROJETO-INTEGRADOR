@@ -62,4 +62,20 @@ public class BDFunc {
 			
 		}
 	}
+	public void acessarBd(){
+		try {
+			conexao = Conexao.ligar();
+			System.out.println("Conectado � base de dados com sucesso.");
+			
+			st = conexao.createStatement();
+			
+			
+			Conexao.desligar();
+			
+		}catch(SQLException a) {
+			System.out.println(a.getMessage());
+			System.out.println("Erro ao conectar � base de dados.");
+			
+		}
+	}
 }
