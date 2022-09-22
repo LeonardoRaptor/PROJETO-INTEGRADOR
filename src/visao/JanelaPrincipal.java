@@ -54,6 +54,7 @@ public class JanelaPrincipal extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addKeyListener(new KeyAdapter() {
 			@Override
+<<<<<<< Updated upstream
 			public void keyTyped(KeyEvent e) {
 				if(e.getKeyChar()=='a') {
 					JanelaAdmin ja = new JanelaAdmin();
@@ -61,6 +62,12 @@ public class JanelaPrincipal extends JFrame {
 				}
 			}
 		});
+=======
+			public void keyPressed(KeyEvent e) {
+			}
+		});
+		
+>>>>>>> Stashed changes
 		btnLogin.setBounds(283, 189, 160, 55);
 		btnLogin.setForeground(new Color(0, 0, 0));
 		btnLogin.addActionListener(new ActionListener() {

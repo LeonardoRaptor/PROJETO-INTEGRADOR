@@ -1,10 +1,11 @@
 package controle;
 //import java.util.ArrayList;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import modelo.Funcionario;
-import visao.JanelaAdmin;
-import visao.JanelaCadastrar;
 import visao.JanelaLogin;
 import visao.Menu;
 
@@ -42,20 +43,19 @@ public class BDFunc {
 				System.out.println("Erro ao conectar � base de dados.");
 		}
 	}
-	public void logarConta(String login, String senha) {
+	public Funcionario logarConta(String login, String senha) {
+		
+		Funcionario funcionario = null;
 		try {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			
 			st = conexao.createStatement();
+			ResultSet rs = st.executeQuery("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
+			funcionario = new Funcionario();
+			funcionario.setCpfFunc(senha);
+			funcionario
 			
-			Boolean b = st.execute("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
-			if(st!=null && b!=false) {
-				JanelaLogin jl = new JanelaLogin();
-				jl.setVisible(false);
-				Menu m = new Menu();
-				m.setVisible(true);
-			}
 			Conexao.desligar();
 			
 		}catch(SQLException a) {
@@ -63,6 +63,8 @@ public class BDFunc {
 			System.out.println("Erro ao conectar � base de dados.");
 			
 		}
+		
+		return funcionario;
 	}
 	public void acessarBd(){
 		try {

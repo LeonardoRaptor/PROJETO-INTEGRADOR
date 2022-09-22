@@ -80,7 +80,6 @@ public class JanelaAdmin extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-					//nome,cpf
 				"C�digo", "Nome","Telefone"
 			}
 		));

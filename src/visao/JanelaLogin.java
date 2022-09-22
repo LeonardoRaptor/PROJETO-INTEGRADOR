@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controle.BDFunc;
+import modelo.Funcionario;
 
 public class JanelaLogin extends JFrame {
 
@@ -30,8 +31,7 @@ public class JanelaLogin extends JFrame {
 			public void run() {
 				try {
 					JanelaLogin frame = new JanelaLogin();
-					frame.setVisible(true);
-				} catch (Exception e) {
+					frame.setVisible(true);				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -77,10 +77,18 @@ public class JanelaLogin extends JFrame {
 				String senha = textSenha.getText();
 				if (!login.isEmpty() && !senha.isEmpty()) {
 					BDFunc bdf = new BDFunc();
-					bdf.logarConta(login, senha);
+					Funcionario funcionario = bdf.logarConta(login, senha);
+					if(funcionario != null) {
+						JanelaLogin jl = new JanelaLogin();
+						jl.setVisible(false);
+						Menu m = new Menu();
+						m.setVisible(true);
+					} else {
+						JOptionPane.showMessageDialog(btnLogar, "Funcionrio nao cadastrado" );
+					}
 				} else {
 					// erro
-					JOptionPane.showMessageDialog(btnLogar, "Erro login ou senha não confirmados" );
+					JOptionPane.showMessageDialog(btnLogar, "Erro login ou senha vazios" );
 				}
 			}
 		});
