@@ -17,6 +17,8 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.sql.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 public class JanelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
@@ -50,6 +52,15 @@ public class JanelaPrincipal extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				if(e.getKeyChar()=='a') {
+					JanelaAdmin ja = new JanelaAdmin();
+					ja.setVisible(true);
+				}
+			}
+		});
 		btnLogin.setBounds(283, 189, 160, 55);
 		btnLogin.setForeground(new Color(0, 0, 0));
 		btnLogin.addActionListener(new ActionListener() {

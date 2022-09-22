@@ -49,8 +49,8 @@ public class BDFunc {
 			
 			st = conexao.createStatement();
 			
-			st.execute("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
-			if(st!=null) {
+			Boolean b = st.execute("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
+			if(st!=null && b!=false) {
 				JanelaLogin jl = new JanelaLogin();
 				jl.setVisible(false);
 				Menu m = new Menu();
