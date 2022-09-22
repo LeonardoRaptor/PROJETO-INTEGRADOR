@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import modelo.Genero;
 import modelo.Livro;
 
 public class CadastrarLivro extends JFrame {
@@ -102,8 +103,12 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
-		JComboBox boxGenero = new JComboBox();
+		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
 		boxGenero.setBounds(95, 57, 329, 22);
+		
+		// List<Genero> listaGeneros = 
+		// for
+		boxGenero.addItem(new Genero());
 		contentPane.add(boxGenero);
 
 		textQntd = new JTextField();
