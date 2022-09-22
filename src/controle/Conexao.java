@@ -2,7 +2,7 @@ package controle;
 import java.sql.*;
 public class Conexao {
 	static Connection conexao;
-	private Statement st;
+	
 	public static Connection ligar() {
 		try {
 			conexao = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydb", "root", "aluno");
