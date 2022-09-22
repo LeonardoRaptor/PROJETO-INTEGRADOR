@@ -80,4 +80,8 @@ public class BDFunc {
 			
 		}
 	}
+	public static void alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
+		// TODO Auto-generated method stub
+		
+	}
 }
