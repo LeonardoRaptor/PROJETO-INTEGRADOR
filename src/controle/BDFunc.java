@@ -3,6 +3,7 @@ package controle;
 import java.sql.*;
 
 import modelo.Funcionario;
+import visao.JanelaAdmin;
 import visao.JanelaCadastrar;
 import visao.JanelaLogin;
 import visao.Menu;
@@ -47,6 +48,7 @@ public class BDFunc {
 			System.out.println("Conectado � base de dados com sucesso.");
 			
 			st = conexao.createStatement();
+			
 			st.execute("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
 			if(st!=null) {
 				JanelaLogin jl = new JanelaLogin();

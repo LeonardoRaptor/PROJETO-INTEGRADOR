@@ -50,7 +50,7 @@ public class JanelaAdmin extends JFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 210, 414, -197);
-		scrollPane.setViewportView(table);
+		
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -72,6 +72,7 @@ public class JanelaAdmin extends JFrame {
 		));
 		table.setBounds(0, 0, 414, 184);
 		scrollPane.add(table);
+		scrollPane.setViewportView(table);
 		
 		contentPane.add(scrollPane);
 		
