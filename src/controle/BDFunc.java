@@ -54,7 +54,7 @@ public class BDFunc {
 			ResultSet rs = st.executeQuery("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
 			funcionario = new Funcionario();
 			funcionario.setCpfFunc(senha);
-			funcionario
+			funcionario.setNomeFunc(login);
 			
 			Conexao.desligar();
 			

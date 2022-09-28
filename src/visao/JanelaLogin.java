@@ -79,12 +79,18 @@ public class JanelaLogin extends JFrame {
 					BDFunc bdf = new BDFunc();
 					Funcionario funcionario = bdf.logarConta(login, senha);
 					if(funcionario != null) {
-						JanelaLogin jl = new JanelaLogin();
-						jl.setVisible(false);
-						Menu m = new Menu();
-						m.setVisible(true);
-					} else {
-						JOptionPane.showMessageDialog(btnLogar, "Funcionrio nao cadastrado" );
+						System.out.println(funcionario.getNomeFunc());
+						System.out.println(login);
+						System.out.println(funcionario.getSenhaFunc()); // linha q faz dar erro null//
+						System.out.println(senha);
+						if(funcionario.getNomeFunc().equals(login) && funcionario.getSenhaFunc().equals(senha)) {
+							JanelaLogin jl = new JanelaLogin();
+							jl.setVisible(false);
+							Menu m = new Menu();
+							m.setVisible(true);
+						} else {
+							JOptionPane.showMessageDialog(btnLogar, "Funcionário não cadastrado" );
+						}
 					}
 				} else {
 					// erro
