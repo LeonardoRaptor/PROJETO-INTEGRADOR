@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import controle.BDFunc;
 import modelo.Funcionario;
+import javax.swing.ImageIcon;
 
 public class JanelaLogin extends JFrame {
 
@@ -77,6 +78,7 @@ public class JanelaLogin extends JFrame {
 				String senha = textSenha.getText();
 				if (!login.isEmpty() && !senha.isEmpty()) {
 					BDFunc bdf = new BDFunc();
+					bdf.logarConta(login, senha);
 					Funcionario funcionario = bdf.logarConta(login, senha);
 					if(funcionario != null) {
 						System.out.println(funcionario.getNomeFunc());

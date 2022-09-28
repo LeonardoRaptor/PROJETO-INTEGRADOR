@@ -51,10 +51,15 @@ public class BDFunc {
 			System.out.println("Conectado � base de dados com sucesso.");
 			
 			st = conexao.createStatement();
-			ResultSet rs = st.executeQuery("select * from funcionarios where nomeFuncionario='" + login + "' and senhaFunc = '" + senha + "'");
-			funcionario = new Funcionario();
-			funcionario.setCpfFunc(senha);
-			funcionario.setNomeFunc(login);
+			ResultSet rs1 = st.executeQuery("select * from funcionarios where nomeFuncionario='" + senha + "'");
+			ResultSet rs2 = st.executeQuery("select * from funcionarios where nomeFuncionario='" + login + "'");
+
+			if (rs1!=null && rs2!=null) {
+				funcionario = new Funcionario();
+				funcionario.setSenhaFunc(senha);
+				funcionario.setNomeFunc(login);
+			}
+			
 			
 			Conexao.desligar();
 			

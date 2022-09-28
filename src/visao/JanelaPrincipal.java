@@ -65,7 +65,7 @@ public class JanelaPrincipal extends JFrame {
 			}
 		});
 		
-		btnLogin.setBounds(283, 189, 160, 55);
+		btnLogin.setBounds(281, 189, 160, 63);
 		btnLogin.setForeground(new Color(0, 0, 0));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -79,7 +79,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.add(btnLogin);
 		
 		JButton btnCadastrar = new JButton("Cadastrar");
-		btnCadastrar.setBounds(507, 189, 160, 55);
+		btnCadastrar.setBounds(507, 189, 160, 63);
 		btnCadastrar.setBackground(new Color(0, 204, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -91,7 +91,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.add(btnCadastrar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Downloads\\Pink Pastel Textured Compay Mind Map Brainstorm\\1.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\1.png"));
 		lblNewLabel.setBounds(0, 0, 891, 462);
 		contentPane.add(lblNewLabel);
 	}
