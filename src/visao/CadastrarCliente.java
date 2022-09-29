@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CadastrarCliente extends JFrame {
 
@@ -101,6 +103,11 @@ public class CadastrarCliente extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Cancelar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
 		btnNewButton.setBounds(335, 227, 89, 23);
 		contentPane.add(btnNewButton);
 		

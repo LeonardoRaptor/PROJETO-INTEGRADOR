@@ -52,6 +52,8 @@ public class Menu extends JFrame {
 		JButton btnEstoque = new JButton("ESTOQUE");
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Estoque es = new Estoque();
+				es.setVisible(true);
 			}
 		});
 		btnEstoque.setFont(new Font("Tahoma", Font.PLAIN, 20));

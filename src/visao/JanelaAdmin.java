@@ -210,11 +210,7 @@ public class JanelaAdmin extends JFrame {
 		btnNewButton_1.setBounds(320, 231, 99, 21);
 		contentPane.add(btnNewButton_1);
 		
-		JComboBox SexoBox = new JComboBox();
-		SexoBox.setModel(new DefaultComboBoxModel(new String[] {"Masculino", "Feminino"}));
-		SexoBox.setToolTipText("");
-		SexoBox.setBounds(284, 189, 142, 21);
-		contentPane.add(SexoBox);
+		
 	}
 
 	protected void limparCampos() {

@@ -14,6 +14,7 @@ public class BDFunc {
 	Connection conexao;
 	private Statement st;
 	Funcionario f = new Funcionario();
+	private Funcionario funcionario;
 	
 	//ArrayList <Funcionario> func = new ArrayList <Funcionario> ();
 	//public void addFunc(Funcionario f) {
@@ -45,19 +46,23 @@ public class BDFunc {
 	}
 	public Funcionario logarConta(String login, String senha) {
 		
-		Funcionario funcionario = null;
+		funcionario = null;
 		try {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			
 			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery("select * from funcionarios where nomeFuncionario='" + senha + "'");
-			ResultSet rs2 = st.executeQuery("select * from funcionarios where nomeFuncionario='" + login + "'");
-
-			if (rs1!=null && rs2!=null) {
-				funcionario = new Funcionario();
-				funcionario.setSenhaFunc(senha);
-				funcionario.setNomeFunc(login);
+			ResultSet rs1 = st.executeQuery("select * from funcionarios where nomeFuncionario='"+ login +"' and senhaFunc='" + senha + "'");
+			
+			while (rs1.next())
+			{
+				String email= rs1.getString("EmailFunc");
+				String nome = rs1.getString("nomeFuncionario");
+				String senhaF = rs1.getString("senhaFunc");
+				
+				f.setEmailFunc(email);
+				funcionario.setNomeFunc(nome);
+				funcionario.setSenhaFunc(senhaF);
 			}
 			
 			
