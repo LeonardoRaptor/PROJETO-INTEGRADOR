@@ -12,6 +12,8 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextPane;
 import java.sql.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 public class JanelaCompra extends JFrame {
 
 	private JPanel contentPane;
@@ -61,6 +63,11 @@ public class JanelaCompra extends JFrame {
 		contentPane.add(lblNewLabel_2);
 		
 		JButton btnNewButton = new JButton("Sair");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+			}
+		});
 		btnNewButton.setBounds(10, 89, 89, 23);
 		contentPane.add(btnNewButton);
 		
@@ -104,5 +111,9 @@ public class JanelaCompra extends JFrame {
 		));
 		table.setBounds(238, 84, 174, -47);
 		contentPane.add(table);
+		
+		JButton btnNewButton_1 = new JButton("Remover");
+		btnNewButton_1.setBounds(139, 89, 89, 23);
+		contentPane.add(btnNewButton_1);
 	}
 }

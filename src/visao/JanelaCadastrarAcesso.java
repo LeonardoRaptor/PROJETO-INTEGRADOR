@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -65,13 +67,11 @@ public class JanelaCadastrarAcesso extends JFrame {
 				
 				int senha = Integer. parseInt(textField.getText());
 				if(senha==123) {
-					JanelaCadastrar j1 = new JanelaCadastrar();
+					JanelaAdmin j1 = new JanelaAdmin();
 					j1.setVisible(true);
 					setVisible(false);
-				}else if (senha!=123){
-					SenhaIncorreta j2 = new SenhaIncorreta();
-					j2.setVisible(true);
-					setVisible(false);
+				}else {
+					JOptionPane.showMessageDialog(btnOk, "Senha Incorreta");
 				}
 			}
 		});
