@@ -1,5 +1,5 @@
 package modelo;
-import java.sql.*;
+
 public class Funcionario {
 	private String emailFunc, nomeFunc, cpfFunc, senhaFunc;
 	public String getEmailFunc() {
@@ -27,9 +27,6 @@ public class Funcionario {
 		this.senhaFunc = senhaFunc;
 	}
 	public void setTelefone(String telefone) {
-		
-	}
-	public void setEndereco(String endereco) {
 		
 	}
 	public String getTelefone() {
