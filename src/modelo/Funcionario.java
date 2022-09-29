@@ -1,7 +1,14 @@
 package modelo;
 
 public class Funcionario {
-	private String emailFunc, nomeFunc, cpfFunc, senhaFunc;
+	private String emailFunc, nomeFunc, cpfFunc, senhaFunc, telefone;
+	private int id;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getEmailFunc() {
 		return emailFunc;
 	}
@@ -27,10 +34,10 @@ public class Funcionario {
 		this.senhaFunc = senhaFunc;
 	}
 	public void setTelefone(String telefone) {
-		
+		this.telefone = telefone;
 	}
 	public String getTelefone() {
-		return null;
+		return telefone;
 	}
 	
 }

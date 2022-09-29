@@ -5,7 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
 import modelo.Funcionario;
+import visao.JanelaAdmin;
 import visao.JanelaLogin;
 import visao.Menu;
 
@@ -14,16 +16,27 @@ public class BDFunc {
 	Connection conexao;
 	private Statement st;
 	Funcionario f = new Funcionario();
-	private Funcionario funcionario;
+
 	
-	//ArrayList <Funcionario> func = new ArrayList <Funcionario> ();
-	//public void addFunc(Funcionario f) {
-	//	func.add(f);
+	public void adquirirFunc() {
+		try {
+			ResultSet rs = st.executeQuery("select * from funcionarios");
+			while (rs.next()) {
+				f.setId(rs.getInt("id"));
+				f.setCpfFunc(rs.getString("cpf"));
+				f.setEmailFunc(rs.getString("emailFunc"));
+				f.setNomeFunc(rs.getString("nomeFuncionario"));
+				f.setSenhaFunc(rs.getString("senhaFunc"));
+				f.setTelefone(rs.getString("telefone"));
+			}
+		} catch (SQLException a) {
+			System.out.println(a.getMessage());
+			System.out.println("Erro ao conectar � base de dados.");
+			
+		}
 		
-	//}
-	//public void delFunc(Funcionario f) {
-	//	func.remove(f);
-	//}
+	}
+	
 	public void cadastro () {
 		
 		try {
@@ -52,19 +65,15 @@ public class BDFunc {
 			System.out.println("Conectado � base de dados com sucesso.");
 			
 			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery("select * from funcionarios where nomeFuncionario='"+ login +"' and senhaFunc='" + senha + "'");
-			
-			while (rs1.next())
-			{
-				String email= rs1.getString("EmailFunc");
-				String nome = rs1.getString("nomeFuncionario");
-				String senhaF = rs1.getString("senhaFunc");
-				
-				f.setEmailFunc(email);
-				funcionario.setNomeFunc(nome);
-				funcionario.setSenhaFunc(senhaF);
+			ResultSet rs1 = st.executeQuery("select * from funcionarios where senhaFunc='" + senha + "' and nomeFuncionario='" + login + "'");
+
+			while (rs1.next()) {
+				f.setCpfFunc(rs1.getString("cpf"));
+				f.setEmailFunc(rs1.getString("emailFunc"));
+				f.setNomeFunc(rs1.getString("nomeFuncionario"));
+				f.setSenhaFunc(rs1.getString("senhaFunc"));
+				f.setTelefone(rs1.getString("telefone"));
 			}
-			
 			
 			Conexao.desligar();
 			
@@ -92,8 +101,10 @@ public class BDFunc {
 			
 		}
 	}
-	public static void alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
-		// TODO Auto-generated method stub
+	public void alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
+		
+		
+		
 		
 	}
 }
