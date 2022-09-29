@@ -33,7 +33,7 @@ public class BDFunc {
 			
 			System.out.println("Conectado � base de dados com sucesso.");
 			st.executeUpdate("Insert into funcionarios (NomeFuncionario,EmailFunc,CPF, SenhaFunc) values "
-					+ "('" + f.getNomeFunc() + "', '" + f.getEmailFunc() + "', '" + f.getCpfFunc() + "', "
+					+ "('" + f.getNomeFunc() + "', '" + f.getEmailFunc() + "','\" + f.getTelefone() + \"', '" + f.getCpfFunc() + "', "
 							+ "'" + f.getSenhaFunc()+ "')");
 			
 			Conexao.desligar();

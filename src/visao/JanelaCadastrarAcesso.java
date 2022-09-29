@@ -65,7 +65,7 @@ public class JanelaCadastrarAcesso extends JFrame {
 				
 				int senha = Integer. parseInt(textField.getText());
 				if(senha==123) {
-					JanelaCadastrar j1 = new JanelaCadastrar();
+					JanelaAdmin j1 = new JanelaAdmin();
 					j1.setVisible(true);
 					setVisible(false);
 				}else if (senha!=123){
