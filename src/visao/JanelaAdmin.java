@@ -9,10 +9,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controle.BDFunc;
 import modelo.Funcionario;
 
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -28,13 +30,13 @@ public class JanelaAdmin extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
-	private JTextField txtNome;
-	private JTextField txtTelefone;
+	private JTextField textNome;
+	private JTextField textTelefone;
 	private ArrayList<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
 	private Funcionario funcionarioSelecionado;
-	private JTextField txtId;
-	private JTextField txtEndereco;
-	private JTextField txtEmail;
+	private JTextField textEmail;
+	private JTextField textCPF;
+	private JTextField textSenha;
 
 	/**
 	 * Launch the application.
@@ -62,7 +64,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 210, 414, -197);
+		scrollPane.setBounds(284, 38, 387, 169);
 		
 		scrollPane.setBounds(284, 38, 387, 134);
 		contentPane.add(scrollPane);
@@ -80,7 +82,7 @@ public class JanelaAdmin extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"C�digo", "Nome","Telefone"
+				"ID", "Nome","Email", "Telefone", "CPF"
 			}
 		));
 		table.setBounds(0, 0, 414, 184);
@@ -88,37 +90,47 @@ public class JanelaAdmin extends JFrame {
 		scrollPane.setViewportView(table);
 		
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(10, 79, 46, 14);
+		lblNome.setBounds(13, 31, 46, 14);
 		contentPane.add(lblNome);
 		
-		txtNome = new JTextField();
-		txtNome.setBounds(69, 77, 142, 20);
-		contentPane.add(txtNome);
-		txtNome.setColumns(10);
-		
-		JLabel lblId = new JLabel("Id:");
-		lblId.setBounds(11, 45, 45, 13);
-		contentPane.add(lblId);
+		textNome = new JTextField();
+		textNome.setBounds(69, 28, 142, 20);
+		contentPane.add(textNome);
+		textNome.setColumns(10);
 		
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setBounds(10, 192, 58, 14);
+		lblTelefone.setBounds(13, 92, 58, 14);
 		contentPane.add(lblTelefone);
 		
-		txtTelefone = new JTextField();
-		txtTelefone.setBounds(69, 190, 142, 20);
-		contentPane.add(txtTelefone);
-		txtTelefone.setColumns(10);
+		textTelefone = new JTextField();
+		textTelefone.setBounds(69, 89, 142, 20);
+		contentPane.add(textTelefone);
+		textTelefone.setColumns(10);
 		
-		JButton btnAdicionar = new JButton("Salvar");
-		btnAdicionar.addActionListener(new ActionListener() {
+		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String nome = txtNome.getText();
-				String telefone = txtTelefone.getText();
-				String email = txtEmail.getText();
+				String nome = textNome.getText();
+				String cpf = textCPF.getText();
+				String email = textEmail.getText();
+				String senha = textSenha.getText();
+				String telefone = textTelefone.getText();
 				Funcionario f = new Funcionario();
-				f.setNomeFunc(nome);
-				f.setTelefone(telefone);
-				f.setEmailFunc(email);
+				if (!nome.isEmpty() && !senha.isEmpty() && !cpf.isEmpty() && !email.isEmpty() && !telefone.isEmpty()) {
+					
+					f.setNomeFunc(textNome.getText());
+					f.setEmailFunc(textEmail.getText());
+					f.setTelefone(textTelefone.getText());
+					f.setCpfFunc(textCPF.getText());
+					f.setSenhaFunc(textSenha.getText());
+					BDFunc bdfu= new BDFunc();
+					bdfu.cadastro();
+				} else {
+					// erro
+					JOptionPane.showMessageDialog(btnCadastrar, "Um ou mais dos Campos não foi preenchidos" );
+				}
+				BDFunc bdfu= new BDFunc();
+				bdfu.cadastro();
 				listaFuncionarios.add(f);
 				atualizarJTable();
 				limparCampos();
@@ -126,8 +138,8 @@ public class JanelaAdmin extends JFrame {
 				
 			}
 		});
-		btnAdicionar.setBounds(11, 230, 87, 23);
-		contentPane.add(btnAdicionar);
+		btnCadastrar.setBounds(11, 230, 87, 23);
+		contentPane.add(btnCadastrar);
 		
 		JButton btnRemover = new JButton("Excluir");
 		btnRemover.addActionListener(new ActionListener() {
@@ -173,54 +185,54 @@ public class JanelaAdmin extends JFrame {
 		btnFechar.setBounds(545, 230, 99, 23);
 		contentPane.add(btnFechar);
 		
-		
-		txtId = new JTextField();
-		txtId.setBounds(69, 42, 142, 19);
-		contentPane.add(txtId);
-		txtId.setColumns(10);
-		
-		JLabel lblEndereco = new JLabel("Endereco:");
-		lblEndereco.setBounds(10, 119, 58, 13);
-		contentPane.add(lblEndereco);
-		
-		txtEndereco = new JTextField();
-		txtEndereco.setBounds(69, 116, 142, 19);
-		contentPane.add(txtEndereco);
-		txtEndereco.setColumns(10);
-		
 		JLabel lblEmail = new JLabel("E-mail:");
-		lblEmail.setBounds(10, 156, 45, 13);
+		lblEmail.setBounds(13, 63, 45, 13);
 		contentPane.add(lblEmail);
 		
-		txtEmail = new JTextField();
-		txtEmail.setBounds(69, 153, 142, 19);
-		contentPane.add(txtEmail);
-		txtEmail.setColumns(10);
+		textEmail = new JTextField();
+		textEmail.setBounds(69, 59, 142, 19);
+		contentPane.add(textEmail);
+		textEmail.setColumns(10);
 		
 		JButton btnNewButton_1 = new JButton("Limpar");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					txtNome.setText("");
-					txtId.setText("");
-					txtTelefone.setText("");
-					txtEndereco.setText("");
-					txtEmail.setText("");
+					textNome.setText("");
+					textEmail.setText("");
+					textTelefone.setText("");
+					textCPF.setText("");
+					textSenha.setText("");
+					
 			}
 		});
 		btnNewButton_1.setBounds(320, 231, 99, 21);
 		contentPane.add(btnNewButton_1);
 		
+		textCPF = new JTextField();
+		textCPF.setBounds(69, 120, 142, 20);
+		contentPane.add(textCPF);
+		textCPF.setColumns(10);
 		
+		JLabel lblCPF = new JLabel("CPF:");
+		lblCPF.setBounds(13, 123, 46, 14);
+		contentPane.add(lblCPF);
+		
+		JLabel lblSenha = new JLabel("Senha:");
+		lblSenha.setBounds(13, 158, 46, 14);
+		contentPane.add(lblSenha);
+		
+		textSenha = new JTextField();
+		textSenha.setBounds(69, 152, 142, 20);
+		contentPane.add(textSenha);
+		textSenha.setColumns(10);
 	}
 
 	protected void limparCampos() {
-		txtNome.setText("");
-		txtId.setText("");
-		txtTelefone.setText("");
-		txtEndereco.setText("");
-		txtEmail.setText("");
-		
-		
+		textNome.setText("");
+		textEmail.setText("");
+		textTelefone.setText("");
+		textCPF.setText("");
+		textSenha.setText("");
 	}
 
 	protected void atualizarJTable() {
@@ -228,13 +240,13 @@ public class JanelaAdmin extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"C�digo","Nome", "Telefone"
+				"ID","Nome", "Email", "Telefone", "CPF"
 			}
 		);
 		
 		for(int i=0; i< listaFuncionarios.size(); i++) {
 			Funcionario f = listaFuncionarios.get(i);
-			modelo.addRow(new Object[] { f.getNomeFunc(),f.getEmailFunc() });
+			modelo.addRow(new Object[] { f.getNomeFunc(),f.getEmailFunc(),f.getTelefone(),f.getCpfFunc() });
 		}
 		
 		table.setModel(modelo);

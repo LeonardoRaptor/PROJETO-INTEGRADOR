@@ -11,66 +11,60 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class JanelaAlterar extends JDialog {
-	private JTextField txtNome;
-	private JTextField txtTelefone;
+	private JTextField textNome;
+	private JTextField textTelefone;
 	private JanelaAdmin janelaAdmin = null;
-	private JTextField txtId;
 	private JTextField txtEndereco;
-	private JTextField txtEmail;
+	private JTextField textEmail;
+	private JTextField textCPF;
+	private JTextField textSenha;
 	public JanelaAlterar(JanelaAdmin janelaPrincipal, Funcionario funcionarioSelecionado, int posicao) {
 		setSize(548, 303);
 		getContentPane().setLayout(null);
 		this.janelaAdmin = janelaPrincipal;
 		
 		JLabel lblNewLabel = new JLabel("Nome:");
-		lblNewLabel.setBounds(23, 65, 66, 14);
+		lblNewLabel.setBounds(23, 47, 66, 14);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Telefone:");
-		lblNewLabel_1.setBounds(23, 180, 66, 14);
+		lblNewLabel_1.setBounds(23, 108, 66, 14);
 		getContentPane().add(lblNewLabel_1);
-		JLabel lblId2 = new JLabel("Id:");
-		lblId2.setBounds(24, 29, 45, 13);
-		getContentPane().add(lblId2);
-		
-		JLabel lblEndereco2 = new JLabel("Endereco:");
-		lblEndereco2.setBounds(23, 105, 75, 13);
-		getContentPane().add(lblEndereco2);
 		
 		
 		JLabel lblEmail2 = new JLabel("Email:");
-		lblEmail2.setBounds(24, 144, 45, 13);
+		lblEmail2.setBounds(23, 79, 45, 13);
 		getContentPane().add(lblEmail2);
 		
-		txtEmail = new JTextField();
-		txtEmail.setBounds(99, 141, 202, 19);
-		getContentPane().add(txtEmail);
-		txtEmail.setColumns(10);
-		txtEmail.setText(funcionarioSelecionado.getEmailFunc());
+		textEmail = new JTextField();
+		textEmail.setBounds(99, 75, 202, 19);
+		getContentPane().add(textEmail);
+		textEmail.setColumns(10);
+		textEmail.setText(funcionarioSelecionado.getEmailFunc());
 		
-		txtNome = new JTextField();
-		txtNome.setBounds(99, 63, 202, 20);
-		getContentPane().add(txtNome);
-		txtNome.setColumns(10);
-		txtNome.setText(funcionarioSelecionado.getNomeFunc());
+		textNome = new JTextField();
+		textNome.setBounds(99, 44, 202, 20);
+		getContentPane().add(textNome);
+		textNome.setColumns(10);
+		textNome.setText(funcionarioSelecionado.getNomeFunc());
 		
-		txtTelefone = new JTextField();
-		txtTelefone.setBounds(99, 178, 202, 20);
-		getContentPane().add(txtTelefone);
-		txtTelefone.setColumns(10);
-		txtTelefone.setText(funcionarioSelecionado.getTelefone());
+		textTelefone = new JTextField();
+		textTelefone.setBounds(99, 105, 202, 20);
+		getContentPane().add(textTelefone);
+		textTelefone.setColumns(10);
+		textTelefone.setText(funcionarioSelecionado.getTelefone());
 		
 		JButton btnNewButton = new JButton("Salvar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				funcionarioSelecionado.setNomeFunc(txtNome.getText());
-				funcionarioSelecionado.setTelefone(txtTelefone.getText());
-				funcionarioSelecionado.setEmailFunc(txtEmail.getText());
+				funcionarioSelecionado.setNomeFunc(textNome.getText());
+				funcionarioSelecionado.setTelefone(textTelefone.getText());
+				funcionarioSelecionado.setEmailFunc(textEmail.getText());
 				BDFunc.alterarFuncionario(posicao, funcionarioSelecionado);
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(10, 237, 89, 23);
+		btnNewButton.setBounds(334, 230, 89, 23);
 		getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Cancelar");
@@ -80,8 +74,26 @@ public class JanelaAlterar extends JDialog {
 			}
 			
 		});
-		btnNewButton_1.setBounds(112, 237, 89, 23);
+		btnNewButton_1.setBounds(433, 230, 89, 23);
 		getContentPane().add(btnNewButton_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("CPF:");
+		lblNewLabel_2.setBounds(23, 139, 46, 14);
+		getContentPane().add(lblNewLabel_2);
+		
+		textCPF = new JTextField();
+		textCPF.setBounds(99, 136, 202, 20);
+		getContentPane().add(textCPF);
+		textCPF.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Senha:");
+		lblNewLabel_3.setBounds(23, 172, 46, 14);
+		getContentPane().add(lblNewLabel_3);
+		
+		textSenha = new JTextField();
+		textSenha.setBounds(99, 169, 86, 20);
+		getContentPane().add(textSenha);
+		textSenha.setColumns(10);
 		
 		
 	}
