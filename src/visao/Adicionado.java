@@ -42,7 +42,7 @@ public class Adicionado extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Contato adicionado com sucesso");
+		JLabel lblNewLabel = new JLabel("Adicionado com sucesso");
 		lblNewLabel.setBounds(10, 11, 235, 14);
 		contentPane.add(lblNewLabel);
 		

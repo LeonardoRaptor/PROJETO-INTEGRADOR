@@ -26,9 +26,6 @@ public class CadastrarLivro extends JFrame {
 	private JTextField textAutor;
 	private JTextField textPreco;
 
-	// variaveis
-	public String nome, autor, genero;
-	public int quantidade, id, preco;
 	public ArrayList<Livro> cadastro = new ArrayList<Livro>();
 
 	/**
@@ -140,20 +137,24 @@ public class CadastrarLivro extends JFrame {
 		btnCadastrar.setBounds(236, 227, 89, 23);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String ids = textID.getText();
+				String id = textID.getText();
 				String quantidades = textQntd.getText();
-				if ((ids != null) && (nome != null) && (autor != null) && (genero != null) && (quantidades != null)) {
+				String nome = textNome.getText();
+				String autor = textAutor.getText();
+				String preco = textPreco.getText();
+				String genero = boxGenero.getName();
+				if ((id != null) && (nome != null) && (autor != null) && (quantidades != null)) {
 
 					// colocando tudo q vai ser cadastrado, todas as variáveis.. eu acho?
-					id = Integer.parseInt(ids);
+					Integer idNum = Integer.parseInt(id);
 
 					nome = textNome.getText();
 
 					autor = textAutor.getText();
 
-					quantidade = Integer.parseInt(quantidades);
+					Integer quantidade = Integer.parseInt(quantidades);
 
-					x.setIdLi(id);
+					x.setIdLi(idNum);
 					x.setNomeLi(nome);
 					x.setAutor(autor);
 					x.setGenero(genero); // enquanto não tiver banco de dados integrado, o botao nao vai rodar pq
@@ -167,5 +168,6 @@ public class CadastrarLivro extends JFrame {
 			}
 		});
 		contentPane.add(btnCadastrar);
+		
 	}
 }

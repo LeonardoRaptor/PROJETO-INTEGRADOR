@@ -2,7 +2,7 @@ package modelo;
 import java.sql.*;
 public class Livro {
 	private int qtde, idLi;
-	private double preco;
+	private String preco;
 	private String nomeLi, genero, autor;
 	public int getQtde() {
 		return qtde;
@@ -16,11 +16,11 @@ public class Livro {
 	public void setIdLi(int idLi) {
 		this.idLi = idLi;
 	}
-	public double getPreco() {
+	public String getPreco() {
 		return preco;
 	}
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public void setPreco(String preco2) {
+		this.preco = preco2;
 	}
 	public String getNomeLi() {
 		return nomeLi;
