@@ -60,7 +60,7 @@ public class JanelaAlterar extends JDialog {
 				funcionarioSelecionado.setNomeFunc(textNome.getText());
 				funcionarioSelecionado.setTelefone(textTelefone.getText());
 				funcionarioSelecionado.setEmailFunc(textEmail.getText());
-				BDFunc.alterarFuncionario(posicao, funcionarioSelecionado);
+				//BDFunc.alterarFuncionario(posicao, funcionarioSelecionado);
 				dispose();
 			}
 		});

@@ -32,7 +32,9 @@ public class JanelaAdmin extends JFrame {
 	private JTable table;
 	private JTextField textNome;
 	private JTextField textTelefone;
-	private ArrayList<Funcionario> listaFuncionarios = new ArrayList<Funcionario>();
+	
+	private BDFunc bdfu= new BDFunc();
+	private Funcionario f = new Funcionario();
 	private Funcionario funcionarioSelecionado;
 	private JTextField textEmail;
 	private JTextField textCPF;
@@ -74,7 +76,7 @@ public class JanelaAdmin extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int posicaoFuncionario = table.getSelectedRow();
-				funcionarioSelecionado = listaFuncionarios.get(posicaoFuncionario);
+				
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -111,11 +113,11 @@ public class JanelaAdmin extends JFrame {
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNome.getText();
-				String cpf = textCPF.getText();
 				String email = textEmail.getText();
-				String senha = textSenha.getText();
 				String telefone = textTelefone.getText();
-				Funcionario f = new Funcionario();
+				String cpf = textCPF.getText();
+				String senha = textSenha.getText();
+				
 				if (!nome.isEmpty() && !senha.isEmpty() && !cpf.isEmpty() && !email.isEmpty() && !telefone.isEmpty()) {
 					
 					f.setNomeFunc(textNome.getText());
@@ -123,7 +125,7 @@ public class JanelaAdmin extends JFrame {
 					f.setTelefone(textTelefone.getText());
 					f.setCpfFunc(textCPF.getText());
 					f.setSenhaFunc(textSenha.getText());
-					BDFunc bdfu= new BDFunc();
+					
 					bdfu.cadastro();
 				} else {
 					// erro
@@ -131,29 +133,28 @@ public class JanelaAdmin extends JFrame {
 				}
 				BDFunc bdfu= new BDFunc();
 				bdfu.cadastro();
-				listaFuncionarios.add(f);
+				
 				atualizarJTable();
 				limparCampos();
 				
 				
 			}
 		});
-		btnCadastrar.setBounds(11, 230, 87, 23);
+		btnCadastrar.setBounds(11, 230, 102, 23);
 		contentPane.add(btnCadastrar);
 		
 		JButton btnRemover = new JButton("Excluir");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(funcionarioSelecionado != null) {
-					int posicao = listaFuncionarios.indexOf(funcionarioSelecionado);
-					listaFuncionarios.remove(posicao);
+					
 					atualizarJTable();
 					limparCampos();
 				}
 				
 			}
 		});
-		btnRemover.setBounds(108, 230, 93, 23);
+		btnRemover.setBounds(123, 230, 93, 23);
 		contentPane.add(btnRemover);
 		JanelaAdmin estaJanela = this;
 		JButton btnAlterar = new JButton("Alterar");
@@ -161,11 +162,10 @@ public class JanelaAdmin extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				
-				int posicao = listaFuncionarios.indexOf(funcionarioSelecionado);
-				funcionarioSelecionado = listaFuncionarios.get(posicao);
 				
-				JanelaAlterar janela = new JanelaAlterar(estaJanela, funcionarioSelecionado, posicao);
-				janela.setVisible(true);
+				//int  posicaoFuncionario = 1;
+				//JanelaAlterar janela = new JanelaAlterar(estaJanela, funcionarioSelecionado, posicaoFuncionario);
+				//janela.setVisible(true);
 				
 				
 				
@@ -173,7 +173,7 @@ public class JanelaAdmin extends JFrame {
 				
 			}
 		});
-		btnAlterar.setBounds(211, 230, 99, 23);
+		btnAlterar.setBounds(226, 230, 99, 23);
 		contentPane.add(btnAlterar);
 		
 		JButton btnFechar = new JButton("Fechar");
@@ -205,7 +205,7 @@ public class JanelaAdmin extends JFrame {
 					
 			}
 		});
-		btnNewButton_1.setBounds(320, 231, 99, 21);
+		btnNewButton_1.setBounds(335, 231, 99, 21);
 		contentPane.add(btnNewButton_1);
 		
 		textCPF = new JTextField();
@@ -240,25 +240,14 @@ public class JanelaAdmin extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"ID","Nome", "Email", "Telefone", "CPF"
+				"ID", "Nome", "Email", "Telefone", "CPF"
 			}
 		);
-		
-		for(int i=0; i< listaFuncionarios.size(); i++) {
-			Funcionario f = listaFuncionarios.get(i);
-			modelo.addRow(new Object[] { f.getNomeFunc(),f.getEmailFunc(),f.getTelefone(),f.getCpfFunc() });
-		}
+			
+			modelo.addRow(new Object[] {f.getId(), f.getNomeFunc(),f.getEmailFunc(),f.getTelefone(),f.getCpfFunc()});
 		
 		table.setModel(modelo);
 		
-		
-	}
-
-	public void alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
-		listaFuncionarios.set(posicao, funcionarioSelecionado);
-		atualizarJTable();
-		limparCampos();
-		// TODO Auto-generated method stub
 		
 	}
 }
