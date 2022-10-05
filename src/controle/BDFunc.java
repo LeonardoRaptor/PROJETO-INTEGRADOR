@@ -153,14 +153,16 @@ public class BDFunc {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 
+			Funcionario f = new Funcionario();
+			
 			st = conexao.createStatement();
 			PreparedStatement pat = ((Connection) st)
-					.prepareStatement("delete from Funcionarios where idFuncionario=?");
+					.prepareStatement("delete from Funcionarios where idFuncionario=");
 			
 			pat.executeQuery();
 			
 			
-			Funcionario f = new Funcionario();
+			
 			lista.remove(f);
 			
 			

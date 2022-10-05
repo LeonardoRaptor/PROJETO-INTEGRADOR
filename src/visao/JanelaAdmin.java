@@ -140,7 +140,8 @@ public class JanelaAdmin extends JFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (funcionarioSelecionado != null) {
-
+					BDFunc bd = new BDFunc();
+					bd.removeAq();
 					atualizarJTable();
 					limparCampos();
 				}
@@ -149,7 +150,9 @@ public class JanelaAdmin extends JFrame {
 		});
 		btnRemover.setBounds(123, 230, 93, 23);
 		contentPane.add(btnRemover);
+		
 		JanelaAdmin estaJanela = this;
+		
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
