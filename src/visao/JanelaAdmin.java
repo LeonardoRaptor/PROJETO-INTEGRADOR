@@ -139,24 +139,21 @@ public class JanelaAdmin extends JFrame {
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdfu.removeAq(idFuncionarioSelecionado);
-				if (sucesso==false) {
+				if (sucesso == false) {
 					JOptionPane.showMessageDialog(null, "Funcionario excluido!");
 					atualizarJTable();
 					limparCampos();
 				}
-				
+
 			}
 		});
 		btnRemover.setBounds(123, 230, 93, 23);
 		contentPane.add(btnRemover);
 
-		// JanelaAdmin estaJanela = this;
-
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				// int posicaoFuncionario = 1;
 				// JanelaAlterar janela = new JanelaAlterar(estaJanela, funcionarioSelecionado,
 				// posicaoFuncionario);
 				// janela.setVisible(true);

@@ -167,14 +167,16 @@ public class BDFunc {
 		}
 	}
 
-	public boolean alterarFuncionario(int idFuncionario) {
+	public boolean alterarFuncionario(Funcionario f) {
 		boolean sucesso = true;
 		try {
 
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
-		//	sucesso = st.execute("update funcionarios set nome= '"+ where idFuncionario=" + idFuncionario);
+			sucesso = st.execute("update funcionarios set nome= '" + f.getNomeFunc() + "', emailFunc='"
+					+ f.getEmailFunc() + "', cpf='" + f.getCpfFunc() + "', senhaFunc='" + f.getSenhaFunc()
+					+ "', telefone='" + f.getTelefone() + "' where idFuncionario=" + f.getId());
 			Conexao.desligar();
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
