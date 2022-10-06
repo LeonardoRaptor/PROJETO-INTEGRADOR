@@ -127,10 +127,11 @@ public class BDFunc {
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery("select * from funcionarios where senhaFunc='" + senha + "' and nomeFuncionario='" + login + "'");
+			ResultSet rs1 = st.executeQuery(
+					"select * from funcionarios where senhaFunc='" + senha + "' and nomeFuncionario='" + login + "'");
 
-			funcionario = new Funcionario();
 			while (rs1.next()) {
+				funcionario = new Funcionario();
 				funcionario.setId(rs1.getInt("idFuncionario"));
 				funcionario.setCpfFunc(rs1.getString("cpf"));
 				funcionario.setEmailFunc(rs1.getString("emailFunc"));
@@ -166,27 +167,26 @@ public class BDFunc {
 		}
 	}
 
-	//public boolean alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
-	//	boolean sucesso = true;
-	//	try {
-			
-	//		conexao = Conexao.ligar();
-	//		System.out.println("Conectado � base de dados com sucesso.");
-	//		st = conexao.createStatement();
-	//		sucesso = st.execute("delete from Funcionarios where idFuncionario=" + posicao);
-	//		Conexao.desligar();
-	//	} catch (SQLException a) {
-	//		System.out.println(a.getMessage());
-	//	}
+	public boolean alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
+		boolean sucesso = true;
+		try {
 
-	//	return sucesso;
-	//}
-	
+			conexao = Conexao.ligar();
+			System.out.println("Conectado � base de dados com sucesso.");
+			st = conexao.createStatement();
+			sucesso = st.execute("delete from Funcionarios where idFuncionario=" + posicao);
+			Conexao.desligar();
+		} catch (SQLException a) {
+			System.out.println(a.getMessage());
+		}
+
+		return sucesso;
+	}
 
 	public boolean removeAq(int idFuncionario) {
 		boolean sucesso = true;
 		try {
-			
+
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
