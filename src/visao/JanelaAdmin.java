@@ -1,30 +1,25 @@
 package visao;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.BDFunc;
 import modelo.Funcionario;
-
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.awt.event.ActionEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.SwingConstants;
 
 public class JanelaAdmin extends JFrame {
 
@@ -35,7 +30,7 @@ public class JanelaAdmin extends JFrame {
 
 	private BDFunc bdfu = new BDFunc();
 	private Funcionario f = new Funcionario();
-	private Funcionario funcionarioSelecionado;
+	private int idFuncionarioSelecionado;
 	private JTextField textEmail;
 	private JTextField textCPF;
 	private JTextField textSenha;
@@ -74,7 +69,9 @@ public class JanelaAdmin extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				int posicaoFuncionario = table.getSelectedRow();
+
+				int row = table.getSelectedRow();
+				idFuncionarioSelecionado = (int) table.getValueAt(row, 0);
 
 			}
 		});
@@ -84,6 +81,8 @@ public class JanelaAdmin extends JFrame {
 		table.setBounds(0, 0, 414, 184);
 		scrollPane.add(table);
 		scrollPane.setViewportView(table);
+
+		atualizarJTable();
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setBounds(13, 31, 46, 14);
@@ -139,20 +138,20 @@ public class JanelaAdmin extends JFrame {
 		JButton btnRemover = new JButton("Excluir");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (funcionarioSelecionado != null) {
-					BDFunc bd = new BDFunc();
-					bd.removeAq();
+				boolean sucesso = bdfu.removeAq(idFuncionarioSelecionado);
+				if (sucesso==false) {
+					JOptionPane.showMessageDialog(null, "Funcionario excluido!");
 					atualizarJTable();
 					limparCampos();
 				}
-
+				
 			}
 		});
 		btnRemover.setBounds(123, 230, 93, 23);
 		contentPane.add(btnRemover);
-		
-		JanelaAdmin estaJanela = this;
-		
+
+		// JanelaAdmin estaJanela = this;
+
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

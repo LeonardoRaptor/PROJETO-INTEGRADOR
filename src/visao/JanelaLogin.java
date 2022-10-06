@@ -32,7 +32,8 @@ public class JanelaLogin extends JFrame {
 			public void run() {
 				try {
 					JanelaLogin frame = new JanelaLogin();
-					frame.setVisible(true);				} catch (Exception e) {
+					frame.setVisible(true);
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}

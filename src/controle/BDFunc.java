@@ -16,6 +16,30 @@ public class BDFunc {
 	private Statement st;
 	private ArrayList<Funcionario> lista = new ArrayList<>();
 
+	public Funcionario getFuncionarioPorId(int idFun) {
+
+		Funcionario f = null;
+		try {
+			ResultSet rs = st.executeQuery("select * from funcionarios where idFuncionario = " + idFun);
+			while (rs.next()) {
+				f = new Funcionario();
+				f.setId(rs.getInt("idFuncionario"));
+				f.setCpfFunc(rs.getString("cpf"));
+				f.setEmailFunc(rs.getString("emailFunc"));
+				f.setNomeFunc(rs.getString("nomeFuncionario"));
+				f.setSenhaFunc(rs.getString("senhaFunc"));
+				f.setTelefone(rs.getString("telefone"));
+			}
+		} catch (SQLException a) {
+			System.out.println(a.getMessage());
+			System.out.println("Erro ao conectar � base de dados.");
+
+		}
+
+		return f;
+
+	}
+
 	public void adquirirFunc(Funcionario f) {
 		try {
 			ResultSet rs = st.executeQuery("select * from funcionarios");
@@ -66,7 +90,6 @@ public class BDFunc {
 
 	public ArrayList<Funcionario> listarTodos() {
 
-		
 		try {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
@@ -104,17 +127,16 @@ public class BDFunc {
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery(
-					"select * from funcionarios where senhaFunc='" + senha + "' and nomeFuncionario='" + login + "'");
+			ResultSet rs1 = st.executeQuery("select * from funcionarios where senhaFunc='" + senha + "' and nomeFuncionario='" + login + "'");
 
-			Funcionario f = new Funcionario();
+			funcionario = new Funcionario();
 			while (rs1.next()) {
-				f.setId(rs1.getInt("idFuncionario"));
-				f.setCpfFunc(rs1.getString("cpf"));
-				f.setEmailFunc(rs1.getString("emailFunc"));
-				f.setNomeFunc(rs1.getString("nomeFuncionario"));
-				f.setSenhaFunc(rs1.getString("senhaFunc"));
-				f.setTelefone(rs1.getString("telefone"));
+				funcionario.setId(rs1.getInt("idFuncionario"));
+				funcionario.setCpfFunc(rs1.getString("cpf"));
+				funcionario.setEmailFunc(rs1.getString("emailFunc"));
+				funcionario.setNomeFunc(rs1.getString("nomeFuncionario"));
+				funcionario.setSenhaFunc(rs1.getString("senhaFunc"));
+				funcionario.setTelefone(rs1.getString("telefone"));
 			}
 
 			Conexao.desligar();
@@ -144,36 +166,36 @@ public class BDFunc {
 		}
 	}
 
-	public void alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
+	//public boolean alterarFuncionario(int posicao, Funcionario funcionarioSelecionado) {
+	//	boolean sucesso = true;
+	//	try {
+			
+	//		conexao = Conexao.ligar();
+	//		System.out.println("Conectado � base de dados com sucesso.");
+	//		st = conexao.createStatement();
+	//		sucesso = st.execute("delete from Funcionarios where idFuncionario=" + posicao);
+	//		Conexao.desligar();
+	//	} catch (SQLException a) {
+	//		System.out.println(a.getMessage());
+	//	}
 
-	}
+	//	return sucesso;
+	//}
+	
 
-	public ArrayList<Funcionario> removeAq() {
+	public boolean removeAq(int idFuncionario) {
+		boolean sucesso = true;
 		try {
+			
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
-
-			Funcionario f = new Funcionario();
-			
 			st = conexao.createStatement();
-			PreparedStatement pat = ((Connection) st)
-					.prepareStatement("delete from Funcionarios where idFuncionario=");
-			
-			pat.executeQuery();
-			
-			
-			
-			lista.remove(f);
-			
-			
-			
+			sucesso = st.execute("delete from Funcionarios where idFuncionario=" + idFuncionario);
 			Conexao.desligar();
-
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
-			System.out.println("Erro ao conectar � base de dados.");
-
 		}
-		return lista;
+
+		return sucesso;
 	}
 }
