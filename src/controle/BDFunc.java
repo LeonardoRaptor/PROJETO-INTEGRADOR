@@ -32,7 +32,7 @@ public class BDFunc {
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
-			System.out.println("Erro ao conectar ï¿½ base de dados.");
+			System.out.println("Erro ao conectar à base de dados.");
 
 		}
 

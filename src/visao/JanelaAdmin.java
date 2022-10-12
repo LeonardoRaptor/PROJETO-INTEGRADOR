@@ -72,7 +72,9 @@ public class JanelaAdmin extends JFrame {
 
 				int row = table.getSelectedRow();
 				idFuncionarioSelecionado = (int) table.getValueAt(row, 0);
-
+				pessoaSelecionada = Funcionario.get(row);
+				textNome.setText(pessoaSelecionada.getNome());
+				txtCPF.setText(pessoaSelecionada.getCpf());
 			}
 		});
 		scrollPane.setViewportView(table);
