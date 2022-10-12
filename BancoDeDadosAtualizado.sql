@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Funcionarios` (
   `CPF` VARCHAR(16) NOT NULL,
   `SenhaFunc` VARCHAR(20) NOT NULL,
   `tipoAcesso` CHAR(1) NULL,
+  `telefone` varchar (15) null,
   PRIMARY KEY (`idFuncionario`),
   UNIQUE INDEX `idFuncionario_UNIQUE` (`idFuncionario` ASC))
 ENGINE = InnoDB;

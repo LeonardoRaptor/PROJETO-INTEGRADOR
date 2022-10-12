@@ -32,7 +32,8 @@ public class JanelaLogin extends JFrame {
 			public void run() {
 				try {
 					JanelaLogin frame = new JanelaLogin();
-					frame.setVisible(true);				} catch (Exception e) {
+					frame.setVisible(true);
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -78,25 +79,19 @@ public class JanelaLogin extends JFrame {
 				String senha = textSenha.getText();
 				if (!login.isEmpty() && !senha.isEmpty()) {
 					BDFunc bdf = new BDFunc();
-					bdf.logarConta(login, senha);
 					Funcionario funcionario = bdf.logarConta(login, senha);
-					if(funcionario != null) {
-						//System.out.println(funcionario.getNomeFunc());
-						//System.out.println(login);
-						//System.out.println(funcionario.getSenhaFunc()); // linha q faz dar erro null//
-						//System.out.println(senha);
-						if(funcionario.getNomeFunc().equals(login) && funcionario.getSenhaFunc().equals(senha)) {
+					if (funcionario != null) {
+						if (funcionario.getNomeFunc().equals(login) && funcionario.getSenhaFunc().equals(senha)) {
 							JanelaLogin jl = new JanelaLogin();
 							jl.setVisible(false);
 							Menu m = new Menu();
 							m.setVisible(true);
-						} else {
-							JOptionPane.showMessageDialog(btnLogar, "Funcionário não cadastrado" );
 						}
+					} else {
+						JOptionPane.showMessageDialog(btnLogar, "Usuário e/ou senha incorretos");
 					}
 				} else {
-					// erro
-					JOptionPane.showMessageDialog(btnLogar, "Erro login ou senha vazios" );
+					JOptionPane.showMessageDialog(btnLogar, "Usuário inexistente");
 				}
 			}
 		});
