@@ -61,13 +61,14 @@ public class JanelaAdmin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 0, 10, 10);
+		contentPane.add(panel_1);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(258, 91, 452, 427);
-
-		scrollPane.setBounds(284, 38, 387, 134);
+		scrollPane.setBounds(284, 67, 387, 134);
 		contentPane.add(scrollPane);
-
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() {
 			@Override
@@ -96,7 +97,6 @@ public class JanelaAdmin extends JFrame {
 				"ID", "Nome", "Email", "Telefone", "CPF"
 			}
 		));
-		table.setBounds(0, 0, 414, 184);
 		scrollPane.add(table);
 		scrollPane.setViewportView(table);
 
@@ -240,8 +240,10 @@ public class JanelaAdmin extends JFrame {
 		panel.setBackground(new Color(0, 0, 139));
 		panel.setBounds(0, 0, 702, 40);
 		contentPane.add(panel);
+		panel.setLayout(null);
 		
 		JLabel lblJanelaCadastrar = new JLabel("CADASTRAR FUNCIONÁRIO");
+		lblJanelaCadastrar.setBounds(141, 5, 420, 37);
 		panel.add(lblJanelaCadastrar);
 		lblJanelaCadastrar.setForeground(new Color(245, 255, 250));
 		lblJanelaCadastrar.setFont(new Font("Tahoma", Font.BOLD, 30));

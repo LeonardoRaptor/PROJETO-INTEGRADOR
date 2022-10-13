@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
 
 public class Menu extends JFrame {
 
@@ -46,8 +47,13 @@ public class Menu extends JFrame {
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 0, 128));
-		panel.setBounds(0, 0, 857, 40);
+		panel.setBounds(0, 0, 857, 55);
 		contentPane.add(panel);
+		
+		JLabel lblNewLabel = new JLabel("MENU");
+		panel.add(lblNewLabel);
+		lblNewLabel.setForeground(new Color(245, 255, 250));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		
 		JButton btnEstoque = new JButton("ESTOQUE");
 		btnEstoque.addActionListener(new ActionListener() {
@@ -107,14 +113,20 @@ public class Menu extends JFrame {
 		btnRegistrarVenda.setBounds(564, 225, 171, 79);
 		contentPane.add(btnRegistrarVenda);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBackground(new Color(64, 224, 208));
+		panel_1.setBounds(45, 81, 744, 319);
+		contentPane.add(panel_1);
+		panel_1.setLayout(null);
+		
 		JButton btnVoltarMenu = new JButton("Voltar");
+		btnVoltarMenu.setBounds(620, 268, 114, 40);
+		panel_1.add(btnVoltarMenu);
 		btnVoltarMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 			}
 		});
-		btnVoltarMenu.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btnVoltarMenu.setBounds(746, 384, 89, 40);
-		contentPane.add(btnVoltarMenu);
+		btnVoltarMenu.setFont(new Font("Tahoma", Font.PLAIN, 18));
 	}
 }
