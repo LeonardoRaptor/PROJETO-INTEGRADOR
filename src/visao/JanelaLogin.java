@@ -17,12 +17,13 @@ import javax.swing.border.EmptyBorder;
 import controle.BDFunc;
 import modelo.Funcionario;
 import javax.swing.ImageIcon;
+import javax.swing.JPasswordField;
 
 public class JanelaLogin extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textLogin;
-	private JTextField textSenha;
+	private JPasswordField passwordField;
 
 	/**
 	 * Launch the application.
@@ -58,6 +59,10 @@ public class JanelaLogin extends JFrame {
 		contentPane.add(textLogin);
 		textLogin.setColumns(10);
 
+		passwordField = new JPasswordField();
+		passwordField.setBounds(170, 153, 133, 20);
+		contentPane.add(passwordField);
+
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblLogin.setBounds(114, 116, 46, 29);
@@ -68,16 +73,11 @@ public class JanelaLogin extends JFrame {
 		lblSenha.setBounds(110, 156, 63, 14);
 		contentPane.add(lblSenha);
 
-		textSenha = new JTextField();
-		textSenha.setBounds(170, 153, 133, 20);
-		contentPane.add(textSenha);
-		textSenha.setColumns(10);
-
 		JButton btnLogar = new JButton("Logar");
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String login = textLogin.getText();
-				String senha = textSenha.getText();
+				String senha = passwordField.getText();
 				if (!login.isEmpty() && !senha.isEmpty()) {
 					BDFunc bdf = new BDFunc();
 					Funcionario funcionario = bdf.logarConta(login, senha);
@@ -121,7 +121,7 @@ public class JanelaLogin extends JFrame {
 		panel_1.setBackground(new Color(0, 0, 139));
 		panel_1.setBounds(0, 0, 434, 47);
 		contentPane.add(panel_1);
-		
+
 		JLabel lblNewLabel = new JLabel("LOGIN\r\n\r\n");
 		panel_1.add(lblNewLabel);
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));

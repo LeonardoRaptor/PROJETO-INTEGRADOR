@@ -72,15 +72,16 @@ public class JanelaAdmin extends JFrame {
 
 				int row = table.getSelectedRow();
 				idFuncionarioSelecionado = (int) table.getValueAt(row, 0);
+				
 				// pessoaSelecionada = Funcionario.get(row);
 				// textNome.setText(pessoaSelecionada.getNome());
 				// txtCPF.setText(pessoaSelecionada.getCpf());
-				
-				Funcionario sus= bdfu.getFuncionarioPorId(idFuncionarioSelecionado);
-				if(sus!=null) {
+
+				Funcionario sus = bdfu.getFuncionarioPorId(idFuncionarioSelecionado);
+				if (sus != null) {
 					recuperarValorT();
 				}
-				
+
 			}
 		});
 		scrollPane.setViewportView(table);
@@ -245,7 +246,7 @@ public class JanelaAdmin extends JFrame {
 		table.setModel(modelo);
 
 	}
-	
+
 	protected void recuperarValorT() {
 		textNome.setText(f.getNomeFunc());
 		textCPF.setText(f.getCpfFunc());
