@@ -20,6 +20,9 @@ public class BDFunc {
 
 		Funcionario f = null;
 		try {
+			Statement st;
+			conexao = Conexao.ligar();
+			st = conexao.createStatement();
 			ResultSet rs = st.executeQuery("select * from funcionarios where idFuncionario = " + idFun);
 			while (rs.next()) {
 				f = new Funcionario();
@@ -32,7 +35,7 @@ public class BDFunc {
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
-			System.out.println("Erro ao conectar à base de dados.");
+			System.out.println("Erro ao conectar ï¿½ base de dados.");
 
 		}
 
