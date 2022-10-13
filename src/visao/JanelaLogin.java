@@ -44,6 +44,7 @@ public class JanelaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public JanelaLogin() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 336);
 		contentPane = new JPanel();
@@ -118,7 +119,12 @@ public class JanelaLogin extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(0, 0, 139));
-		panel_1.setBounds(0, 0, 434, 41);
+		panel_1.setBounds(0, 0, 434, 47);
 		contentPane.add(panel_1);
+		
+		JLabel lblNewLabel = new JLabel("LOGIN\r\n\r\n");
+		panel_1.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel.setForeground(new Color(245, 255, 250));
 	}
 }
