@@ -72,6 +72,8 @@ public class Menu extends JFrame {
 		JButton btnPesquisarClientes = new JButton("<html>PESQUISAR<br /><center>CLIENTES</center></html>\r\n");
 		btnPesquisarClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				PesquisarCliente pesCli = new PesquisarCliente();
+				pesCli.setVisible(true);
 			}
 		});
 		btnPesquisarClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
