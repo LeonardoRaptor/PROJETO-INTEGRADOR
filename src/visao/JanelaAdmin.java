@@ -1,6 +1,8 @@
 package visao;
 
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -20,8 +22,6 @@ import javax.swing.table.DefaultTableModel;
 
 import controle.BDFunc;
 import modelo.Funcionario;
-import java.awt.Color;
-import java.awt.Font;
 
 public class JanelaAdmin extends JFrame {
 
@@ -36,6 +36,7 @@ public class JanelaAdmin extends JFrame {
 	private JTextField textEmail;
 	private JTextField textCPF;
 	private JTextField textSenha;
+	private ArrayList<Funcionario> lista;
 
 	/**
 	 * Launch the application.
@@ -61,7 +62,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(0, 0, 10, 10);
 		contentPane.add(panel_1);
@@ -76,7 +77,9 @@ public class JanelaAdmin extends JFrame {
 
 				int row = table.getSelectedRow();
 				idFuncionarioSelecionado = (int) table.getValueAt(row, 0);
-				
+
+				f = lista.get(row);
+
 				// pessoaSelecionada = Funcionario.get(row);
 				// textNome.setText(pessoaSelecionada.getNome());
 				// txtCPF.setText(pessoaSelecionada.getCpf());
@@ -90,13 +93,7 @@ public class JanelaAdmin extends JFrame {
 		});
 		scrollPane.setViewportView(table);
 		table.setModel(
-				new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ID", "Nome", "Email", "Telefone", "CPF"
-			}
-		));
+				new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Email", "Telefone", "CPF" }));
 		scrollPane.add(table);
 		scrollPane.setViewportView(table);
 
@@ -173,10 +170,28 @@ public class JanelaAdmin extends JFrame {
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String nome = textNome.getText();
+				String email = textEmail.getText();
+				String telefone = textTelefone.getText();
+				String cpf = textCPF.getText();
+				String senha = textSenha.getText();
 
-				// JanelaAlterar janela = new JanelaAlterar(estaJanela, funcionarioSelecionado,
-				// posicaoFuncionario);
-				// janela.setVisible(true);
+				if (!nome.isEmpty() && !senha.isEmpty() && !cpf.isEmpty() && !email.isEmpty() && !telefone.isEmpty()) {
+
+					f.setNomeFunc(textNome.getText());
+					f.setEmailFunc(textEmail.getText());
+					f.setTelefone(textTelefone.getText());
+					f.setCpfFunc(textCPF.getText());
+					f.setSenhaFunc(textSenha.getText());
+
+					bdfu.alterarFuncionario(f);
+
+				} else {
+					JOptionPane.showMessageDialog(btnAlterar, "Erro ao alterar");
+				}
+
+				atualizarJTable();
+				limparCampos();
 
 			}
 		});
@@ -235,13 +250,13 @@ public class JanelaAdmin extends JFrame {
 		textSenha.setBounds(81, 170, 167, 20);
 		contentPane.add(textSenha);
 		textSenha.setColumns(10);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 0, 139));
 		panel.setBounds(0, 0, 702, 40);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
+
 		JLabel lblJanelaCadastrar = new JLabel("CADASTRAR FUNCIONÁRIO");
 		lblJanelaCadastrar.setBounds(141, 5, 420, 37);
 		panel.add(lblJanelaCadastrar);
@@ -257,13 +272,22 @@ public class JanelaAdmin extends JFrame {
 		textSenha.setText("");
 	}
 
+//	protected void setar_campos(){
+//		int setar = table.getSelectedRow();
+//		textNome.setText(table.getModel().getValueAt(setar, 0).toString());
+//		textEmail.setText(table.getModel().getValueAt(setar, 1).toString());
+//		textTelefone.setText(table.getModel().getValueAt(setar, 2).toString());
+//		textCPF.setText(table.getModel().getValueAt(setar, 3).toString());
+//		textSenha.setText(table.getModel().getValueAt(setar, 4).toString());
+//	}
+
 	protected void atualizarJTable() {
 
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
 				new String[] { "ID", "Nome", "Email", "Telefone", "CPF" });
 
 		BDFunc bd = new BDFunc();
-		ArrayList<Funcionario> lista = bd.listarTodos();
+		lista = bd.listarTodos();
 		for (Funcionario f : lista) {
 			modelo.addRow(
 					new Object[] { f.getId(), f.getNomeFunc(), f.getEmailFunc(), f.getTelefone(), f.getCpfFunc() });

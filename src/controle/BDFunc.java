@@ -177,7 +177,7 @@ public class BDFunc {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
-			sucesso = st.execute("update funcionarios set nome= '" + f.getNomeFunc() + "', emailFunc='"
+			sucesso = st.execute("update funcionarios set nomeFuncionario= '" + f.getNomeFunc() + "', emailFunc='"
 					+ f.getEmailFunc() + "', cpf='" + f.getCpfFunc() + "', senhaFunc='" + f.getSenhaFunc()
 					+ "', telefone='" + f.getTelefone() + "' where idFuncionario=" + f.getId());
 			Conexao.desligar();
