@@ -15,7 +15,6 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
-import modelo.Funcionario;
 import modelo.Genero;
 import modelo.Livro;
 import javax.swing.DefaultComboBoxModel;
@@ -23,7 +22,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
-import controle.BDFunc;
 import controle.BDLivro;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -212,7 +210,7 @@ public class CadastrarLivro extends JFrame {
 		JButton btnRemover = new JButton("Excluir");
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean sucesso = bdli.removeAq(idProdutoSelecionado);
+				boolean sucesso = bdli.removeAqui(idProdutoSelecionado);
 				if (sucesso == false) {
 					JOptionPane.showMessageDialog(null, "Produto excluido!");
 					atualizarJTable();
@@ -221,7 +219,7 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(123, 230, 93, 23);
+		btnRemover.setBounds(29, 272, 93, 23);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -282,13 +280,13 @@ public class CadastrarLivro extends JFrame {
 		textQntdL.setText("");
 		textFornecedorL.setText("");
 	}
+
 	protected void recuperarValorTotal() {
 		textNomeL.setText(l.getNomeLi());
-		//boxGenero.setSelectedItem((String)l.getGenero());
+		// boxGenero.setSelectedItem((String)l.getGenero());
 		textAutorL.setText(l.getAutor());
 		textQntdL.setText(String.valueOf(l.getQtde()));
 		textPrecoL.setText(l.getPreco());
 		textFornecedorL.setText(l.getFornecedor());
 	}
 }
-

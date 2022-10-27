@@ -80,6 +80,10 @@ public class JanelaAdmin extends JFrame {
 
 				f = lista.get(row);
 
+				// pessoaSelecionada = Funcionario.get(row);
+				// textNome.setText(pessoaSelecionada.getNome());
+				// txtCPF.setText(pessoaSelecionada.getCpf());
+
 				Funcionario sus = bdfu.getFuncionarioPorId(idFuncionarioSelecionado);
 				if (sus != null) {
 					recuperarValorT();

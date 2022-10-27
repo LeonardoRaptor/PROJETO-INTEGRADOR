@@ -153,14 +153,14 @@ public class BDLivro {
 		return sucesso;
 	}
 
-	public boolean removeAq(int idLivro) {
+	public boolean removeAqui(int idProdutos) {
 		boolean sucesso = true;
 		try {
 
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
-			sucesso = st.execute("delete from produtos where idProdutos=" + idLivro);
+			sucesso = st.execute("delete from produtos where idProdutos=" + idProdutos);
 			Conexao.desligar();
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
