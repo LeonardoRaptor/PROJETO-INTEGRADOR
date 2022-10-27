@@ -133,7 +133,7 @@ public class BDCliente {
 		}
 	}
 
-	public boolean alterarClietne(Cliente c) {
+	public boolean alterarCliente(Cliente c) {
 		boolean sucesso = true;
 		try {
 
