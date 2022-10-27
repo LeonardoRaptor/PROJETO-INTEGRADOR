@@ -29,6 +29,7 @@ public class BDVenda {
 				v.setValor(rs.getDouble("valorVenda"));
 				v.setData(rs.getDate("dataVenda"));
 				v.setFormaPagamento(rs.getString("formaPagamento"));
+				v.setQtdeVenda(rs.getInt("QuantidadeVenda"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -44,12 +45,13 @@ public class BDVenda {
 		try {
 			ResultSet rs = st.executeQuery("select * from Venda");
 			while (rs.next()) {
-				v.setId(rs.getInt("idFuncionario"));
-				v.setCpfFunc(rs.getString("cpf"));
-				v.setEmailFunc(rs.getString("emailFunc"));
-				v.setNomeFunc(rs.getString("nomeFuncionario"));
-				v.setSenhaFunc(rs.getString("senhaFunc"));
-				v.setTelefone(rs.getString("telefone"));
+				v.setIdVenda(rs.getInt("idVenda"));
+				v.setFunId(rs.getInt("Funcionarios_idFuncionario"));
+				v.setCliId(rs.getInt("Clientes_idCLiente"));
+				v.setValor(rs.getDouble("valorVenda"));
+				v.setData(rs.getDate("dataVenda"));
+				v.setFormaPagamento(rs.getString("formaPagamento"));
+				v.setQtdeVenda(rs.getInt("QuantidadeVenda"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -70,9 +72,9 @@ public class BDVenda {
 
 			System.out.println("Conectado � base de dados com sucesso.");
 			idCadastradoVenda = st.executeUpdate(
-					"Insert into Venda (NomeFuncionario,EmailFunc, telefone, CPF, SenhaFunc) values " + "('"
-							+ v.getNomeFunc() + "', '" + v.getEmailFunc() + "','" + v.getTelefone() + "', '"
-							+ v.getCpfFunc() + "', " + "'" + v.getSenhaFunc() + "')");
+					"Insert into Venda (QuantidadeVenda, valorVenda, formaPagamento, DataVenda, Funcionarios_idFuncionario, Clientes_idCliente) values "
+							+ "('" + v.getQtdeVenda() + "', '" + v.getValor() + "','" + v.getFormaPagamento() + "', '"
+							+ v.getData() + "', " + "'" + v.getFunId() + "', '" + v.getCliId() + "')");
 
 			if (idCadastradoVenda == 0) {
 				throw new SQLException("Creating Venda failed, no rows affected.");
@@ -100,11 +102,12 @@ public class BDVenda {
 			while (rs1.next()) {
 				Venda v = new Venda();
 				v.setIdVenda(rs1.getInt("idVenda"));
-				v.setCpfFunc(rs1.getString("cpf"));
-				v.setEmailFunc(rs1.getString("emailFunc"));
-				v.setNomeFunc(rs1.getString("nomeFuncionario"));
-				v.setSenhaFunc(rs1.getString("senhaFunc"));
-				v.setTelefone(rs1.getString("telefone"));
+				v.setFunId(rs1.getInt("Funcionarios_idFuncionario"));
+				v.setCliId(rs1.getInt("Clientes_idCLiente"));
+				v.setValor(rs1.getDouble("valorVenda"));
+				v.setData(rs1.getDate("dataVenda"));
+				v.setFormaPagamento(rs1.getString("formaPagamento"));
+				v.setQtdeVenda(rs1.getInt("QuantidadeVenda"));
 				listaVenda.add(v);
 			}
 
@@ -142,9 +145,9 @@ public class BDVenda {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
-			sucesso = st.execute("update Venda set nomeFuncionario= '" + v.getNomeFunc() + "', emailFunc='"
-					+ v.getEmailFunc() + "', cpf='" + v.getCpfFunc() + "', senhaFunc='" + v.getSenhaFunc()
-					+ "', telefone='" + v.getTelefone() + "' where idVenda=" + v.getIdVenda());
+			sucesso = st.execute("update Venda set Clientes_idCliente= '" + v.getCliId() + "', FormaPagamento='"
+					+ v.getFormaPagamento() + "', Funcionarios_idFuncionario='" + v.getFunId() + "', QuantidadeVenda='" + v.getQtdeVenda() + "', ValorVenda='" + v.getValor()
+					+ "', DataVenda='" + v.getData() + "' where idVenda=" + v.getIdVenda());
 			Conexao.desligar();
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
