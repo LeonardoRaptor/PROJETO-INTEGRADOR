@@ -1,6 +1,8 @@
 package controle;
 
+//import java.util.ArrayList;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,7 +11,7 @@ import java.util.ArrayList;
 import modelo.Funcionario;
 
 //import modelo.Funcionario;
-public class BDFunc {
+public class BDVenda {
 	Connection conexao;
 	private Statement st;
 	private ArrayList<Funcionario> lista = new ArrayList<>();
@@ -202,4 +204,3 @@ public class BDFunc {
 		return sucesso;
 	}
 }
-
