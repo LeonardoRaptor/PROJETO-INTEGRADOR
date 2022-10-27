@@ -10,6 +10,11 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class JanelaVenda extends JFrame {
 
@@ -17,6 +22,8 @@ public class JanelaVenda extends JFrame {
 	private JTextField textCodLivro;
 	private JTextField textCPFCli;
 	private JTextField textQuant;
+	private JTextField textField;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -59,7 +66,7 @@ public class JanelaVenda extends JFrame {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(64, 224, 208));
-		panel_1.setBounds(31, 71, 460, 246);
+		panel_1.setBounds(32, 57, 460, 246);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -100,5 +107,50 @@ public class JanelaVenda extends JFrame {
 		JButton btnRemoverVenda = new JButton("Remover");
 		btnRemoverVenda.setBounds(337, 83, 89, 23);
 		panel_1.add(btnRemoverVenda);
+		
+		JLabel lblSumario = new JLabel("Sumário:");
+		lblSumario.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblSumario.setBounds(39, 126, 96, 21);
+		panel_1.add(lblSumario);
+		
+		JLabel lblValorTotal = new JLabel("Valor total:");
+		lblValorTotal.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblValorTotal.setBounds(39, 214, 96, 21);
+		panel_1.add(lblValorTotal);
+		
+		textField = new JTextField();
+		textField.setBounds(125, 216, 299, 20);
+		panel_1.add(textField);
+		textField.setColumns(10);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(125, 124, 301, 79);
+		panel_1.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+				{null, null, null, null},
+			},
+			new String[] {
+				"Nome", "QTD", "C\u00F3digo", "Pre\u00E7o"
+			}
+		));
+		scrollPane.setViewportView(table);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnVoltar.setBounds(32, 303, 101, 23);
+		contentPane.add(btnVoltar);
+		
+		JButton btnRealizarVenda = new JButton("Realizar venda");
+		btnRealizarVenda.setBounds(369, 303, 123, 23);
+		contentPane.add(btnRealizarVenda);
 	}
 }
