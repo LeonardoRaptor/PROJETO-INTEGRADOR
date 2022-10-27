@@ -34,11 +34,11 @@ public class CadastrarCliente extends JFrame {
 
 	private BDCliente bdcl = new BDCliente();
 
-	private JTable table1;
+	private JTable tabelaClientes;
 
 	private Cliente c = new Cliente();
 	private int idClienteSelecionado;
-	private ArrayList<Cliente> listaCli;
+	private ArrayList<Cliente> listaClientes;
 
 	/**
 	 * Launch the application.
@@ -149,21 +149,6 @@ public class CadastrarCliente extends JFrame {
 		btnNewButton_1.setBounds(10, 307, 89, 23);
 		contentPane.add(btnNewButton_1);
 
-		JButton btnRemover = new JButton("Excluir");
-		btnRemover.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				boolean sucesso = bdcl.removeAq(idClienteSelecionado);
-				if (sucesso == false) {
-					JOptionPane.showMessageDialog(null, "Cliente excluido!");
-					atualizarJTable();
-					limparCampos();
-				}
-
-			}
-		});
-		btnRemover.setBounds(232, 307, 93, 23);
-		contentPane.add(btnRemover);
-
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -197,15 +182,15 @@ public class CadastrarCliente extends JFrame {
 		scrollPane.setBounds(20, 114, 404, 182);
 		contentPane.add(scrollPane);
 
-		table1 = new JTable();
-		table1.addMouseListener(new MouseAdapter() {
+		tabelaClientes = new JTable();
+		tabelaClientes.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 
-				int row = table1.getSelectedRow();
-				idClienteSelecionado = (int) table1.getValueAt(row, 0);
+				int row = tabelaClientes.getSelectedRow();
+				idClienteSelecionado = (int) tabelaClientes.getValueAt(row, 0);
 
-				c = listaCli.get(row);
+				c = listaClientes.get(row);
 
 				Cliente sus = bdcl.getClientePorId(idClienteSelecionado);
 				if (sus != null) {
@@ -214,13 +199,28 @@ public class CadastrarCliente extends JFrame {
 
 			}
 		});
-		scrollPane.setViewportView(table1);
-		table1.setModel(
+		scrollPane.setViewportView(tabelaClientes);
+		tabelaClientes.setModel(
 				new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome", "Email", "Telefone", "CPF" }));
-		scrollPane.add(table1);
-		scrollPane.setViewportView(table1);
+		scrollPane.add(tabelaClientes);
+		scrollPane.setViewportView(tabelaClientes);
 
 		atualizarJTable();
+		
+		JButton btnRemover = new JButton("Excluir");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean sucesso = bdcl.removeAq(idClienteSelecionado);
+				if (sucesso == false) {
+					JOptionPane.showMessageDialog(null, "Cliente excluido!");
+					atualizarJTable();
+					limparCampos();
+				}
+
+			}
+		});
+		btnRemover.setBounds(232, 307, 93, 23);
+		contentPane.add(btnRemover);
 	}
 
 	protected void atualizarJTable() {
@@ -229,13 +229,13 @@ public class CadastrarCliente extends JFrame {
 				new String[] { "ID", "Nome", "Email", "Telefone", "CPF" });
 
 		BDCliente bd = new BDCliente();
-		listaCli = bd.listarTodos();
-		for (Cliente c : listaCli) {
+		listaClientes = bd.listarTodos();
+		for (Cliente c : listaClientes) {
 			modelo1.addRow(
 					new Object[] { c.getIdCli(), c.getNomeCli(), c.getEmailCli(), c.getTelefone(), c.getCpfCli() });
 		}
 
-		table1.setModel(modelo1);
+		tabelaClientes.setModel(modelo1);
 
 	}
 
