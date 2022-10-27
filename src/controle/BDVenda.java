@@ -14,7 +14,7 @@ import modelo.Funcionario;
 public class BDVenda {
 	Connection conexao;
 	private Statement st;
-	private ArrayList<Venda> lista = new ArrayList<>();
+	private ArrayList<Funcionario> lista = new ArrayList<>();
 
 	public Funcionario getFuncionarioPorId(int idFun) {
 
