@@ -75,16 +75,16 @@ public class Menu extends JFrame {
 		btnHistoricoVenda.setBounds(564, 112, 171, 79);
 		contentPane.add(btnHistoricoVenda);
 		
-		JButton btnPesquisarClientes = new JButton("<html>PESQUISAR<br /><center>CLIENTES</center></html>\r\n");
-		btnPesquisarClientes.addActionListener(new ActionListener() {
+		JButton btnCadastrarFornecedor = new JButton("<html>CADASTRAR<br /><center>FORNECEDOR</center></html>\r\n");
+		btnCadastrarFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				PesquisarCliente pesCli = new PesquisarCliente();
-				pesCli.setVisible(true);
+				JanelaFornecedor cadfor = new JanelaFornecedor();
+				cadfor.setVisible(true);
 			}
 		});
-		btnPesquisarClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnPesquisarClientes.setBounds(342, 112, 171, 79);
-		contentPane.add(btnPesquisarClientes);
+		btnCadastrarFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCadastrarFornecedor.setBounds(342, 112, 171, 79);
+		contentPane.add(btnCadastrarFornecedor);
 		
 		JButton btnCadastrarClientes = new JButton("<html>CADASTRAR<br /><center>CLIENTES</center></html> \r\n");
 		btnCadastrarClientes.addActionListener(new ActionListener() {
