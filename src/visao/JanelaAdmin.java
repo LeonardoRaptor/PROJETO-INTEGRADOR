@@ -80,10 +80,6 @@ public class JanelaAdmin extends JFrame {
 
 				f = lista.get(row);
 
-				// pessoaSelecionada = Funcionario.get(row);
-				// textNome.setText(pessoaSelecionada.getNome());
-				// txtCPF.setText(pessoaSelecionada.getCpf());
-
 				Funcionario sus = bdfu.getFuncionarioPorId(idFuncionarioSelecionado);
 				if (sus != null) {
 					recuperarValorT();
@@ -271,15 +267,6 @@ public class JanelaAdmin extends JFrame {
 		textCPF.setText("");
 		textSenha.setText("");
 	}
-
-//	protected void setar_campos(){
-//		int setar = table.getSelectedRow();
-//		textNome.setText(table.getModel().getValueAt(setar, 0).toString());
-//		textEmail.setText(table.getModel().getValueAt(setar, 1).toString());
-//		textTelefone.setText(table.getModel().getValueAt(setar, 2).toString());
-//		textCPF.setText(table.getModel().getValueAt(setar, 3).toString());
-//		textSenha.setText(table.getModel().getValueAt(setar, 4).toString());
-//	}
 
 	protected void atualizarJTable() {
 

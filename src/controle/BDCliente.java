@@ -28,7 +28,7 @@ public class BDCliente {
 				cli.setCpfCli(rs.getString("cpfCliente"));
 				cli.setEmailCli(rs.getString("emailCliente"));
 				cli.setNomeCli(rs.getString("nomeClientel"));
-				cli.setTelefone(rs.getString("telefoneClietne"));
+				cli.setTelefone(rs.getString("telefoneCliente"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
