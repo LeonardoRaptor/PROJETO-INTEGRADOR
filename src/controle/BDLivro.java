@@ -70,9 +70,9 @@ public class BDLivro {
 
 			System.out.println("Conectado � base de dados com sucesso.");
 			idCadastradoLi = st
-					.executeUpdate("Insert into produtos (PreçoProduto,Nome, qt_estoque, Autor, Genero) values " + "('"
+					.executeUpdate("Insert into produtos (PreçoProduto,Nome, qt_estoque, Autor, Genero,Fornecedor_idFornecedor) values " + "('"
 							+ l.getPreco() + "', '" + l.getNomeLi() + "','" + l.getQtde() + "', '" + l.getAutor()
-							+ "', " + "'" + l.getGenero() + "')");
+							+ "', " + "'" + l.getGenero() + "','" + l.getFornecedor() + "')");
 
 			if (idCadastradoLi == 0) {
 				throw new SQLException("Creating book failed, no rows affected.");
@@ -95,7 +95,7 @@ public class BDLivro {
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery("select * from funcionarios order by NomeFuncionario");
+			ResultSet rs1 = st.executeQuery("select * from produtos order by Nome");
 
 			while (rs1.next()) {
 				Livro l = new Livro();
