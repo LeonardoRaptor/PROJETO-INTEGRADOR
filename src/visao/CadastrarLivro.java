@@ -14,19 +14,27 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import modelo.Funcionario;
 import modelo.Genero;
 import modelo.Livro;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import controle.BDFunc;
+import controle.BDLivro;
 
 public class CadastrarLivro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textID;
 	private JTextField textNome;
 	private JTextField textQntd;
 	private JTextField textAutor;
 	private JTextField textPreco;
-
-	public ArrayList<Livro> cadastro = new ArrayList<Livro>();
+	private Livro l = new Livro();
+	private ArrayList<Livro> cadastro;
+	private JTable table;
 
 	/**
 	 * Launch the application.
@@ -53,55 +61,46 @@ public class CadastrarLivro extends JFrame {
 		setTitle("Cadastro de Livros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 451, 300);
+		setBounds(100, 100, 794, 345);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("ID:");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel.setBounds(10, 11, 75, 14);
-		contentPane.add(lblNewLabel);
-
 		JLabel lblNewLabel_1 = new JLabel("Quantidade:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 86, 75, 14);
+		lblNewLabel_1.setBounds(0, 197, 75, 14);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Nome:");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(10, 36, 75, 14);
+		lblNewLabel_2.setBounds(0, 89, 75, 14);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Gênero:");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(10, 61, 75, 14);
+		lblNewLabel_3.setBounds(0, 140, 75, 14);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Autor:");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_4.setBounds(39, 111, 46, 14);
+		lblNewLabel_4.setBounds(29, 172, 46, 14);
 		contentPane.add(lblNewLabel_4);
 
 		JLabel lblNewLabel_5 = new JLabel("Preço:");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_5.setBounds(39, 136, 46, 14);
+		lblNewLabel_5.setBounds(27, 232, 46, 14);
 		contentPane.add(lblNewLabel_5);
 
-		textID = new JTextField();
-		textID.setBounds(95, 8, 329, 20);
-		contentPane.add(textID);
-		textID.setColumns(10);
-
 		textNome = new JTextField();
-		textNome.setBounds(95, 33, 329, 20);
+		textNome.setBounds(95, 86, 192, 20);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
 		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
-		boxGenero.setBounds(95, 57, 329, 22);
+		boxGenero.setModel(new DefaultComboBoxModel(new String[] {"Terror", "Ação", "Romance", "Drama", "Fantasia", "Poesia", "Conto", "Mangá", "Aventura"}));
+		boxGenero.setBounds(95, 136, 192, 22);
 		
 		// List<Genero> listaGeneros = 
 		// for
@@ -109,22 +108,22 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(boxGenero);
 
 		textQntd = new JTextField();
-		textQntd.setBounds(95, 83, 329, 20);
+		textQntd.setBounds(95, 194, 192, 20);
 		contentPane.add(textQntd);
 		textQntd.setColumns(10);
 
 		textAutor = new JTextField();
-		textAutor.setBounds(95, 108, 329, 20);
+		textAutor.setBounds(95, 169, 192, 20);
 		contentPane.add(textAutor);
 		textAutor.setColumns(10);
 
 		textPreco = new JTextField();
-		textPreco.setBounds(95, 133, 329, 20);
+		textPreco.setBounds(95, 229, 192, 20);
 		contentPane.add(textPreco);
 		textPreco.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(335, 227, 89, 23);
+		btnCancelar.setBounds(194, 260, 89, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -134,19 +133,17 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(btnCancelar);
 
 		JButton btnCadastrar = new JButton("Cadastrar"); // começa aqui o botão de cadastro
-		btnCadastrar.setBounds(236, 227, 89, 23);
+		btnCadastrar.setBounds(76, 260, 89, 23);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String id = textID.getText();
 				String quantidades = textQntd.getText();
 				String nome = textNome.getText();
 				String autor = textAutor.getText();
 				String preco = textPreco.getText();
 				String genero = boxGenero.getName();
-				if ((id != null) && (nome != null) && (autor != null) && (quantidades != null)) {
+				if ((nome != null) && (autor != null) && (quantidades != null)) {
 
 					// colocando tudo q vai ser cadastrado, todas as variáveis.. eu acho?
-					Integer idNum = Integer.parseInt(id);
 
 					nome = textNome.getText();
 
@@ -154,7 +151,6 @@ public class CadastrarLivro extends JFrame {
 
 					Integer quantidade = Integer.parseInt(quantidades);
 
-					x.setIdLi(idNum);
 					x.setNomeLi(nome);
 					x.setAutor(autor);
 					x.setGenero(genero); // enquanto não tiver banco de dados integrado, o botao nao vai rodar pq
@@ -169,5 +165,37 @@ public class CadastrarLivro extends JFrame {
 		});
 		contentPane.add(btnCadastrar);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(299, 89, 415, 183);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço"
+			}
+		));
+		scrollPane.setViewportView(table);
+		
 	}
+
+
+protected void atualizarJTable() {
+
+	DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
+			new String[] { "ID", "Nome", "Email", "Telefone", "CPF" });
+
+	BDLivro bdl = new BDLivro();
+	cadastro = bdl.listarTodos();
+	for (Livro l : cadastro) {
+		modelo.addRow(
+				new Object[] { l.getIdLi(), l.getNomeLi(), l.getGenero(), l.getAutor(), l.getQtde(), l.getPreco() });
+	}
+
+	table.setModel(modelo);
+
 }
+}
+

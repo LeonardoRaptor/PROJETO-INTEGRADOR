@@ -75,7 +75,7 @@ public class JanelaVenda extends JFrame {
 		
 		JLabel lblNewLabel_1 = new JLabel("CPF Cliente:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(70, 51, 121, 14);
+		lblNewLabel_1.setBounds(39, 51, 121, 14);
 		panel_1.add(lblNewLabel_1);
 		
 		textCPFCli = new JTextField();
@@ -85,16 +85,16 @@ public class JanelaVenda extends JFrame {
 		
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(31, 85, 96, 14);
+		lblNewLabel_2.setBounds(39, 81, 96, 21);
 		panel_1.add(lblNewLabel_2);
 		
 		textQuant = new JTextField();
-		textQuant.setBounds(134, 83, 73, 20);
+		textQuant.setBounds(144, 82, 73, 22);
 		panel_1.add(textQuant);
 		textQuant.setColumns(10);
 		
 		JButton btnAdicionarVenda = new JButton("Adicionar");
-		btnAdicionarVenda.setBounds(218, 83, 89, 23);
+		btnAdicionarVenda.setBounds(227, 82, 89, 23);
 		panel_1.add(btnAdicionarVenda);
 		
 		JButton btnRemoverVenda = new JButton("Remover");
