@@ -12,7 +12,7 @@ import modelo.Livro;
 public class BDLivro {
 	Connection conexao;
 	private Statement st;
-	private ArrayList<Livro> lista1 = new ArrayList<>();
+	private ArrayList<Livro> cadastro = new ArrayList<>();
 
 	public Livro getLivroPorId(int idProdu) {
 
@@ -106,7 +106,7 @@ public class BDLivro {
 				l.setNomeLi(rs1.getString("nome"));
 				l.setGenero(rs1.getString("genero"));
 				l.setAutor(rs1.getString("autor"));
-				lista1.add(l);
+				cadastro.add(l);
 			}
 
 			Conexao.desligar();
@@ -117,7 +117,7 @@ public class BDLivro {
 
 		}
 
-		return lista1;
+		return cadastro;
 	}
 
 	public void acessarBd() {

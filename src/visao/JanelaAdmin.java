@@ -272,15 +272,6 @@ public class JanelaAdmin extends JFrame {
 		textSenha.setText("");
 	}
 
-//	protected void setar_campos(){
-//		int setar = table.getSelectedRow();
-//		textNome.setText(table.getModel().getValueAt(setar, 0).toString());
-//		textEmail.setText(table.getModel().getValueAt(setar, 1).toString());
-//		textTelefone.setText(table.getModel().getValueAt(setar, 2).toString());
-//		textCPF.setText(table.getModel().getValueAt(setar, 3).toString());
-//		textSenha.setText(table.getModel().getValueAt(setar, 4).toString());
-//	}
-
 	protected void atualizarJTable() {
 
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
