@@ -25,6 +25,8 @@ import javax.swing.table.DefaultTableModel;
 
 import controle.BDFunc;
 import controle.BDLivro;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class CadastrarLivro extends JFrame {
 
@@ -32,8 +34,10 @@ public class CadastrarLivro extends JFrame {
 	private JTextField textNomeL;
 	private JTextField textQntdL;
 	private JTextField textAutorL;
+	private BDLivro bdli = new BDLivro();
 	private JTextField textPrecoL;
 	private Livro l = new Livro();
+	private int idProdutoSelecionado;
 	private ArrayList<Livro> cadastro;
 	private JTable table;
 	private JTextField textFornecedorL;
@@ -101,7 +105,8 @@ public class CadastrarLivro extends JFrame {
 		textNomeL.setColumns(10);
 
 		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
-		boxGenero.setModel(new DefaultComboBoxModel(new String[] { "Terror", "Ação", "Romance", "Drama", "Fantasia", "Poesia", "Conto", "Mangá", "Aventura" }));
+		boxGenero.setModel(new DefaultComboBoxModel(new String[] { "Terror", "Ação", "Romance", "Drama", "Fantasia",
+				"Poesia", "Conto", "Mangá", "Aventura" }));
 		boxGenero.setBounds(85, 92, 192, 22);
 
 		// List<Genero> listaGeneros =
@@ -125,7 +130,7 @@ public class CadastrarLivro extends JFrame {
 		textPrecoL.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(194, 260, 89, 23);
+		btnCancelar.setBounds(166, 238, 89, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -144,7 +149,8 @@ public class CadastrarLivro extends JFrame {
 				String preco = textPrecoL.getText();
 				String fornecedor = textFornecedorL.getText();
 
-				if (!nome.isEmpty() && !autor.isEmpty() && !qntd.isEmpty() && !preco.isEmpty()) {
+				if (!nome.isEmpty() && !autor.isEmpty() && !qntd.isEmpty() && !preco.isEmpty()
+						&& !fornecedor.isEmpty()) {
 
 					l.setNomeLi(textNomeL.getText());
 					l.setGenero((String) boxGenero.getSelectedItem());
@@ -166,33 +172,97 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(23, 257, 102, 23);
+		btnCadastrar.setBounds(0, 238, 102, 23);
 		contentPane.add(btnCadastrar);
 
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int row = table.getSelectedRow();
+				idProdutoSelecionado = (int) table.getValueAt(row, 0);
+
+				l = cadastro.get(row);
+
+				Livro sos = bdli.getLivroPorId(idProdutoSelecionado);
+				if (sos != null) {
+					recuperarValorTotal();
+				}
+			}
+		});
 		scrollPane.setBounds(299, 89, 415, 183);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {},
-				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço" , "Fornecedor" }));
+				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço", "Fornecedor" }));
 		scrollPane.setViewportView(table);
-		
+
+		atualizarJTable();
+
 		JLabel lblFornecedor = new JLabel("Fornecedor:");
 		lblFornecedor.setBounds(29, 213, 65, 14);
 		contentPane.add(lblFornecedor);
-		
+
 		textFornecedorL = new JTextField();
 		textFornecedorL.setBounds(95, 210, 192, 20);
 		contentPane.add(textFornecedorL);
 		textFornecedorL.setColumns(10);
 
+		JButton btnRemover = new JButton("Excluir");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean sucesso = bdli.removeAq(idProdutoSelecionado);
+				if (sucesso == false) {
+					JOptionPane.showMessageDialog(null, "Produto excluido!");
+					atualizarJTable();
+					limparCampos();
+				}
+
+			}
+		});
+		btnRemover.setBounds(123, 230, 93, 23);
+		contentPane.add(btnRemover);
+
+		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = textNomeL.getText();
+				String genero = (String) boxGenero.getSelectedItem();
+				String autor = textAutorL.getText();
+				String qntd = textQntdL.getText();
+				String preco = textPrecoL.getText();
+				String fornecedor = textFornecedorL.getText();
+
+				if (!nome.isEmpty() && !autor.isEmpty() && !qntd.isEmpty() && !preco.isEmpty()
+						&& !fornecedor.isEmpty()) {
+
+					l.setNomeLi(textNomeL.getText());
+					l.setGenero((String) boxGenero.getSelectedItem());
+					l.setAutor(textAutorL.getText());
+					l.setQtde(Integer.parseInt(textQntdL.getText()));
+					l.setPreco(textPrecoL.getText());
+					l.setFornecedor(textFornecedorL.getText());
+
+					bdli.alterarLivro(l);
+
+				} else {
+					JOptionPane.showMessageDialog(btnAlterar, "Erro ao alterar");
+				}
+
+				atualizarJTable();
+				limparCampos();
+
+			}
+		});
+		btnAlterar.setBounds(176, 272, 99, 23);
+		contentPane.add(btnAlterar);
 	}
 
 	protected void atualizarJTable() {
 
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
-				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço" , "Fornecedor" });
+				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço", "Fornecedor" });
 
 		BDLivro bdl = new BDLivro();
 		cadastro = bdl.listarTodos();
@@ -212,4 +282,13 @@ public class CadastrarLivro extends JFrame {
 		textQntdL.setText("");
 		textFornecedorL.setText("");
 	}
+	protected void recuperarValorTotal() {
+		textNomeL.setText(l.getNomeLi());
+		//boxGenero.setSelectedItem((String)l.getGenero());
+		textAutorL.setText(l.getAutor());
+		textQntdL.setText(String.valueOf(l.getQtde()));
+		textPrecoL.setText(l.getPreco());
+		textFornecedorL.setText(l.getFornecedor());
+	}
 }
+
