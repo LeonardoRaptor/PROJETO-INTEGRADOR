@@ -1,7 +1,8 @@
 package modelo;
 
 public class Cliente {
-	private String nomeCli, telefone, emailCli, cpfCli, idCLi;
+	private String nomeCli, telefone, emailCli, cpfCli;
+	private int idCli;
 
 	public String getNomeCli() {
 		return nomeCli;
@@ -35,12 +36,12 @@ public class Cliente {
 		this.cpfCli = cpfCli;
 	}
 
-	public String getIdCLi() {
-		return idCLi;
+	public int getIdCli() {
+		return idCli;
 	}
 
-	public void setIdCLi(String idCLi) {
-		this.idCLi = idCLi;
+	public void setIdCli(int idCli) {
+		this.idCli = idCli;
 	}
 
 }
