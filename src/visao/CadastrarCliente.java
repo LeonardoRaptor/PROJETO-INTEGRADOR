@@ -95,15 +95,15 @@ public class CadastrarCliente extends JFrame {
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
-		textField_3 = new JTextField();
-		textField_3.setBounds(78, 36, 346, 20);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
-
 		textField_2 = new JTextField();
-		textField_2.setBounds(78, 61, 346, 20);
+		textField_2.setBounds(78, 36, 346, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
+
+		textField_3 = new JTextField();
+		textField_3.setBounds(78, 61, 346, 20);
+		contentPane.add(textField_3);
+		textField_3.setColumns(10);
 
 		textField_4 = new JTextField();
 		textField_4.setBounds(78, 86, 346, 20);
@@ -150,10 +150,46 @@ public class CadastrarCliente extends JFrame {
 		contentPane.add(btnNewButton_1);
 
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				boolean sucesso = bdcl.removeAq(idClienteSelecionado);
+				if (sucesso == false) {
+					JOptionPane.showMessageDialog(null, "Cliente excluido!");
+					atualizarJTable();
+					limparCampos();
+				}
+
+			}
+		});
 		btnRemover.setBounds(232, 307, 93, 23);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String nome = textField_1.getText();
+				String email = textField_3.getText();
+				String telefone = textField_2.getText();
+				String cpf = textField_4.getText();
+
+				if (!nome.isEmpty() && !cpf.isEmpty() && !email.isEmpty() && !telefone.isEmpty()) {
+
+					c.setNomeCli(textField_1.getText());
+					c.setEmailCli(textField_3.getText());
+					c.setTelefone(textField_2.getText());
+					c.setCpfCli(textField_4.getText());
+
+					bdcl.alterarCliente(c);
+
+				} else {
+					JOptionPane.showMessageDialog(btnAlterar, "Erro ao alterar");
+				}
+
+				atualizarJTable();
+				limparCampos();
+
+			}
+		});
 		btnAlterar.setBounds(113, 307, 99, 23);
 		contentPane.add(btnAlterar);
 
