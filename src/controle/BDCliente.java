@@ -94,7 +94,7 @@ public class BDCliente {
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery("select * from funcionarios order by NomeFuncionario");
+			ResultSet rs1 = st.executeQuery("select * from clientes order by NomeClientel");
 
 			while (rs1.next()) {
 				Cliente c = new Cliente();
@@ -102,7 +102,7 @@ public class BDCliente {
 				c.setCpfCli(rs1.getString("cpfCliente"));
 				c.setEmailCli(rs1.getString("emailCliente"));
 				c.setNomeCli(rs1.getString("nomeClientel"));
-				c.setTelefone(rs1.getString("telefoneClietne"));
+				c.setTelefone(rs1.getString("telefoneCliente"));
 				listaCli.add(c);
 			}
 
@@ -158,7 +158,7 @@ public class BDCliente {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
-			sucesso = st.execute("delete from Funcionarios where idFuncionario=" + idCliente);
+			sucesso = st.execute("delete from Clientes where idCliente=" + idCliente);
 			Conexao.desligar();
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
