@@ -1,37 +1,34 @@
 package controle;
 
-//import java.util.ArrayList;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import modelo.Funcionario;
+import modelo.Venda;
 
-//import modelo.Funcionario;
 public class BDVenda {
 	Connection conexao;
 	private Statement st;
-	private ArrayList<Funcionario> lista = new ArrayList<>();
+	private ArrayList<Venda> listaVenda = new ArrayList<>();
 
-	public Funcionario getFuncionarioPorId(int idFun) {
+	public Venda getVendaPorId(int idVenda) {
 
-		Funcionario f = null;
+		Venda v = null;
 		try {
 			Statement st;
 			conexao = Conexao.ligar();
 			st = conexao.createStatement();
-			ResultSet rs = st.executeQuery("select * from funcionarios where idFuncionario = " + idFun);
+			ResultSet rs = st.executeQuery("select * from Venda where idVenda = " + idVenda);
 			while (rs.next()) {
-				f = new Funcionario();
-				f.setId(rs.getInt("idFuncionario"));
-				f.setCpfFunc(rs.getString("cpf"));
-				f.setEmailFunc(rs.getString("emailFunc"));
-				f.setNomeFunc(rs.getString("nomeFuncionario"));
-				f.setSenhaFunc(rs.getString("senhaFunc"));
-				f.setTelefone(rs.getString("telefone"));
+				v = new Venda();
+				v.setIdVenda(rs.getInt("idVenda"));
+				v.setFunId(rs.getInt("Funcionarios_idFuncionario"));
+				v.setCliId(rs.getInt("Clientes_idCLiente"));
+				v.setValor(rs.getDouble("valorVenda"));
+				v.setData(rs.getDate("dataVenda"));
+				v.setFormaPagamento(rs.getString("formaPagamento"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -39,20 +36,20 @@ public class BDVenda {
 
 		}
 
-		return f;
+		return v;
 
 	}
 
-	public void adquirirFunc(Funcionario f) {
+	public void adquirirVenda(Venda v) {
 		try {
-			ResultSet rs = st.executeQuery("select * from funcionarios");
+			ResultSet rs = st.executeQuery("select * from Venda");
 			while (rs.next()) {
-				f.setId(rs.getInt("idFuncionario"));
-				f.setCpfFunc(rs.getString("cpf"));
-				f.setEmailFunc(rs.getString("emailFunc"));
-				f.setNomeFunc(rs.getString("nomeFuncionario"));
-				f.setSenhaFunc(rs.getString("senhaFunc"));
-				f.setTelefone(rs.getString("telefone"));
+				v.setId(rs.getInt("idFuncionario"));
+				v.setCpfFunc(rs.getString("cpf"));
+				v.setEmailFunc(rs.getString("emailFunc"));
+				v.setNomeFunc(rs.getString("nomeFuncionario"));
+				v.setSenhaFunc(rs.getString("senhaFunc"));
+				v.setTelefone(rs.getString("telefone"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -62,9 +59,9 @@ public class BDVenda {
 
 	}
 
-	public int cadastro(Funcionario f) {
+	public int cadastro(Venda v) {
 
-		int idCadastrado = 0;
+		int idCadastradoVenda = 0;
 		try {
 
 			Statement st;
@@ -72,13 +69,13 @@ public class BDVenda {
 			st = conexao.createStatement();
 
 			System.out.println("Conectado � base de dados com sucesso.");
-			idCadastrado = st.executeUpdate(
-					"Insert into funcionarios (NomeFuncionario,EmailFunc, telefone, CPF, SenhaFunc) values " + "('"
-							+ f.getNomeFunc() + "', '" + f.getEmailFunc() + "','" + f.getTelefone() + "', '"
-							+ f.getCpfFunc() + "', " + "'" + f.getSenhaFunc() + "')");
+			idCadastradoVenda = st.executeUpdate(
+					"Insert into Venda (NomeFuncionario,EmailFunc, telefone, CPF, SenhaFunc) values " + "('"
+							+ v.getNomeFunc() + "', '" + v.getEmailFunc() + "','" + v.getTelefone() + "', '"
+							+ v.getCpfFunc() + "', " + "'" + v.getSenhaFunc() + "')");
 
-			if (idCadastrado == 0) {
-				throw new SQLException("Creating user failed, no rows affected.");
+			if (idCadastradoVenda == 0) {
+				throw new SQLException("Creating Venda failed, no rows affected.");
 			}
 
 			Conexao.desligar();
@@ -88,27 +85,27 @@ public class BDVenda {
 			System.out.println("Erro ao conectar � base de dados.");
 		}
 
-		return idCadastrado;
+		return idCadastradoVenda;
 	}
 
-	public ArrayList<Funcionario> listarTodos() {
+	public ArrayList<Venda> listarTodos() {
 
 		try {
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery("select * from funcionarios order by NomeFuncionario");
+			ResultSet rs1 = st.executeQuery("select * from Venda order by idVenda");
 
 			while (rs1.next()) {
-				Funcionario f = new Funcionario();
-				f.setId(rs1.getInt("idFuncionario"));
-				f.setCpfFunc(rs1.getString("cpf"));
-				f.setEmailFunc(rs1.getString("emailFunc"));
-				f.setNomeFunc(rs1.getString("nomeFuncionario"));
-				f.setSenhaFunc(rs1.getString("senhaFunc"));
-				f.setTelefone(rs1.getString("telefone"));
-				lista.add(f);
+				Venda v = new Venda();
+				v.setIdVenda(rs1.getInt("idVenda"));
+				v.setCpfFunc(rs1.getString("cpf"));
+				v.setEmailFunc(rs1.getString("emailFunc"));
+				v.setNomeFunc(rs1.getString("nomeFuncionario"));
+				v.setSenhaFunc(rs1.getString("senhaFunc"));
+				v.setTelefone(rs1.getString("telefone"));
+				listaVenda.add(v);
 			}
 
 			Conexao.desligar();
@@ -119,39 +116,7 @@ public class BDVenda {
 
 		}
 
-		return lista;
-	}
-
-	public Funcionario logarConta(String login, String senha) {
-
-		Funcionario funcionario = null;
-		try {
-			conexao = Conexao.ligar();
-			System.out.println("Conectado � base de dados com sucesso.");
-
-			st = conexao.createStatement();
-			ResultSet rs1 = st.executeQuery(
-					"select * from funcionarios where senhaFunc='" + senha + "' and nomeFuncionario='" + login + "'");
-
-			while (rs1.next()) {
-				funcionario = new Funcionario();
-				funcionario.setId(rs1.getInt("idFuncionario"));
-				funcionario.setCpfFunc(rs1.getString("cpf"));
-				funcionario.setEmailFunc(rs1.getString("emailFunc"));
-				funcionario.setNomeFunc(rs1.getString("nomeFuncionario"));
-				funcionario.setSenhaFunc(rs1.getString("senhaFunc"));
-				funcionario.setTelefone(rs1.getString("telefone"));
-			}
-
-			Conexao.desligar();
-
-		} catch (SQLException a) {
-			System.out.println(a.getMessage());
-			System.out.println("Erro ao conectar � base de dados.");
-
-		}
-
-		return funcionario;
+		return listaVenda;
 	}
 
 	public void acessarBd() {
@@ -170,16 +135,16 @@ public class BDVenda {
 		}
 	}
 
-	public boolean alterarFuncionario(Funcionario f) {
+	public boolean alterarVenda(Venda v) {
 		boolean sucesso = true;
 		try {
 
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
-			sucesso = st.execute("update funcionarios set nomeFuncionario= '" + f.getNomeFunc() + "', emailFunc='"
-					+ f.getEmailFunc() + "', cpf='" + f.getCpfFunc() + "', senhaFunc='" + f.getSenhaFunc()
-					+ "', telefone='" + f.getTelefone() + "' where idFuncionario=" + f.getId());
+			sucesso = st.execute("update Venda set nomeFuncionario= '" + v.getNomeFunc() + "', emailFunc='"
+					+ v.getEmailFunc() + "', cpf='" + v.getCpfFunc() + "', senhaFunc='" + v.getSenhaFunc()
+					+ "', telefone='" + v.getTelefone() + "' where idVenda=" + v.getIdVenda());
 			Conexao.desligar();
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -188,14 +153,14 @@ public class BDVenda {
 		return sucesso;
 	}
 
-	public boolean removeAq(int idFuncionario) {
+	public boolean removeAq(int idVenda) {
 		boolean sucesso = true;
 		try {
 
 			conexao = Conexao.ligar();
 			System.out.println("Conectado � base de dados com sucesso.");
 			st = conexao.createStatement();
-			sucesso = st.execute("delete from Funcionarios where idFuncionario=" + idFuncionario);
+			sucesso = st.execute("delete from Venda where idVenda=" + idVenda);
 			Conexao.desligar();
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
