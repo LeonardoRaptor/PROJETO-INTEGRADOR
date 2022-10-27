@@ -37,7 +37,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Clientes`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Clientes` (
-  `idCliente` INT NOT NULL,
+  `idCliente` INT NOT NULL auto_increment,
   `NomeClientel` VARCHAR(35) NOT NULL,
   `CPFCliente` VARCHAR(14) NOT NULL,
   `TelefoneCliente` VARCHAR(22) NOT NULL,
@@ -51,7 +51,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Venda`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Venda` (
-  `idVenda` INT NOT NULL,
+  `idVenda` INT NOT NULL auto_increment,
   `QuantidadeVenda` INT NOT NULL,
   `ValorVenda` DOUBLE NOT NULL,
   `FormaPagamento` VARCHAR(20) NOT NULL,
@@ -79,7 +79,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Fornecedor`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Fornecedor` (
-  `idFornecedor` INT NOT NULL,
+  `idFornecedor` INT NOT NULL auto_increment,
   `NomeFornecedor` VARCHAR(30) NOT NULL,
   `TelefoneFornecedor` VARCHAR(17) NOT NULL,
   `EmailFornecedor` VARCHAR(45) NOT NULL,
@@ -92,7 +92,7 @@ ENGINE = InnoDB;
 -- Table `mydb`.`Produtos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`Produtos` (
-  `idProdutos` INT NOT NULL,
+  `idProdutos` INT NOT NULL auto_increment,
   `PreçoProduto` DOUBLE NOT NULL,
   `Nome` VARCHAR(30) NOT NULL,
   `qt_estoque` INT NOT NULL,
