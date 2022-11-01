@@ -109,6 +109,12 @@ public class Menu extends JFrame {
 		contentPane.add(btnRegistrarLivro);
 		
 		JButton btnRegistrarVenda = new JButton("<html>REGISTRAR<br /><center>VENDAS</center></html>");
+		btnRegistrarVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JanelaVenda venda = new JanelaVenda();
+				venda.setVisible(true);
+			}
+		});
 		btnRegistrarVenda.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnRegistrarVenda.setBounds(564, 225, 171, 79);
 		contentPane.add(btnRegistrarVenda);
