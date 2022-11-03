@@ -171,6 +171,8 @@ public class JanelaVenda extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SelecionarLivro sl = new SelecionarLivro();
+				Livro l = new Livro();
+				// l
 				sl.setVisible(true);
 			}
 		});

@@ -55,7 +55,6 @@ public class SelecionarLivro extends JFrame {
 	 */
 	public SelecionarLivro() {
 
-		
 		setTitle("Cadastro de Livros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,13 +70,12 @@ public class SelecionarLivro extends JFrame {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
-
 			}
 		});
 		contentPane.add(btnCancelar);
 
 		JScrollPane scrollPane = new JScrollPane();
-		
+
 		scrollPane.setBounds(10, 11, 758, 183);
 		contentPane.add(scrollPane);
 
@@ -90,8 +88,10 @@ public class SelecionarLivro extends JFrame {
 
 				l = cadastroLibro.get(row);
 
-				Livro sos = bdli.getLivroPorId(idProdutoSelecionado);
+				Livro s = bdli.getLivroPorId(idProdutoSelecionado);
 				
+				setVisible(false);
+
 			}
 		});
 		table.setModel(new DefaultTableModel(new Object[][] {},

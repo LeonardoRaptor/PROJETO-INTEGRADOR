@@ -1,10 +1,14 @@
 package visao;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import modelo.Livro;
+
 import java.awt.FlowLayout;
 import javax.swing.JButton;
 import java.awt.GridLayout;
@@ -19,6 +23,7 @@ import javax.swing.ImageIcon;
 import java.sql.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
 public class JanelaPrincipal extends JFrame {
 
 	private JPanel contentPane;
@@ -50,21 +55,21 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setBackground(new Color(102, 205, 170));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if(e.getKeyChar()=='a') {
+				if (e.getKeyChar() == 'a') {
 					JanelaAdmin ja = new JanelaAdmin();
 					ja.setVisible(true);
 				}
 			}
-		
+
 			public void keyPressed(KeyEvent e) {
 			}
 		});
-		
+
 		btnLogin.setBounds(281, 189, 160, 63);
 		btnLogin.setForeground(new Color(0, 0, 0));
 		btnLogin.addActionListener(new ActionListener() {
@@ -77,7 +82,7 @@ public class JanelaPrincipal extends JFrame {
 		btnLogin.setBackground(new Color(0, 204, 255));
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		contentPane.add(btnLogin);
-		
+
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setBounds(507, 189, 160, 63);
 		btnCadastrar.setBackground(new Color(0, 204, 255));
@@ -89,7 +94,7 @@ public class JanelaPrincipal extends JFrame {
 		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 23));
 		contentPane.add(btnCadastrar);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\1.png"));
 		lblNewLabel.setBounds(0, 0, 891, 462);
