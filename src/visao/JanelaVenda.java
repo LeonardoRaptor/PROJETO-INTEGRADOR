@@ -1,40 +1,45 @@
 package visao;
 
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import java.awt.Color;
-import javax.swing.JLabel;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.awt.event.ActionEvent;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controle.BDLivro;
 import controle.BDVenda;
 import modelo.Livro;
 import modelo.Venda;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
 
 public class JanelaVenda extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3138548207155785040L;
 	private JPanel contentPane;
-	private JTextField textCodLivro;
-	private JTextField textCPFCli;
 	private JTextField textQuant;
 	private JTextField textField;
 	private JTable table;
 	private BDVenda bdv = new BDVenda();
 	private Venda v = new Venda();
-	private ArrayList<Venda> vendaPro;
+	private ArrayList<Livro> livros;
+	private int quantidade;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -56,9 +61,11 @@ public class JanelaVenda extends JFrame {
 	 * Create the frame.
 	 */
 	public JanelaVenda() {
+		livros = new ArrayList<>();
+
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 673, 522);
+		setBounds(100, 100, 673, 579);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,29 +85,19 @@ public class JanelaVenda extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(64, 224, 208));
-		panel_1.setBounds(32, 57, 586, 371);
+		panel_1.setBounds(32, 57, 586, 438);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Código do Livro:");
+		JLabel lblNewLabel = new JLabel("Livro:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(49, 12, 119, 19);
+		lblNewLabel.setBounds(10, 12, 65, 19);
 		panel_1.add(lblNewLabel);
 
-		textCodLivro = new JTextField();
-		textCodLivro.setBounds(186, 11, 390, 24);
-		panel_1.add(textCodLivro);
-		textCodLivro.setColumns(10);
-
-		JLabel lblNewLabel_1 = new JLabel("CPF Cliente:");
+		JLabel lblNewLabel_1 = new JLabel("Cliente:");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1.setBounds(78, 51, 121, 14);
+		lblNewLabel_1.setBounds(10, 42, 65, 14);
 		panel_1.add(lblNewLabel_1);
-
-		textCPFCli = new JTextField();
-		textCPFCli.setBounds(186, 48, 390, 24);
-		panel_1.add(textCPFCli);
-		textCPFCli.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -115,8 +112,15 @@ public class JanelaVenda extends JFrame {
 		JButton btnAdicionarVenda = new JButton("Adicionar");
 		btnAdicionarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int idLivro = Integer.parseInt(textCodLivro.getText());
-				int quantidade = Integer.parseInt(textQuant.getText());
+				// int idLivro = Integer.parseInt(textCodLivro.getText());
+				quantidade = Integer.parseInt(textQuant.getText());
+
+				Livro l = new Livro();
+				l.setQtde(quantidade);
+
+				livros.add(l);
+
+				atualizarJTable();
 
 			}
 		});
@@ -129,22 +133,22 @@ public class JanelaVenda extends JFrame {
 
 		JLabel lblSumario = new JLabel("Sumário:");
 		lblSumario.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSumario.setBounds(103, 151, 65, 21);
+		lblSumario.setBounds(103, 116, 65, 21);
 		panel_1.add(lblSumario);
 
 		JLabel lblValorTotal = new JLabel("Valor total:");
 		lblValorTotal.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblValorTotal.setBounds(88, 338, 96, 21);
+		lblValorTotal.setBounds(396, 298, 96, 21);
 		panel_1.add(lblValorTotal);
 
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(186, 340, 390, 20);
+		textField.setBounds(487, 300, 89, 20);
 		panel_1.add(textField);
 		textField.setColumns(10);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(186, 149, 390, 178);
+		scrollPane.setBounds(186, 114, 390, 178);
 		panel_1.add(scrollPane);
 
 		table = new JTable();
@@ -154,14 +158,55 @@ public class JanelaVenda extends JFrame {
 
 		JLabel lblNewLabel_2_1_1 = new JLabel("Forma de Pagamento:");
 		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2_1_1.setBounds(10, 117, 158, 21);
+		lblNewLabel_2_1_1.setBounds(10, 336, 158, 21);
 		panel_1.add(lblNewLabel_2_1_1);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(
 				new String[] { "Cartão de Crédito", "Cartão de Débito", "Dinheiro (Papel)", "" }));
-		comboBox.setBounds(186, 116, 390, 22);
+		comboBox.setBounds(186, 335, 390, 22);
 		panel_1.add(comboBox);
+
+		JButton btnNewButton = new JButton("Selecionar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelecionarLivro sl = new SelecionarLivro();
+				sl.setVisible(true);
+			}
+		});
+		btnNewButton.setBounds(78, 12, 89, 23);
+		panel_1.add(btnNewButton);
+
+		JButton btnNewButton_1 = new JButton("Selecionar");
+		btnNewButton_1.setBounds(78, 40, 89, 23);
+		panel_1.add(btnNewButton_1);
+
+		textField_1 = new JTextField();
+		textField_1.setEditable(false);
+		textField_1.setBounds(177, 13, 86, 20);
+		panel_1.add(textField_1);
+		textField_1.setColumns(10);
+
+		textField_2 = new JTextField();
+		textField_2.setEditable(false);
+		textField_2.setBounds(177, 41, 86, 20);
+		panel_1.add(textField_2);
+		textField_2.setColumns(10);
+
+		JLabel lblNewLabel_1_1 = new JLabel("Funcionário:");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1_1.setBounds(285, 14, 96, 14);
+		panel_1.add(lblNewLabel_1_1);
+
+		JButton btnNewButton_1_1 = new JButton("Selecionar");
+		btnNewButton_1_1.setBounds(391, 12, 89, 23);
+		panel_1.add(btnNewButton_1_1);
+
+		textField_3 = new JTextField();
+		textField_3.setEditable(false);
+		textField_3.setColumns(10);
+		textField_3.setBounds(490, 13, 86, 20);
+		panel_1.add(textField_3);
 
 		JButton btnVoltar = new JButton("Cancelar Venda");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -169,7 +214,7 @@ public class JanelaVenda extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnVoltar.setBounds(10, 449, 133, 23);
+		btnVoltar.setBounds(10, 506, 133, 23);
 		contentPane.add(btnVoltar);
 
 		JButton btnRealizarVenda = new JButton("Realizar venda");
@@ -178,7 +223,7 @@ public class JanelaVenda extends JFrame {
 				bdv.cadastro(v);
 			}
 		});
-		btnRealizarVenda.setBounds(524, 449, 123, 23);
+		btnRealizarVenda.setBounds(524, 506, 123, 23);
 		contentPane.add(btnRealizarVenda);
 
 	}
@@ -188,11 +233,13 @@ public class JanelaVenda extends JFrame {
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
 				new String[] { "Nome", "QTD", "Código", "Preço" });
 
-		vendaPro = bdv.listarTodos();
-		for (Venda v : vendaPro) {
-			modelo.addRow(new Object[] { v.getIdVenda(), v.getQtdeVenda(), v.getProduto(), v.getFunId(), v.getValor(),
-					v.getCliId(), v.getData(), v.getFormaPagamento() });
-		}
+		// BDLivro bdl = new BDLivro();
+		// livros = bdl.listarTodos();
+		// for (Livro v : livros) {
+		// modelo.addRow(new Object[] { v.getNomeLi(), quantidade, v.getIdLi(),
+		// Integer.parseInt(v.getPreco())*quantidade
+		// });
+		// }
 
 		table.setModel(modelo);
 
