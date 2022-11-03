@@ -29,6 +29,7 @@ public class BDLivro {
 				l.setNomeLi(rs.getString("nome"));
 				l.setGenero(rs.getString("genero"));
 				l.setAutor(rs.getString("autor"));
+				l.setFornecedor(rs.getInt("Fornecedor_idFornecedor"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -50,6 +51,7 @@ public class BDLivro {
 				l.setNomeLi(rs.getString("nome"));
 				l.setGenero(rs.getString("genero"));
 				l.setAutor(rs.getString("autor"));
+				l.setFornecedor(rs.getInt("Fornecedor_idFornecedor"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -105,6 +107,7 @@ public class BDLivro {
 				l.setNomeLi(rs1.getString("nome"));
 				l.setGenero(rs1.getString("genero"));
 				l.setAutor(rs1.getString("autor"));
+				l.setFornecedor(rs1.getInt("Fornecedor_idFornecedor"));
 				cadastro.add(l);
 			}
 
@@ -144,7 +147,7 @@ public class BDLivro {
 			st = conexao.createStatement();
 			sucesso = st.execute("update produtos set nome = '" + l.getNomeLi() + "', PreçoProduto='"
 					+ l.getPreco() + "', autor='" + l.getAutor() + "', genero='" + l.getGenero()
-					+ "', qt_estoque='" + l.getQtde() + "' where idProdutos=" + l.getIdLi());
+					+ "', qt_estoque='" + l.getQtde() + "', Fornecedor_idFornecedor='"+ l.getFornecedor() +"' where idProdutos=" + l.getIdLi());
 			Conexao.desligar();
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());

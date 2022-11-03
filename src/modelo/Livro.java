@@ -6,7 +6,7 @@ public class Livro {
 	private int qtde, idLi;
 	private String preco;
 	private String nomeLi, genero, autor;
-	private String fornecedor;
+	private int fornecedor;
 
 	public int getQtde() {
 		return qtde;
@@ -56,11 +56,11 @@ public class Livro {
 		this.autor = autor;
 	}
 
-	public String getFornecedor() {
+	public int getFornecedor() {
 		return fornecedor;
 	}
 
-	public void setFornecedor(String fornecedor) {
+	public void setFornecedor(int fornecedor) {
 		this.fornecedor = fornecedor;
 	}
 

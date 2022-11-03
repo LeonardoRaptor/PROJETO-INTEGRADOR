@@ -36,7 +36,7 @@ public class CadastrarLivro extends JFrame {
 	private JTextField textPrecoL;
 	private Livro l = new Livro();
 	private int idProdutoSelecionado;
-	private ArrayList<Livro> cadastro;
+	private ArrayList<Livro> cadastroLibro;
 	private JTable table;
 	private JTextField textFornecedorL;
 
@@ -61,7 +61,7 @@ public class CadastrarLivro extends JFrame {
 	 */
 	public CadastrarLivro() {
 
-		Livro x = new Livro();
+		
 		setTitle("Cadastro de Livros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -155,7 +155,7 @@ public class CadastrarLivro extends JFrame {
 					l.setAutor(textAutorL.getText());
 					l.setQtde(Integer.parseInt(textQntdL.getText()));
 					l.setPreco(textPrecoL.getText());
-					l.setFornecedor(textFornecedorL.getText());
+					l.setFornecedor(Integer.parseInt(textFornecedorL.getText()));
 
 					BDLivro bdli = new BDLivro();
 					int idCadastradoL = bdli.cadastroLi(l);
@@ -180,13 +180,13 @@ public class CadastrarLivro extends JFrame {
 				int row = table.getSelectedRow();
 				idProdutoSelecionado = (int) table.getValueAt(row, 0);
 
-				l = cadastro.get(row);
+				l = cadastroLibro.get(row);
 
 				Livro sos = bdli.getLivroPorId(idProdutoSelecionado);
 				if (sos != null) {
 					recuperarValorTotal();
 				}
-				atualizarJTable();
+				
 			}
 		});
 		scrollPane.setBounds(299, 89, 415, 183);
@@ -241,7 +241,7 @@ public class CadastrarLivro extends JFrame {
 					l.setAutor(textAutorL.getText());
 					l.setQtde(Integer.parseInt(textQntdL.getText()));
 					l.setPreco(textPrecoL.getText());
-					l.setFornecedor(textFornecedorL.getText());
+					l.setFornecedor(Integer.parseInt(textFornecedorL.getText()));
 
 					bdli.alterarLivro(l);
 
@@ -264,8 +264,8 @@ public class CadastrarLivro extends JFrame {
 				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço", "Fornecedor" });
 
 		BDLivro bdl = new BDLivro();
-		cadastro = bdl.listarTodos();
-		for (Livro l : cadastro) {
+		cadastroLibro = bdl.listarTodos();
+		for (Livro l : cadastroLibro) {
 			modelo.addRow(new Object[] { l.getIdLi(), l.getNomeLi(), l.getGenero(), l.getAutor(), l.getQtde(),
 					l.getPreco(), l.getFornecedor() });
 		}
@@ -284,10 +284,10 @@ public class CadastrarLivro extends JFrame {
 
 	protected void recuperarValorTotal() {
 		textNomeL.setText(l.getNomeLi());
-		// boxGenero.setSelectedItem((String)l.getGenero());
+		//boxGenero.setSelectedItem((String)l.getGenero());
 		textAutorL.setText(l.getAutor());
 		textQntdL.setText(String.valueOf(l.getQtde()));
 		textPrecoL.setText(l.getPreco());
-		textFornecedorL.setText(l.getFornecedor());
+		textFornecedorL.setText(String.valueOf(l.getFornecedor()));
 	}
 }
