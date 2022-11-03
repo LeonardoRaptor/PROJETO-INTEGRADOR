@@ -64,8 +64,4 @@ public class Livro {
 		this.fornecedor = fornecedor;
 	}
 
-	public void setQuantidade(int quantidade) {
-		// TODO Auto-generated method stub
-
-	}
 }

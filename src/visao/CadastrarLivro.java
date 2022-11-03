@@ -186,6 +186,7 @@ public class CadastrarLivro extends JFrame {
 				if (sos != null) {
 					recuperarValorTotal();
 				}
+				atualizarJTable();
 			}
 		});
 		scrollPane.setBounds(299, 89, 415, 183);

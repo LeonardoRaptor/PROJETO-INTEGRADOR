@@ -56,6 +56,7 @@ public class JanelaVenda extends JFrame {
 	 * Create the frame.
 	 */
 	public JanelaVenda() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 673, 522);
 		contentPane = new JPanel();
@@ -67,7 +68,7 @@ public class JanelaVenda extends JFrame {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 0, 128));
-		panel.setBounds(-13, 0, 670, 47);
+		panel.setBounds(0, 0, 657, 47);
 		contentPane.add(panel);
 
 		JLabel lblVenda = new JLabel("VENDA");

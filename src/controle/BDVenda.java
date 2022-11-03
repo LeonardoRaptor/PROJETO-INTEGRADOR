@@ -138,28 +138,6 @@ public class BDVenda {
 		}
 	}
 
-	// public boolean alterarVenda(Venda v) {
-	// boolean sucesso = true;
-	// try {
-
-	// conexao = Conexao.ligar();
-	// System.out.println("Conectado � base de dados com sucesso.");
-	// st = conexao.createStatement();
-	// sucesso = st.execute("update Venda set Clientes_idCliente= '" + v.getCliId()
-	// + "', FormaPagamento='"
-	// + v.getFormaPagamento() + "', Funcionarios_idFuncionario='" + v.getFunId() +
-	// "', QuantidadeVenda='"
-	// + v.getQtdeVenda() + "', ValorVenda='" + v.getValor() + "', DataVenda='" +
-	// v.getData()
-	// + "' where idVenda=" + v.getIdVenda());
-	// Conexao.desligar();
-	// } catch (SQLException a) {
-	// System.out.println(a.getMessage());
-	// }
-
-	// return sucesso;
-	// }
-
 	public boolean removeAq(int idVenda) {
 		boolean sucesso = true;
 		try {
