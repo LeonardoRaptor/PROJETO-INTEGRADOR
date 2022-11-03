@@ -174,7 +174,12 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.addMouseListener(new MouseAdapter() {
+		
+		scrollPane.setBounds(299, 89, 415, 183);
+		contentPane.add(scrollPane);
+
+		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int row = table.getSelectedRow();
@@ -185,14 +190,11 @@ public class CadastrarLivro extends JFrame {
 				Livro sos = bdli.getLivroPorId(idProdutoSelecionado);
 				if (sos != null) {
 					recuperarValorTotal();
+					
 				}
 				
 			}
 		});
-		scrollPane.setBounds(299, 89, 415, 183);
-		contentPane.add(scrollPane);
-
-		table = new JTable();
 		table.setModel(new DefaultTableModel(new Object[][] {},
 				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço", "Fornecedor" }));
 		scrollPane.setViewportView(table);
