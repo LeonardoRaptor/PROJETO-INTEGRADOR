@@ -114,7 +114,8 @@ public class JanelaVenda extends JFrame {
 		JButton btnAdicionarVenda = new JButton("Adicionar");
 		btnAdicionarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				int idLivro = Integer.parseInt(textCodLivro.getText());
+				int quantidade = Integer.parseInt(textQuant.getText());
 
 			}
 		});
