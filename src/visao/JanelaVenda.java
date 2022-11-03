@@ -135,6 +135,7 @@ public class JanelaVenda extends JFrame {
 		panel_1.add(lblValorTotal);
 
 		textField = new JTextField();
+		textField.setEditable(false);
 		textField.setBounds(186, 340, 390, 20);
 		panel_1.add(textField);
 		textField.setColumns(10);
