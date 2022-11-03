@@ -83,8 +83,8 @@ public class JanelaPrincipal extends JFrame {
 		btnCadastrar.setBackground(new Color(0, 204, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JanelaCadastrarAcesso j1 = new JanelaCadastrarAcesso();
-				j1.setVisible(true);
+				JanelaAdmin ja = new JanelaAdmin();
+				ja.setVisible(true);
 			}
 		});
 		btnCadastrar.setFont(new Font("Tahoma", Font.PLAIN, 23));
