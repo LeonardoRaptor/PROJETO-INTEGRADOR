@@ -128,7 +128,7 @@ public class CadastrarLivro extends JFrame {
 		textPrecoL.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(166, 238, 89, 23);
+		btnCancelar.setBounds(176, 238, 101, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -170,7 +170,7 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(0, 238, 102, 23);
+		btnCadastrar.setBounds(20, 238, 102, 23);
 		contentPane.add(btnCadastrar);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -222,7 +222,7 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(29, 272, 93, 23);
+		btnRemover.setBounds(20, 272, 102, 23);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -256,7 +256,7 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(176, 272, 99, 23);
+		btnAlterar.setBounds(176, 272, 101, 23);
 		contentPane.add(btnAlterar);
 	}
 
