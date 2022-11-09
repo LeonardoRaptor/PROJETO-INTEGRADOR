@@ -37,23 +37,8 @@ public class SelecionarLivro extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SelecionarLivro frame = new SelecionarLivro();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public SelecionarLivro() {
+	
+	public SelecionarLivro(JanelaVenda jv) {
 
 		setTitle("Cadastro de Livros");
 		setResizable(false);
@@ -89,6 +74,8 @@ public class SelecionarLivro extends JFrame {
 				l = cadastroLibro.get(row);
 
 				Livro s = bdli.getLivroPorId(idProdutoSelecionado);
+				
+				jv.setLivro(s);
 				
 				setVisible(false);
 

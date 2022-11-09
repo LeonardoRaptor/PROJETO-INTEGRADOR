@@ -168,9 +168,10 @@ public class JanelaVenda extends JFrame {
 		panel_1.add(comboBox);
 
 		JButton btnNewButton = new JButton("Selecionar");
+		JanelaVenda estajanela =this;
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SelecionarLivro sl = new SelecionarLivro();
+				SelecionarLivro sl = new SelecionarLivro(estajanela);
 				Livro l = new Livro();
 				// l
 				sl.setVisible(true);
@@ -245,5 +246,10 @@ public class JanelaVenda extends JFrame {
 
 		table.setModel(modelo);
 
+	}
+
+	public void setLivro(Livro s) {
+		textField_1.setText(String.valueOf(s.getIdLi()));
+		
 	}
 }

@@ -105,7 +105,7 @@ public class CadastrarLivro extends JFrame {
 		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
 		boxGenero.setModel(new DefaultComboBoxModel(new String[] { "Terror", "Ação", "Romance", "Drama", "Fantasia",
 				"Poesia", "Conto", "Mangá", "Aventura" }));
-		boxGenero.setBounds(85, 92, 192, 22);
+		boxGenero.setBounds(95, 92, 192, 22);
 
 		// List<Genero> listaGeneros =
 		// for
@@ -175,7 +175,7 @@ public class CadastrarLivro extends JFrame {
 
 		JScrollPane scrollPane = new JScrollPane();
 		
-		scrollPane.setBounds(299, 89, 415, 183);
+		scrollPane.setBounds(299, 52, 415, 220);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -202,7 +202,7 @@ public class CadastrarLivro extends JFrame {
 		atualizarJTable();
 
 		JLabel lblFornecedor = new JLabel("Fornecedor:");
-		lblFornecedor.setBounds(29, 213, 65, 14);
+		lblFornecedor.setBounds(10, 213, 65, 14);
 		contentPane.add(lblFornecedor);
 
 		textFornecedorL = new JTextField();
