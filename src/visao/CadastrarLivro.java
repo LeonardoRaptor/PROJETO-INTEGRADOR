@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import modelo.Fornecedor;
 import modelo.Genero;
 import modelo.Livro;
 import javax.swing.DefaultComboBoxModel;
@@ -39,6 +40,7 @@ public class CadastrarLivro extends JFrame {
 	private ArrayList<Livro> cadastroLibro;
 	private JTable table;
 	private JTextField textFornecedorL;
+	private JTextField txtNome;
 
 	/**
 	 * Launch the application.
@@ -74,38 +76,38 @@ public class CadastrarLivro extends JFrame {
 
 		JLabel lblNewLabel_1 = new JLabel("Quantidade:");
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(0, 153, 75, 14);
+		lblNewLabel_1.setBounds(0, 121, 75, 14);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Nome:");
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(0, 55, 75, 14);
+		lblNewLabel_2.setBounds(0, 33, 75, 14);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Gênero:");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(0, 96, 75, 14);
+		lblNewLabel_3.setBounds(0, 69, 75, 14);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Autor:");
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_4.setBounds(29, 128, 46, 14);
+		lblNewLabel_4.setBounds(29, 94, 46, 14);
 		contentPane.add(lblNewLabel_4);
 
 		JLabel lblNewLabel_5 = new JLabel("Preço:");
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_5.setBounds(29, 178, 46, 14);
+		lblNewLabel_5.setBounds(29, 153, 46, 14);
 		contentPane.add(lblNewLabel_5);
 
 		textNomeL = new JTextField();
-		textNomeL.setBounds(95, 52, 192, 20);
+		textNomeL.setBounds(95, 30, 192, 20);
 		contentPane.add(textNomeL);
 		textNomeL.setColumns(10);
 
 		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
 		boxGenero.setModel(new DefaultComboBoxModel(new String[] { "Terror", "Ação", "Romance", "Drama", "Fantasia",
 				"Poesia", "Conto", "Mangá", "Aventura" }));
-		boxGenero.setBounds(95, 92, 192, 22);
+		boxGenero.setBounds(95, 61, 192, 22);
 
 		// List<Genero> listaGeneros =
 		// for
@@ -113,17 +115,17 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(boxGenero);
 
 		textQntdL = new JTextField();
-		textQntdL.setBounds(95, 150, 192, 20);
+		textQntdL.setBounds(95, 118, 192, 20);
 		contentPane.add(textQntdL);
 		textQntdL.setColumns(10);
 
 		textAutorL = new JTextField();
-		textAutorL.setBounds(95, 125, 192, 20);
+		textAutorL.setBounds(95, 87, 192, 20);
 		contentPane.add(textAutorL);
 		textAutorL.setColumns(10);
 
 		textPrecoL = new JTextField();
-		textPrecoL.setBounds(95, 175, 192, 20);
+		textPrecoL.setBounds(95, 150, 192, 20);
 		contentPane.add(textPrecoL);
 		textPrecoL.setColumns(10);
 
@@ -175,7 +177,7 @@ public class CadastrarLivro extends JFrame {
 
 		JScrollPane scrollPane = new JScrollPane();
 		
-		scrollPane.setBounds(299, 52, 415, 220);
+		scrollPane.setBounds(353, 48, 415, 220);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -202,11 +204,11 @@ public class CadastrarLivro extends JFrame {
 		atualizarJTable();
 
 		JLabel lblFornecedor = new JLabel("Fornecedor:");
-		lblFornecedor.setBounds(10, 213, 65, 14);
+		lblFornecedor.setBounds(10, 185, 89, 14);
 		contentPane.add(lblFornecedor);
 
 		textFornecedorL = new JTextField();
-		textFornecedorL.setBounds(95, 210, 192, 20);
+		textFornecedorL.setBounds(231, 182, 112, 20);
 		contentPane.add(textFornecedorL);
 		textFornecedorL.setColumns(10);
 
@@ -258,6 +260,30 @@ public class CadastrarLivro extends JFrame {
 		});
 		btnAlterar.setBounds(176, 272, 101, 23);
 		contentPane.add(btnAlterar);
+		
+		JButton btnSelecionar = new JButton("Selecionar");
+		CadastrarLivro estajanelaf =this;
+		btnSelecionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					SelecionarFornecedor slf = new SelecionarFornecedor(estajanelaf);
+					slf.setVisible(true);
+			}
+		});
+		btnSelecionar.setBounds(90, 181, 89, 23);
+		contentPane.add(btnSelecionar);
+		
+		JLabel lblId = new JLabel("ID:");
+		lblId.setBounds(189, 185, 89, 14);
+		contentPane.add(lblId);
+		
+		JLabel lblNome = new JLabel("Nome:");
+		lblNome.setBounds(188, 213, 89, 14);
+		contentPane.add(lblNome);
+		
+		txtNome = new JTextField();
+		txtNome.setColumns(10);
+		txtNome.setBounds(231, 213, 112, 20);
+		contentPane.add(txtNome);
 	}
 
 	protected void atualizarJTable() {
@@ -291,5 +317,11 @@ public class CadastrarLivro extends JFrame {
 		textQntdL.setText(String.valueOf(l.getQtde()));
 		textPrecoL.setText(l.getPreco());
 		textFornecedorL.setText(String.valueOf(l.getFornecedor()));
+	}
+
+	public void setFornecedor(Fornecedor sc) {
+		textFornecedorL.setText(String.valueOf(sc.getIdFor()));
+		txtNome.setText(String.valueOf(sc.getNomeFor()));
+		
 	}
 }

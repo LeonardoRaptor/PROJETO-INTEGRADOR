@@ -220,7 +220,7 @@ public class JanelaFornecedor extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 
-		JLabel lblJanelaCadastrar = new JLabel("CADASTRAR FUNCIONÁRIO");
+		JLabel lblJanelaCadastrar = new JLabel("CADASTRAR FORNECEDOR");
 		lblJanelaCadastrar.setBounds(141, 5, 420, 37);
 		panel.add(lblJanelaCadastrar);
 		lblJanelaCadastrar.setForeground(new Color(245, 255, 250));
