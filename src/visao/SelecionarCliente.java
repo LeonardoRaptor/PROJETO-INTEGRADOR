@@ -91,7 +91,7 @@ public class SelecionarCliente extends JFrame {
 	protected void atualizarJTable() {
 
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
-				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço", "Fornecedor" });
+				new String[] { "ID", "Nome", "Email", "Telefone", "CPF"});
 
 		BDCliente bdl = new BDCliente();
 		cadastroCliente = bdl.listarTodos();
