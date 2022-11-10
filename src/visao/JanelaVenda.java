@@ -40,6 +40,9 @@ public class JanelaVenda extends JFrame {
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
+	private JTextField textNomeLi;
+	private JTextField textNomeCli;
+	private JTextField textNomeFun;
 
 	/**
 	 * Launch the application.
@@ -65,7 +68,7 @@ public class JanelaVenda extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 673, 579);
+		setBounds(100, 100, 673, 700);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -85,7 +88,7 @@ public class JanelaVenda extends JFrame {
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(64, 224, 208));
-		panel_1.setBounds(32, 57, 586, 438);
+		panel_1.setBounds(33, 58, 586, 558);
 		contentPane.add(panel_1);
 		panel_1.setLayout(null);
 
@@ -101,11 +104,11 @@ public class JanelaVenda extends JFrame {
 
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2.setBounds(78, 82, 96, 21);
+		lblNewLabel_2.setBounds(78, 272, 96, 21);
 		panel_1.add(lblNewLabel_2);
 
 		textQuant = new JTextField();
-		textQuant.setBounds(186, 83, 172, 22);
+		textQuant.setBounds(186, 273, 172, 22);
 		panel_1.add(textQuant);
 		textQuant.setColumns(10);
 
@@ -124,31 +127,31 @@ public class JanelaVenda extends JFrame {
 
 			}
 		});
-		btnAdicionarVenda.setBounds(368, 83, 89, 23);
+		btnAdicionarVenda.setBounds(368, 273, 89, 23);
 		panel_1.add(btnAdicionarVenda);
 
 		JButton btnRemoverVenda = new JButton("Remover");
-		btnRemoverVenda.setBounds(487, 83, 89, 23);
+		btnRemoverVenda.setBounds(487, 273, 89, 23);
 		panel_1.add(btnRemoverVenda);
 
 		JLabel lblSumario = new JLabel("Sumário:");
 		lblSumario.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSumario.setBounds(103, 116, 65, 21);
+		lblSumario.setBounds(103, 306, 65, 21);
 		panel_1.add(lblSumario);
 
 		JLabel lblValorTotal = new JLabel("Valor total:");
 		lblValorTotal.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblValorTotal.setBounds(396, 298, 96, 21);
+		lblValorTotal.setBounds(396, 488, 96, 21);
 		panel_1.add(lblValorTotal);
 
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(487, 300, 89, 20);
+		textField.setBounds(487, 490, 89, 20);
 		panel_1.add(textField);
 		textField.setColumns(10);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(186, 114, 390, 178);
+		scrollPane.setBounds(186, 304, 390, 178);
 		panel_1.add(scrollPane);
 
 		table = new JTable();
@@ -158,13 +161,13 @@ public class JanelaVenda extends JFrame {
 
 		JLabel lblNewLabel_2_1_1 = new JLabel("Forma de Pagamento:");
 		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_2_1_1.setBounds(10, 336, 158, 21);
+		lblNewLabel_2_1_1.setBounds(10, 526, 158, 21);
 		panel_1.add(lblNewLabel_2_1_1);
 
 		JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(
 				new String[] { "Cartão de Crédito", "Cartão de Débito", "Dinheiro (Papel)", "" }));
-		comboBox.setBounds(186, 335, 390, 22);
+		comboBox.setBounds(186, 525, 390, 22);
 		panel_1.add(comboBox);
 
 		JButton btnNewButton = new JButton("Selecionar");
@@ -177,39 +180,57 @@ public class JanelaVenda extends JFrame {
 				sl.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(78, 12, 89, 23);
+		btnNewButton.setBounds(116, 12, 89, 23);
 		panel_1.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Selecionar");
-		btnNewButton_1.setBounds(78, 40, 89, 23);
+		btnNewButton_1.setBounds(116, 40, 89, 23);
 		panel_1.add(btnNewButton_1);
 
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
-		textField_1.setBounds(177, 13, 86, 20);
+		textField_1.setBounds(215, 13, 86, 20);
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
 		textField_2.setEditable(false);
-		textField_2.setBounds(177, 41, 86, 20);
+		textField_2.setBounds(215, 41, 86, 20);
 		panel_1.add(textField_2);
 		textField_2.setColumns(10);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Funcionário:");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(285, 14, 96, 14);
+		lblNewLabel_1_1.setBounds(10, 69, 96, 14);
 		panel_1.add(lblNewLabel_1_1);
 
 		JButton btnNewButton_1_1 = new JButton("Selecionar");
-		btnNewButton_1_1.setBounds(391, 12, 89, 23);
+		btnNewButton_1_1.setBounds(116, 67, 89, 23);
 		panel_1.add(btnNewButton_1_1);
 
 		textField_3 = new JTextField();
 		textField_3.setEditable(false);
 		textField_3.setColumns(10);
-		textField_3.setBounds(490, 13, 86, 20);
+		textField_3.setBounds(215, 68, 86, 20);
 		panel_1.add(textField_3);
+		
+		textNomeLi = new JTextField();
+		textNomeLi.setEditable(false);
+		textNomeLi.setBounds(311, 13, 265, 20);
+		panel_1.add(textNomeLi);
+		textNomeLi.setColumns(10);
+		
+		textNomeCli = new JTextField();
+		textNomeCli.setEditable(false);
+		textNomeCli.setBounds(311, 41, 265, 20);
+		panel_1.add(textNomeCli);
+		textNomeCli.setColumns(10);
+		
+		textNomeFun = new JTextField();
+		textNomeFun.setEditable(false);
+		textNomeFun.setBounds(311, 68, 265, 20);
+		panel_1.add(textNomeFun);
+		textNomeFun.setColumns(10);
 
 		JButton btnVoltar = new JButton("Cancelar Venda");
 		btnVoltar.addActionListener(new ActionListener() {
@@ -217,7 +238,7 @@ public class JanelaVenda extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnVoltar.setBounds(10, 506, 133, 23);
+		btnVoltar.setBounds(10, 627, 133, 23);
 		contentPane.add(btnVoltar);
 
 		JButton btnRealizarVenda = new JButton("Realizar venda");
@@ -226,7 +247,7 @@ public class JanelaVenda extends JFrame {
 				bdv.cadastro(v);
 			}
 		});
-		btnRealizarVenda.setBounds(524, 506, 123, 23);
+		btnRealizarVenda.setBounds(524, 627, 123, 23);
 		contentPane.add(btnRealizarVenda);
 
 	}
@@ -250,6 +271,7 @@ public class JanelaVenda extends JFrame {
 
 	public void setLivro(Livro s) {
 		textField_1.setText(String.valueOf(s.getIdLi()));
+		textNomeLi.setText(s.getNomeLi());
 		
 	}
 }
