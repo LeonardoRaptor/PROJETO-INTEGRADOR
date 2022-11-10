@@ -211,6 +211,12 @@ public class JanelaVenda extends JFrame {
 		panel_1.add(lblNewLabel_1_1);
 
 		JButton btnNewButton_1_1 = new JButton("Selecionar");
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelecionarFuncionario sf = new SelecionarFuncionario(estajanela);
+				sf.setVisible(true);
+			}
+		});
 		btnNewButton_1_1.setBounds(116, 67, 185, 23);
 		panel_1.add(btnNewButton_1_1);
 
