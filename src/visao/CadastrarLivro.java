@@ -100,14 +100,14 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(lblNewLabel_5);
 
 		textNomeL = new JTextField();
-		textNomeL.setBounds(95, 30, 192, 20);
+		textNomeL.setBounds(95, 30, 248, 20);
 		contentPane.add(textNomeL);
 		textNomeL.setColumns(10);
 
 		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
 		boxGenero.setModel(new DefaultComboBoxModel(new String[] { "Terror", "Ação", "Romance", "Drama", "Fantasia",
 				"Poesia", "Conto", "Mangá", "Aventura" }));
-		boxGenero.setBounds(95, 61, 192, 22);
+		boxGenero.setBounds(95, 61, 248, 22);
 
 		// List<Genero> listaGeneros =
 		// for
@@ -115,17 +115,17 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(boxGenero);
 
 		textQntdL = new JTextField();
-		textQntdL.setBounds(95, 118, 192, 20);
+		textQntdL.setBounds(95, 118, 248, 20);
 		contentPane.add(textQntdL);
 		textQntdL.setColumns(10);
 
 		textAutorL = new JTextField();
-		textAutorL.setBounds(95, 87, 192, 20);
+		textAutorL.setBounds(95, 87, 248, 20);
 		contentPane.add(textAutorL);
 		textAutorL.setColumns(10);
 
 		textPrecoL = new JTextField();
-		textPrecoL.setBounds(95, 150, 192, 20);
+		textPrecoL.setBounds(95, 150, 248, 20);
 		contentPane.add(textPrecoL);
 		textPrecoL.setColumns(10);
 
@@ -208,6 +208,7 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(lblFornecedor);
 
 		textFornecedorL = new JTextField();
+		textFornecedorL.setEditable(false);
 		textFornecedorL.setBounds(231, 182, 112, 20);
 		contentPane.add(textFornecedorL);
 		textFornecedorL.setColumns(10);
@@ -281,6 +282,7 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(lblNome);
 		
 		txtNome = new JTextField();
+		txtNome.setEditable(false);
 		txtNome.setColumns(10);
 		txtNome.setBounds(231, 213, 112, 20);
 		contentPane.add(txtNome);
