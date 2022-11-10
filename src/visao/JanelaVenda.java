@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controle.BDVenda;
 import modelo.Cliente;
+import modelo.Funcionario;
 import modelo.Livro;
 import modelo.Venda;
 
@@ -283,6 +284,12 @@ public class JanelaVenda extends JFrame {
 	public void setCliente(Cliente s) {
 		textField_2.setText(String.valueOf(s.getIdCli()));
 		textNomeCli.setText(s.getNomeCli());
+		
+	}
+	
+	public void setFun(Funcionario s) {
+		textField_3.setText(String.valueOf(s.getId()));
+		textNomeFun.setText(s.getNomeFunc());
 		
 	}
 }
