@@ -45,6 +45,7 @@ public class JanelaVenda extends JFrame {
 	private JTextField textNomeLi;
 	private JTextField textNomeCli;
 	private JTextField textNomeFun;
+	private Livro livro;
 
 	/**
 	 * Launch the application.
@@ -118,12 +119,7 @@ public class JanelaVenda extends JFrame {
 		btnAdicionarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// int idLivro = Integer.parseInt(textCodLivro.getText());
-				quantidade = Integer.parseInt(textQuant.getText());
-
-				Livro l = new Livro();
-				l.setQtde(quantidade);
-
-				livros.add(l);
+			//	livro
 
 				atualizarJTable();
 
@@ -284,6 +280,7 @@ public class JanelaVenda extends JFrame {
 	public void setLivro(Livro s) {
 		textField_1.setText(String.valueOf(s.getIdLi()));
 		textNomeLi.setText(s.getNomeLi());
+		livro = s;
 		
 	}
 
