@@ -21,26 +21,26 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controle.BDLivro;
+import controle.BDCliente;
 import modelo.Genero;
-import modelo.Livro;
+import modelo.Cliente;
 
-public class SelecionarLivro extends JFrame {
+public class SelecionarCliente extends JFrame {
 
 	private JPanel contentPane;
-	private BDLivro bdli = new BDLivro();
-	private Livro l = new Livro();
-	private int idProdutoSelecionado;
-	private ArrayList<Livro> cadastroLibro;
+	private BDCliente bdcli = new BDCliente();
+	private Cliente l = new Cliente();
+	private int idClienteSelecionado;
+	private ArrayList<Cliente> cadastroCliente;
 	private JTable table;
 
 	/**
 	 * Launch the application.
 	 */
 	
-	public SelecionarLivro(JanelaVenda jv) {
+	public SelecionarCliente(JanelaVenda jv) {
 
-		setTitle("Selecionar Livro");
+		setTitle("Selecionar Cliente");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 794, 276);
@@ -69,13 +69,13 @@ public class SelecionarLivro extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int row = table.getSelectedRow();
-				idProdutoSelecionado = (int) table.getValueAt(row, 0);
+				idClienteSelecionado = (int) table.getValueAt(row, 0);
 
-				l = cadastroLibro.get(row);
+				l = cadastroCliente.get(row);
 
-				Livro s = bdli.getLivroPorId(idProdutoSelecionado);
+				Cliente s = bdcli.getClientePorId(idClienteSelecionado);
 				
-				jv.setLivro(s);
+				jv.setCliente(s);
 				
 				setVisible(false);
 
@@ -93,11 +93,10 @@ public class SelecionarLivro extends JFrame {
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
 				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço", "Fornecedor" });
 
-		BDLivro bdl = new BDLivro();
-		cadastroLibro = bdl.listarTodos();
-		for (Livro l : cadastroLibro) {
-			modelo.addRow(new Object[] { l.getIdLi(), l.getNomeLi(), l.getGenero(), l.getAutor(), l.getQtde(),
-					l.getPreco(), l.getFornecedor() });
+		BDCliente bdl = new BDCliente();
+		cadastroCliente = bdl.listarTodos();
+		for (Cliente l : cadastroCliente) {
+			modelo.addRow(new Object[] { l.getIdCli(), l.getNomeCli(), l.getEmailCli(), l.getTelefone(), l.getCpfCli() });	
 		}
 
 		table.setModel(modelo);
