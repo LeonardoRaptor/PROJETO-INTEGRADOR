@@ -16,6 +16,7 @@ import modelo.Venda;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class HistoricoVenda extends JFrame {
 
@@ -49,8 +50,9 @@ public class HistoricoVenda extends JFrame {
 	public HistoricoVenda() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 810, 300);
+		setBounds(100, 100, 810, 265);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -71,7 +73,7 @@ public class HistoricoVenda extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(695, 227, 89, 23);
+		btnNewButton.setBounds(695, 199, 89, 23);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Excluir");
@@ -84,7 +86,7 @@ public class HistoricoVenda extends JFrame {
 				}
 			}
 		});
-		btnNewButton_1.setBounds(596, 227, 89, 23);
+		btnNewButton_1.setBounds(596, 199, 89, 23);
 		contentPane.add(btnNewButton_1);
 	}
 

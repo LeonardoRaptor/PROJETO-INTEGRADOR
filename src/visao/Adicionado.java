@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.Color;
 
 public class Adicionado extends JFrame{
 	private JPanel contentPane;
@@ -38,6 +39,7 @@ public class Adicionado extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 220, 107);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -47,6 +49,7 @@ public class Adicionado extends JFrame{
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("OK");
+		btnNewButton.setBackground(new Color(102, 205, 170));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);

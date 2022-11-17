@@ -54,7 +54,7 @@ public class JanelaFornecedor extends JFrame {
 
 	public JanelaFornecedor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 718, 300);
+		setBounds(100, 100, 718, 280);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -138,7 +138,7 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(13, 145, 102, 23);
+		btnCadastrar.setBounds(13, 150, 102, 23);
 		contentPane.add(btnCadastrar);
 
 		JButton btnRemover = new JButton("Excluir");
@@ -153,7 +153,7 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(13, 179, 102, 23);
+		btnRemover.setBounds(13, 184, 102, 23);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -180,7 +180,7 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(149, 145, 99, 23);
+		btnAlterar.setBounds(149, 150, 99, 23);
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Fechar");
@@ -189,7 +189,7 @@ public class JanelaFornecedor extends JFrame {
 				dispose();
 			}
 		});
-		btnFechar.setBounds(572, 230, 99, 23);
+		btnFechar.setBounds(572, 212, 99, 23);
 		contentPane.add(btnFechar);
 
 		JLabel lblEmail = new JLabel("E-mail:");
@@ -211,7 +211,7 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnNewButton_1.setBounds(149, 180, 99, 21);
+		btnNewButton_1.setBounds(149, 184, 99, 21);
 		contentPane.add(btnNewButton_1);
 
 		JPanel panel = new JPanel();
