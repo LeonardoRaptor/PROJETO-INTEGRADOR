@@ -11,13 +11,12 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import controle.BDFunc;
 import modelo.Funcionario;
-import javax.swing.ImageIcon;
-import javax.swing.JPasswordField;
 
 public class JanelaLogin extends JFrame {
 
