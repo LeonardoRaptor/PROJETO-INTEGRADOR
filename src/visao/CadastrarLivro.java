@@ -28,6 +28,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
 import java.awt.Font;
+import controle.BDFornecedor;
 
 public class CadastrarLivro extends JFrame {
 
@@ -42,7 +43,8 @@ public class CadastrarLivro extends JFrame {
 	private ArrayList<Livro> cadastroLibro;
 	private JTable table;
 	private JTextField textFornecedorL;
-	
+	private BDFornecedor bdf = new BDFornecedor();
+
 	private JTextField textNome;
 
 	/**
@@ -66,11 +68,10 @@ public class CadastrarLivro extends JFrame {
 	 */
 	public CadastrarLivro() {
 
-		
 		setTitle("Cadastro de Livros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 741, 342);
+		setBounds(100, 100, 778, 342);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -139,7 +140,7 @@ public class CadastrarLivro extends JFrame {
 		textPrecoL.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(613, 273, 101, 23);
+		btnCancelar.setBounds(651, 273, 101, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -181,12 +182,12 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(309, 273, 102, 23);
+		btnCadastrar.setBounds(299, 273, 102, 23);
 		contentPane.add(btnCadastrar);
 
 		JScrollPane scrollPane = new JScrollPane();
-		
-		scrollPane.setBounds(299, 52, 415, 209);
+
+		scrollPane.setBounds(299, 52, 453, 209);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -201,9 +202,10 @@ public class CadastrarLivro extends JFrame {
 				Livro sos = bdli.getLivroPorId(idProdutoSelecionado);
 				if (sos != null) {
 					recuperarValorTotal();
-					
+					returnFornecedor();
+
 				}
-				
+
 			}
 		});
 		table.setModel(new DefaultTableModel(new Object[][] {},
@@ -269,27 +271,27 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(163, 273, 101, 23);
+		btnAlterar.setBounds(162, 273, 101, 23);
 		contentPane.add(btnAlterar);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 0, 128));
-		panel.setBounds(0, 0, 725, 42);
+		panel.setBounds(0, 0, 762, 42);
 		contentPane.add(panel);
-		
+
 		JLabel lblNewLabel = new JLabel("Cadastrar Livro");
 		lblNewLabel.setForeground(new Color(245, 255, 250));
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
 		panel.add(lblNewLabel);
-		
+
 		textNome = new JTextField();
 		textNome.setEditable(false);
 		textNome.setColumns(10);
 		textNome.setBounds(96, 241, 191, 20);
 		contentPane.add(textNome);
-		
+
 		JButton btnNewButton = new JButton("Selecionar");
-		CadastrarLivro estajanelaL =this;
+		CadastrarLivro estajanelaL = this;
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SelecionarFornecedor sf = new SelecionarFornecedor(estajanelaL);
@@ -298,12 +300,12 @@ public class CadastrarLivro extends JFrame {
 		});
 		btnNewButton.setBounds(96, 208, 108, 23);
 		contentPane.add(btnNewButton);
-		
+
 		JLabel lblNewLabel_6 = new JLabel("ID:");
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_6.setBounds(214, 211, 29, 14);
 		contentPane.add(lblNewLabel_6);
-		
+
 		JLabel lblNewLabel_6_1 = new JLabel("Nome:");
 		lblNewLabel_6_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -336,8 +338,9 @@ public class CadastrarLivro extends JFrame {
 	}
 
 	protected void recuperarValorTotal() {
+		
 		textNomeL.setText(l.getNomeLi());
-		//boxGenero.setSelectedItem((String)l.getGenero());
+		// boxGenero.setSelectedItem((String)l.getGenero());
 		textAutorL.setText(l.getAutor());
 		textQntdL.setText(String.valueOf(l.getQtde()));
 		textPrecoL.setText(l.getPreco());
@@ -348,6 +351,12 @@ public class CadastrarLivro extends JFrame {
 	public void setFornecedor(Fornecedor sc) {
 		textFornecedorL.setText(String.valueOf(sc.getIdFor()));
 		textNome.setText(String.valueOf(sc.getNomeFor()));
-		
+
 	}
+
+	protected void returnFornecedor() {
+		Fornecedor f = bdf.getFornecedorPorId(Integer.parseInt(textFornecedorL.getText()));
+		textNome.setText(f.getNomeFor());
+	}
+
 }

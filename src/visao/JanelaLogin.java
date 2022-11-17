@@ -48,7 +48,7 @@ public class JanelaLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 336);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(176, 224, 230));
+		contentPane.setBackground(new Color(173, 216, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -112,7 +112,7 @@ public class JanelaLogin extends JFrame {
 		contentPane.add(btnVoltar);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(64, 224, 208));
+		panel.setBackground(new Color(135, 206, 250));
 		panel.setBounds(54, 52, 320, 200);
 		contentPane.add(panel);
 
