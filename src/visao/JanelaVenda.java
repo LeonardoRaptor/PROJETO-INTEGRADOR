@@ -97,7 +97,7 @@ public class JanelaVenda extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Livro:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel.setBounds(10, 12, 65, 19);
+		lblNewLabel.setBounds(10, 67, 65, 19);
 		panel_1.add(lblNewLabel);
 
 		JLabel lblNewLabel_1 = new JLabel("Cliente:");
@@ -118,9 +118,19 @@ public class JanelaVenda extends JFrame {
 		JButton btnAdicionarVenda = new JButton("Adicionar");
 		btnAdicionarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// int idLivro = Integer.parseInt(textCodLivro.getText());
-			//	livro
-
+				if (textQuant.getText().isEmpty()) {
+					quantidade = 1;
+				} else {
+					quantidade = Integer.parseInt(textQuant.getText());
+				}
+				int i = 0;
+				while (i < quantidade) {
+					livros.add(livro);
+					i++;
+				}
+				if (i == quantidade) {
+					System.out.println("Eba!");
+				}
 				atualizarJTable();
 
 			}
@@ -162,21 +172,21 @@ public class JanelaVenda extends JFrame {
 		lblNewLabel_2_1_1.setBounds(106, 360, 158, 21);
 		panel_1.add(lblNewLabel_2_1_1);
 
-		JComboBox comboBox = new JComboBox();
+		JComboBox<String> comboBox = new JComboBox<>();
 		comboBox.setModel(new DefaultComboBoxModel(
 				new String[] { "Cartão de Crédito", "Cartão de Débito", "Dinheiro (Papel)", "" }));
 		comboBox.setBounds(282, 359, 390, 22);
 		panel_1.add(comboBox);
 
 		JButton btnNewButton = new JButton("Selecionar");
-		JanelaVenda estajanela =this;
+		JanelaVenda estajanela = this;
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SelecionarLivro sl = new SelecionarLivro(estajanela);
 				sl.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(116, 12, 185, 23);
+		btnNewButton.setBounds(116, 67, 185, 23);
 		panel_1.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Selecionar");
@@ -191,7 +201,7 @@ public class JanelaVenda extends JFrame {
 
 		textField_1 = new JTextField();
 		textField_1.setEditable(false);
-		textField_1.setBounds(311, 12, 86, 20);
+		textField_1.setBounds(311, 67, 86, 20);
 		panel_1.add(textField_1);
 		textField_1.setColumns(10);
 
@@ -203,7 +213,7 @@ public class JanelaVenda extends JFrame {
 
 		JLabel lblNewLabel_1_1 = new JLabel("Funcionário:");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_1_1.setBounds(10, 69, 96, 14);
+		lblNewLabel_1_1.setBounds(10, 13, 96, 14);
 		panel_1.add(lblNewLabel_1_1);
 
 		JButton btnNewButton_1_1 = new JButton("Selecionar");
@@ -213,30 +223,30 @@ public class JanelaVenda extends JFrame {
 				sf.setVisible(true);
 			}
 		});
-		btnNewButton_1_1.setBounds(116, 67, 185, 23);
+		btnNewButton_1_1.setBounds(116, 11, 185, 23);
 		panel_1.add(btnNewButton_1_1);
 
 		textField_3 = new JTextField();
 		textField_3.setEditable(false);
 		textField_3.setColumns(10);
-		textField_3.setBounds(311, 67, 86, 20);
+		textField_3.setBounds(311, 11, 86, 20);
 		panel_1.add(textField_3);
-		
+
 		textNomeLi = new JTextField();
 		textNomeLi.setEditable(false);
-		textNomeLi.setBounds(407, 12, 265, 20);
+		textNomeLi.setBounds(407, 67, 265, 20);
 		panel_1.add(textNomeLi);
 		textNomeLi.setColumns(10);
-		
+
 		textNomeCli = new JTextField();
 		textNomeCli.setEditable(false);
 		textNomeCli.setBounds(407, 40, 265, 20);
 		panel_1.add(textNomeCli);
 		textNomeCli.setColumns(10);
-		
+
 		textNomeFun = new JTextField();
 		textNomeFun.setEditable(false);
-		textNomeFun.setBounds(407, 67, 265, 20);
+		textNomeFun.setBounds(407, 11, 265, 20);
 		panel_1.add(textNomeFun);
 		textNomeFun.setColumns(10);
 
@@ -267,11 +277,10 @@ public class JanelaVenda extends JFrame {
 
 		// BDLivro bdl = new BDLivro();
 		// livros = bdl.listarTodos();
-		// for (Livro v : livros) {
-		// modelo.addRow(new Object[] { v.getNomeLi(), quantidade, v.getIdLi(),
-		// Integer.parseInt(v.getPreco())*quantidade
-		// });
-		// }
+		for (Livro v : livros) {
+			double precoTotal = Integer.parseInt(v.getPreco()) * quantidade;
+			modelo.addRow(new Object[] { v.getNomeLi(), quantidade, v.getIdLi(), precoTotal});
+		}
 
 		table.setModel(modelo);
 
@@ -281,18 +290,18 @@ public class JanelaVenda extends JFrame {
 		textField_1.setText(String.valueOf(s.getIdLi()));
 		textNomeLi.setText(s.getNomeLi());
 		livro = s;
-		
+
 	}
 
 	public void setCliente(Cliente s) {
 		textField_2.setText(String.valueOf(s.getIdCli()));
 		textNomeCli.setText(s.getNomeCli());
-		
+
 	}
-	
+
 	public void setFun(Funcionario s) {
 		textField_3.setText(String.valueOf(s.getId()));
 		textNomeFun.setText(s.getNomeFunc());
-		
+
 	}
 }

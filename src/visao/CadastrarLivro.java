@@ -342,6 +342,7 @@ public class CadastrarLivro extends JFrame {
 		textQntdL.setText(String.valueOf(l.getQtde()));
 		textPrecoL.setText(l.getPreco());
 		textFornecedorL.setText(String.valueOf(l.getFornecedor()));
+		//txtNome.setText();
 	}
 
 	public void setFornecedor(Fornecedor sc) {
