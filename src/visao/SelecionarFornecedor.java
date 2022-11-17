@@ -90,7 +90,7 @@ public class SelecionarFornecedor extends JFrame{
 
 	protected void atualizarJTable() {
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
-				new String[] { "ID", "Nome", "Email", "Telefone" });
+				new String[] { "ID", "Nome", "Telefone", "Email" });
 
 		BDFornecedor bdf = new BDFornecedor();
 		listaFornecedor = bdf.listarTodos();
