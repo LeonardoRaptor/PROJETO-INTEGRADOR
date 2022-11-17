@@ -20,7 +20,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controle.BDLivro;
 import controle.BDVenda;
 import modelo.Cliente;
 import modelo.Funcionario;
@@ -34,7 +33,7 @@ public class JanelaVenda extends JFrame {
 	 */
 	private static final long serialVersionUID = 3138548207155785040L;
 	private JPanel contentPane;
-	private JTextField textQuant;
+	private JTextField txtQtdLivro;
 	private JTextField textField;
 	private JTable table;
 	private BDVenda bdv = new BDVenda();
@@ -42,20 +41,14 @@ public class JanelaVenda extends JFrame {
 	private ArrayList<Livro> livros;
 
 	private JTextField txtIdLivro;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField txtIdCli;
+	private JTextField txtIdFunc;
 	private JTextField textNomeLi;
 	private JTextField textNomeCli;
 	private JTextField textNomeFun;
 
+	private int qtdSelecionadaLivro;
 	private Livro livroSelecionado;
-	private double precoTotal;
-	private double preco;
-	private int quantidadeAbsoluta;
-	private int quantidade = 1;
-
-	private int i = 0;
-	private double novoValor = 0;
 
 	/**
 	 * Launch the application.
@@ -120,36 +113,40 @@ public class JanelaVenda extends JFrame {
 		lblNewLabel_2.setBounds(174, 106, 96, 21);
 		panel_1.add(lblNewLabel_2);
 
-		textQuant = new JTextField();
-		textQuant.setBounds(282, 107, 172, 22);
-		panel_1.add(textQuant);
-		textQuant.setColumns(10);
+		txtQtdLivro = new JTextField();
+		txtQtdLivro.setBounds(282, 107, 172, 22);
+		panel_1.add(txtQtdLivro);
+		txtQtdLivro.setColumns(10);
 
 		JButton btnAdicionarVenda = new JButton("Adicionar");
 		btnAdicionarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (textQuant.getText().isEmpty()) {
-					quantidadeAbsoluta = 1;
-				} else {
-					quantidadeAbsoluta = Integer.parseInt(textQuant.getText());
-				}
+				String qtdLivroStr = txtQtdLivro.getText();
 
-				preco = Double.parseDouble(livroSelecionado.getPreco());
-				if (quantidadeAbsoluta <= livroSelecionado.getQtde()) {
-					while (i < quantidadeAbsoluta) {
-						livros.add(livroSelecionado);
-						i++;
+				if (qtdLivroStr.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhuma quantidade inserida!");
+				} else {
+					if (txtIdLivro.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Livro não selecionado!");
+					} else {
+						int qtdDesejada = Integer.valueOf(qtdLivroStr);
+						int qtdEstoque = livroSelecionado.getQtde();
+
+						int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
+
+						if (true) {
+							livros.add(livroSelecionado);
+							qtdSelecionadaLivro = qtdDesejada;
+
+							atualizarJTable();
+						} else {
+							JOptionPane.showMessageDialog(null, "Quantidade selecionada acima do estoque!");
+						}
 					}
-					// setTotal();
-					setPrecoLivros();
-					setNewValor();
-					setValorTotal();
-					atualizarJTable();
-				} else {
-					JOptionPane.showMessageDialog(btnAdicionarVenda, "Livro fora de estoque");
-				}
+					JOptionPane.showMessageDialog(null, "Livro fora de estoque!");
 
+				}
 			}
 		});
 		btnAdicionarVenda.setBounds(464, 107, 89, 23);
@@ -222,11 +219,11 @@ public class JanelaVenda extends JFrame {
 		panel_1.add(txtIdLivro);
 		txtIdLivro.setColumns(10);
 
-		textField_2 = new JTextField();
-		textField_2.setEditable(false);
-		textField_2.setBounds(311, 40, 86, 20);
-		panel_1.add(textField_2);
-		textField_2.setColumns(10);
+		txtIdCli = new JTextField();
+		txtIdCli.setEditable(false);
+		txtIdCli.setBounds(311, 40, 86, 20);
+		panel_1.add(txtIdCli);
+		txtIdCli.setColumns(10);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Funcionário:");
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
@@ -243,11 +240,11 @@ public class JanelaVenda extends JFrame {
 		btnNewButton_1_1.setBounds(116, 11, 185, 23);
 		panel_1.add(btnNewButton_1_1);
 
-		textField_3 = new JTextField();
-		textField_3.setEditable(false);
-		textField_3.setColumns(10);
-		textField_3.setBounds(311, 11, 86, 20);
-		panel_1.add(textField_3);
+		txtIdFunc = new JTextField();
+		txtIdFunc.setEditable(false);
+		txtIdFunc.setColumns(10);
+		txtIdFunc.setBounds(311, 11, 86, 20);
+		panel_1.add(txtIdFunc);
 
 		textNomeLi = new JTextField();
 		textNomeLi.setEditable(false);
@@ -294,10 +291,10 @@ public class JanelaVenda extends JFrame {
 
 		// BDLivro bdl = new BDLivro();
 		// livros = bdl.listarTodos();
-		for (Livro v : livros) {
+		for (Livro livro : livros) {
 
-			modelo.addRow(
-					new Object[] { v.getNomeLi(), String.valueOf(quantidade), v.getIdLi(), String.valueOf(preco) });
+			modelo.addRow(new Object[] { livro.getNomeLi(), String.valueOf(livro.getQtde()), livro.getIdLi(),
+					String.valueOf(livro.getPreco()) });
 		}
 
 		table.setModel(modelo);
@@ -312,30 +309,15 @@ public class JanelaVenda extends JFrame {
 	}
 
 	public void setCliente(Cliente s) {
-		textField_2.setText(String.valueOf(s.getIdCli()));
+		txtIdCli.setText(String.valueOf(s.getIdCli()));
 		textNomeCli.setText(s.getNomeCli());
 
 	}
 
 	public void setFun(Funcionario s) {
-		textField_3.setText(String.valueOf(s.getId()));
+		txtIdFunc.setText(String.valueOf(s.getId()));
 		textNomeFun.setText(s.getNomeFunc());
 
 	}
 
-	// protected void setTotal() {
-	// quantidadeTotal += quantidadeAbsoluta;
-	// }
-
-	protected void setPrecoLivros() {
-		precoTotal = Double.parseDouble(livroSelecionado.getPreco()) * i;
-	}
-
-	protected void setNewValor() {
-		novoValor += precoTotal;
-	}
-
-	protected void setValorTotal() {
-		textField.setText(String.valueOf(novoValor));
-	}
 }
