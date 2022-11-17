@@ -23,6 +23,8 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import java.awt.Color;
+import java.awt.Font;
 
 public class CadastrarCliente extends JFrame {
 
@@ -63,63 +65,71 @@ public class CadastrarCliente extends JFrame {
 		setTitle("Cadastrar Cliente");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 380);
+		setBounds(100, 100, 764, 351);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(233, 150, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel_1 = new JLabel("Nome:");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 14, 58, 14);
+		lblNewLabel_1.setBounds(10, 88, 58, 14);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Telefone:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(10, 39, 58, 14);
+		lblNewLabel_2.setBounds(0, 131, 68, 14);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Email:");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(10, 64, 58, 14);
+		lblNewLabel_3.setBounds(10, 174, 58, 14);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("CPF:");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_4.setBounds(10, 89, 58, 14);
+		lblNewLabel_4.setBounds(10, 218, 58, 14);
 		contentPane.add(lblNewLabel_4);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(78, 11, 346, 20);
+		textField_1.setBounds(78, 85, 217, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(78, 36, 346, 20);
+		textField_2.setBounds(78, 128, 217, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
 		textField_3 = new JTextField();
-		textField_3.setBounds(78, 61, 346, 20);
+		textField_3.setBounds(78, 171, 217, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
 		textField_4 = new JTextField();
-		textField_4.setBounds(78, 86, 346, 20);
+		textField_4.setBounds(78, 215, 217, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 
 		JButton btnNewButton = new JButton("Cancelar");
+		btnNewButton.setBackground(new Color(189, 183, 107));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(335, 307, 89, 23);
+		btnNewButton.setBounds(632, 272, 89, 23);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Cadastrar");
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textField_1.getText();
@@ -146,10 +156,12 @@ public class CadastrarCliente extends JFrame {
 				limparCampos();
 			}
 		});
-		btnNewButton_1.setBounds(10, 307, 89, 23);
+		btnNewButton_1.setBounds(10, 272, 102, 23);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setForeground(new Color(255, 255, 255));
+		btnAlterar.setBackground(new Color(0, 0, 0));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textField_1.getText();
@@ -175,11 +187,11 @@ public class CadastrarCliente extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(113, 307, 99, 23);
+		btnAlterar.setBounds(122, 272, 99, 23);
 		contentPane.add(btnAlterar);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(20, 114, 404, 182);
+		scrollPane.setBounds(317, 85, 404, 150);
 		contentPane.add(scrollPane);
 
 		tabelaClientes = new JTable();
@@ -208,6 +220,8 @@ public class CadastrarCliente extends JFrame {
 		atualizarJTable();
 		
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.setForeground(new Color(255, 255, 255));
+		btnRemover.setBackground(new Color(0, 0, 0));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdcl.removeAq(idClienteSelecionado);
@@ -219,8 +233,18 @@ public class CadastrarCliente extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(232, 307, 93, 23);
+		btnRemover.setBounds(231, 272, 93, 23);
 		contentPane.add(btnRemover);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(0, 0, 0));
+		panel.setBounds(0, 0, 748, 50);
+		contentPane.add(panel);
+		
+		JLabel lblNewLabel = new JLabel("Cadastrar Clientes");
+		lblNewLabel.setForeground(new Color(255, 255, 255));
+		lblNewLabel.setFont(new Font("Felix Titling", Font.BOLD, 30));
+		panel.add(lblNewLabel);
 	}
 
 	protected void atualizarJTable() {

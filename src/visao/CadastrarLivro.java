@@ -71,7 +71,7 @@ public class CadastrarLivro extends JFrame {
 		setTitle("Cadastro de Livros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 778, 342);
+		setBounds(100, 100, 770, 342);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
