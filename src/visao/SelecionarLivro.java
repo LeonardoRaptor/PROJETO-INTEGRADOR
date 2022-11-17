@@ -1,44 +1,34 @@
 package visao;
 
-import java.awt.EventQueue;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.BDLivro;
-import modelo.Genero;
 import modelo.Livro;
-import java.awt.Color;
 
 public class SelecionarLivro extends JFrame {
 
 	private JPanel contentPane;
-	private BDLivro bdli = new BDLivro();
-	private Livro l = new Livro();
-	private int idProdutoSelecionado;
+	private Livro livroSelecionado;
 	private ArrayList<Livro> cadastroLibro;
 	private JTable table;
 
 	/**
 	 * Launch the application.
 	 */
-	
+
 	public SelecionarLivro(JanelaVenda jv) {
 
 		setTitle("Selecionar Livro");
@@ -71,16 +61,9 @@ public class SelecionarLivro extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int row = table.getSelectedRow();
-				idProdutoSelecionado = (int) table.getValueAt(row, 0);
-
-				l = cadastroLibro.get(row);
-
-				Livro s = bdli.getLivroPorId(idProdutoSelecionado);
-				
-				jv.setLivro(s);
-				
-				setVisible(false);
-
+				livroSelecionado = cadastroLibro.get(row);
+				jv.setLivro(livroSelecionado);
+				dispose();
 			}
 		});
 		table.setModel(new DefaultTableModel(new Object[][] {},
