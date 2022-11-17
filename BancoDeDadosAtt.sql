@@ -138,3 +138,6 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 INSERT INTO Funcionarios (NomeFuncionario, EmailFunc, CPF,SenhaFunc, tipoAcesso) VALUES ("Admin", "Admin", "Admin", "Admin", "A");
+INSERT INTO Clientes (NomeClientel, CPFCliente, TelefoneCliente, EmailCliente) VALUES ("Alex", "081965", "8445-9495", "alexgabriel.araujo@hotmail.com");
+INSERT INTO Fornecedor (NomeFornecedor, TelefoneFornecedor, EmailFornecedor) VALUES ("JMS", "3397-4269", "jms@gmail.com");
+INSERT INTO Produtos (PreçoProduto, Nome, qt_estoque, Autor, Genero, Fornecedor_idFornecedor) VALUES ("100", "Alice", "5", "Lewis Carroll", "Terror","1");
