@@ -50,6 +50,8 @@ public class JanelaVenda extends JFrame {
 	private int qtdSelecionadaLivro;
 	private Livro livroSelecionado;
 
+	private boolean livroHasLista = true;
+
 	/**
 	 * Launch the application.
 	 */
@@ -130,22 +132,52 @@ public class JanelaVenda extends JFrame {
 					if (txtIdLivro.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Livro não selecionado!");
 					} else {
+						Livro liVenda = new Livro();
+						liVenda.setAutor(livroSelecionado.getAutor());
+						liVenda.setFornecedor(livroSelecionado.getFornecedor());
+						liVenda.setGenero(livroSelecionado.getGenero());
+						liVenda.setIdLi(livroSelecionado.getIdLi());
+						liVenda.setNomeLi(livroSelecionado.getNomeLi());
+						liVenda.setPreco(livroSelecionado.getPreco());
+
 						int qtdDesejada = Integer.valueOf(qtdLivroStr);
+						liVenda.setQtde(qtdDesejada);
+
 						int qtdEstoque = livroSelecionado.getQtde();
+						if (qtdEstoque >= qtdDesejada) {
+							int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
+							if (!livros.isEmpty()) {
+								for (int i = 0; i <= livros.size(); i++) {
+									Livro l1 = livros.get(i);
+									if (l1.getIdLi() != liVenda.getIdLi()) {
+										livroHasLista = true;
+										i = 0;
+									} else {
+										if ((l1.getQtde() + qtdDesejada) <= liVenda.getQtde()) {
+											livroHasLista = true;
+											i = 0;
+										} else {
+											livroHasLista = false;
+										}
+									}
 
-						int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
+								}
+							}
 
-						if (true) {
-							livros.add(livroSelecionado);
-							qtdSelecionadaLivro = qtdDesejada;
+							if ((validaQtd >= 0) && (livroHasLista == true)) {
+								livros.add(liVenda);
+								qtdSelecionadaLivro = qtdDesejada;
 
-							atualizarJTable();
+								livroHasLista = false;
+
+								atualizarJTable();
+							} else {
+								JOptionPane.showMessageDialog(null, "Quantidade selecionada acima do estoque!");
+							}
 						} else {
-							JOptionPane.showMessageDialog(null, "Quantidade selecionada acima do estoque!");
+							JOptionPane.showMessageDialog(null, "Livro fora de estoque!");
 						}
 					}
-					JOptionPane.showMessageDialog(null, "Livro fora de estoque!");
-
 				}
 			}
 		});
