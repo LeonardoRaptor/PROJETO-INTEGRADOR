@@ -75,6 +75,9 @@ public class CadastrarLivro extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
+		CadastrarLivro cadastrarLivro = new CadastrarLivro();
+		cadastrarLivro.setExtendedState(JFrame. MAXIMIZED_BOTH);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

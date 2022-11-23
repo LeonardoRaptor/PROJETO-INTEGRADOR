@@ -52,6 +52,7 @@ public class JanelaLogin extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		textLogin = new JTextField();
 		textLogin.setBounds(170, 122, 133, 20);

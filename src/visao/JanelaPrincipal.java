@@ -55,7 +55,8 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.setBackground(new Color(102, 205, 170));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-
+		setLocationRelativeTo(null);
+		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addKeyListener(new KeyAdapter() {
 			@Override

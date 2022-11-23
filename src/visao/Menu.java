@@ -42,6 +42,7 @@ public class Menu extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
