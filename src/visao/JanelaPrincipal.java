@@ -71,7 +71,7 @@ public class JanelaPrincipal extends JFrame {
 			}
 		});
 
-		btnLogin.setBounds(281, 189, 160, 63);
+		btnLogin.setBounds(229, 189, 160, 63);
 		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -80,14 +80,14 @@ public class JanelaPrincipal extends JFrame {
 			}
 		});
 		contentPane.setLayout(null);
-		btnLogin.setBackground(new Color(107, 142, 35));
+		btnLogin.setBackground(new Color(102, 51, 0));
 		btnLogin.setFont(new Font("Tempus Sans ITC", Font.BOLD, 26));
 		contentPane.add(btnLogin);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setForeground(new Color(255, 255, 255));
-		btnCadastrar.setBounds(507, 189, 160, 63);
-		btnCadastrar.setBackground(new Color(107, 142, 35));
+		btnCadastrar.setBounds(452, 189, 160, 63);
+		btnCadastrar.setBackground(new Color(102, 51, 0));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JanelaAdmin ja = new JanelaAdmin();
@@ -98,7 +98,7 @@ public class JanelaPrincipal extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\1.png"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\login.cadastro.png"));
 		lblNewLabel.setBounds(0, 0, 891, 462);
 		contentPane.add(lblNewLabel);
 	}
