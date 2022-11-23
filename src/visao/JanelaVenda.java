@@ -153,14 +153,9 @@ public class JanelaVenda extends JFrame {
 										livroHasLista = true;
 										i = 0;
 									} else {
-										if ((l1.getQtde() + qtdDesejada) <= liVenda.getQtde()) {
-											livroHasLista = true;
-											i = 0;
-										} else {
-											livroHasLista = false;
-										}
+										
+										livroHasLista = false;
 									}
-
 								}
 							}
 
