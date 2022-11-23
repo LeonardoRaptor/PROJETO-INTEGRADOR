@@ -58,7 +58,7 @@ public class JanelaAdmin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 718, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(176, 224, 230));
+		contentPane.setBackground(new Color(233, 150, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -120,6 +120,8 @@ public class JanelaAdmin extends JFrame {
 		textTelefone.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setForeground(new Color(255, 255, 255));
+		btnCadastrar.setBackground(new Color(0, 0, 0));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNome.getText();
@@ -153,6 +155,8 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.setForeground(new Color(255, 255, 255));
+		btnRemover.setBackground(new Color(0, 0, 0));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdfu.removeAq(idFuncionarioSelecionado);
@@ -168,6 +172,8 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setForeground(new Color(255, 255, 255));
+		btnAlterar.setBackground(new Color(0, 0, 0));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNome.getText();
@@ -199,6 +205,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.setBackground(new Color(189, 183, 107));
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -218,6 +225,8 @@ public class JanelaAdmin extends JFrame {
 		textEmail.setColumns(10);
 
 		JButton btnNewButton_1 = new JButton("Limpar");
+		btnNewButton_1.setForeground(new Color(255, 255, 255));
+		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textNome.setText("");
@@ -252,16 +261,16 @@ public class JanelaAdmin extends JFrame {
 		textSenha.setColumns(10);
 
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 0, 139));
+		panel.setBackground(new Color(0, 0, 0));
 		panel.setBounds(0, 0, 702, 40);
 		contentPane.add(panel);
 		panel.setLayout(null);
 
 		JLabel lblJanelaCadastrar = new JLabel("CADASTRAR FUNCIONÁRIO");
-		lblJanelaCadastrar.setBounds(141, 5, 420, 37);
+		lblJanelaCadastrar.setBounds(141, 5, 536, 37);
 		panel.add(lblJanelaCadastrar);
 		lblJanelaCadastrar.setForeground(new Color(245, 255, 250));
-		lblJanelaCadastrar.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblJanelaCadastrar.setFont(new Font("Felix Titling", Font.BOLD, 30));
 	}
 
 	protected void limparCampos() {
