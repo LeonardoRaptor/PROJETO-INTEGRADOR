@@ -54,10 +54,8 @@ public class JanelaVenda extends JFrame {
 	private Livro livroSelecionado;
 
 	private Livro l2 = new Livro();
+	private Livro liVenda = new Livro();
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -71,9 +69,6 @@ public class JanelaVenda extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public JanelaVenda() {
 		livros = new ArrayList<>();
 
@@ -129,16 +124,33 @@ public class JanelaVenda extends JFrame {
 
 				String qtdLivroStr = txtQtdLivro.getText();
 
-				if (qtdSelecionadaLivro == 0) {
-					for (int i = 0; i < livros.size(); i++) {
-						Livro l1 = livros.get(i);
-						if (l1.getIdLi() == livroSelecionado.getIdLi()) {
-							qtdSelecionadaLivro = -1;
-						} else {
-							qtdSelecionadaLivro = 0;
-						}
-					}
+				Livro obj = new Livro();
+
+				int index = livros.indexOf(livroSelecionado);
+
+				boolean realiza;
+				if ((index >= 0)) {
+
+					// obj = livros.get(index);
+					// Livro obj2;
+					// for (int i = 0; i < livros.size(); i++) {
+					// obj2 = livros.get(i);
+					// if (liVenda.getIdLi() == obj2.getIdLi()) {
+					realiza = false;
+					// break;
+					// } else {
+					// realiza = true;
+					// }
+					// }
+				} else {
+					realiza = true;
+					// qtdSelecionadaLivro = 0;
 				}
+
+				// if (obj != livroSelecionado) {
+				// qtdSelecionadaLivro = 0;
+
+				// }
 
 				if (qtdLivroStr.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhuma quantidade inserida!");
@@ -146,7 +158,7 @@ public class JanelaVenda extends JFrame {
 					if (txtIdLivro.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Livro não selecionado!");
 					} else {
-						Livro liVenda = new Livro();
+
 						liVenda.setAutor(livroSelecionado.getAutor());
 						liVenda.setFornecedor(livroSelecionado.getFornecedor());
 						liVenda.setGenero(livroSelecionado.getGenero());
@@ -162,7 +174,7 @@ public class JanelaVenda extends JFrame {
 							if (qtdSelecionadaLivro == 0) {
 								int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
 
-								if ((validaQtd >= 0)) {
+								if ((validaQtd >= 0) && (realiza = true)) {
 									livros.add(liVenda);
 									qtdSelecionadaLivro = qtdDesejada;
 
@@ -318,7 +330,7 @@ public class JanelaVenda extends JFrame {
 		JButton btnVoltar = new JButton("Cancelar Venda");
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				dispose();
 			}
 		});
 		btnVoltar.setBounds(10, 460, 133, 23);
