@@ -80,7 +80,7 @@ public class HistoricoVenda extends JFrame {
 		});
 		btnNewButton.setBounds(1054, 522, 123, 45);
 		contentPane.add(btnNewButton);
-		
+
 		atualizarJTable();
 
 		JLabel lblNewLabel = new JLabel("New label");
@@ -93,11 +93,11 @@ public class HistoricoVenda extends JFrame {
 	protected void atualizarJTable() {
 
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
-				new String[] { "ID", "Funcionário", "ID Cliente", "Valor", "Quantidade", "Forma Pagamento", "Data" });
+				new String[] { "ID", "Quantidade", "Valor", "Funcionário", "ID Cliente", "Data", "FrmaPagamento" });
 
 		vendaPro = bdv.listarTodos();
 		for (Venda v : vendaPro) {
-			modelo.addRow(new Object[] { v.getIdVenda(), v.getQtdeVenda(), v.getFunId(), v.getValor(), v.getCliId(),
+			modelo.addRow(new Object[] { v.getIdVenda(), v.getQtdeVenda(), v.getValor(), v.getFunId(), v.getCliId(),
 					v.getData(), v.getFormaPagamento() });
 		}
 
