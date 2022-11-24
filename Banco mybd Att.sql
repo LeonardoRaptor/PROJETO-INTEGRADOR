@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Venda` (
   `QuantidadeVenda` INT NOT NULL,
   `ValorVenda` DOUBLE NOT NULL,
   `FormaPagamento` VARCHAR(20) NOT NULL,
-  `DataVenda` DATE NOT NULL,
+  `DataVenda` Varchar(20) NOT NULL,
   `Funcionarios_idFuncionario` INT NOT NULL,
   `Clientes_idCliente` INT NOT NULL,
   PRIMARY KEY (`idVenda`, `Funcionarios_idFuncionario`, `Clientes_idCliente`),
