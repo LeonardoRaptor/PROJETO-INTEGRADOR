@@ -50,7 +50,7 @@ public class Menu extends JFrame {
 
 		JButton btnEstoque = new JButton("ESTOQUE");
 		btnEstoque.setBackground(Color.GRAY);
-		btnEstoque.setForeground(new Color(0, 0, 0));
+		btnEstoque.setForeground(new Color(255, 255, 255));
 		btnEstoque.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Estoque es = new Estoque();
@@ -62,6 +62,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnEstoque);
 
 		JButton btnHistoricoVenda = new JButton("<html>HISTÓRICO<br /><center>DE VENDAS</center></html>");
+		btnHistoricoVenda.setForeground(new Color(255, 255, 255));
 		btnHistoricoVenda.setBackground(Color.GRAY);
 		btnHistoricoVenda.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnHistoricoVenda.addActionListener(new ActionListener() {
@@ -74,6 +75,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnHistoricoVenda);
 
 		JButton btnCadastrarFornecedor = new JButton("<html>CADASTRAR<br /><center>FORNECEDOR</center></html>\r\n");
+		btnCadastrarFornecedor.setForeground(new Color(255, 255, 255));
 		btnCadastrarFornecedor.setBackground(Color.GRAY);
 		btnCadastrarFornecedor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -86,7 +88,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnCadastrarFornecedor);
 
 		JButton btnCadastrarClientes = new JButton("<html>CADASTRAR<br /><center>CLIENTES</center></html> \r\n");
-		btnCadastrarClientes.setForeground(new Color(0, 0, 0));
+		btnCadastrarClientes.setForeground(new Color(255, 255, 255));
 		btnCadastrarClientes.setBackground(Color.GRAY);
 		btnCadastrarClientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -99,6 +101,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnCadastrarClientes);
 
 		JButton btnRegistrarLivro = new JButton("<html>REGISTRAR<br /><center>LIVRO</center></html>");
+		btnRegistrarLivro.setForeground(new Color(255, 255, 255));
 		btnRegistrarLivro.setBackground(Color.GRAY);
 		btnRegistrarLivro.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -111,6 +114,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnRegistrarLivro);
 
 		JButton btnRegistrarVenda = new JButton("<html>REGISTRAR<br /><center>VENDAS</center></html>");
+		btnRegistrarVenda.setForeground(new Color(255, 255, 255));
 		btnRegistrarVenda.setBackground(Color.GRAY);
 		btnRegistrarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
