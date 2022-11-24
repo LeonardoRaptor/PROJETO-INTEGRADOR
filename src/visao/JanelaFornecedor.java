@@ -110,6 +110,7 @@ public class JanelaFornecedor extends JFrame {
 		textTelefone.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBackground(Color.GRAY);
 		btnCadastrar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -140,6 +141,7 @@ public class JanelaFornecedor extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.setBackground(Color.GRAY);
 		btnRemover.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -156,6 +158,7 @@ public class JanelaFornecedor extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBackground(Color.GRAY);
 		btnAlterar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -184,6 +187,7 @@ public class JanelaFornecedor extends JFrame {
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.setBackground(Color.LIGHT_GRAY);
 		btnFechar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -204,6 +208,7 @@ public class JanelaFornecedor extends JFrame {
 		textEmail.setColumns(10);
 
 		JButton btnNewButton_1 = new JButton("Limpar");
+		btnNewButton_1.setBackground(Color.GRAY);
 		btnNewButton_1.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
