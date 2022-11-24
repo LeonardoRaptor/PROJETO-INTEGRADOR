@@ -53,7 +53,7 @@ public class HistoricoVenda extends JFrame {
 	public HistoricoVenda() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1132, 584);
+		setBounds(100, 100, 1193, 617);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -62,7 +62,7 @@ public class HistoricoVenda extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(65, 147, 1021, 300);
+		scrollPane.setBounds(65, 147, 1102, 335);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -78,15 +78,15 @@ public class HistoricoVenda extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton.setBounds(951, 481, 113, 40);
+		btnNewButton.setBounds(1054, 522, 123, 45);
 		contentPane.add(btnNewButton);
 		
 		atualizarJTable();
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(
-				new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\historico de vendas.png"));
-		lblNewLabel.setBounds(0, 0, 1116, 545);
+				new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\History of venda.png"));
+		lblNewLabel.setBounds(0, 0, 1184, 578);
 		contentPane.add(lblNewLabel);
 	}
 
