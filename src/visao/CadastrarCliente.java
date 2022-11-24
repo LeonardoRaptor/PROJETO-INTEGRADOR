@@ -25,6 +25,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class CadastrarCliente extends JFrame {
 
@@ -65,7 +66,7 @@ public class CadastrarCliente extends JFrame {
 		setTitle("Cadastrar Cliente");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 764, 351);
+		setBounds(100, 100, 1100, 577);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(233, 150, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -75,46 +76,46 @@ public class CadastrarCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel_1 = new JLabel("Nome:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(10, 88, 58, 14);
+		lblNewLabel_1.setBounds(166, 174, 70, 23);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Telefone:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(0, 131, 68, 14);
+		lblNewLabel_2.setBounds(151, 247, 85, 23);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Email:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(10, 174, 58, 14);
+		lblNewLabel_3.setBounds(178, 308, 58, 23);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("CPF:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_4.setBounds(10, 218, 58, 14);
+		lblNewLabel_4.setBounds(178, 383, 58, 25);
 		contentPane.add(lblNewLabel_4);
 
 		textField_1 = new JTextField();
-		textField_1.setBounds(78, 85, 217, 20);
+		textField_1.setBounds(251, 169, 231, 28);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 
 		textField_2 = new JTextField();
-		textField_2.setBounds(78, 128, 217, 20);
+		textField_2.setBounds(251, 242, 231, 28);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 
 		textField_3 = new JTextField();
-		textField_3.setBounds(78, 171, 217, 20);
+		textField_3.setBounds(251, 309, 231, 28);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 
 		textField_4 = new JTextField();
-		textField_4.setBounds(78, 215, 217, 20);
+		textField_4.setBounds(251, 385, 231, 28);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 
@@ -125,7 +126,7 @@ public class CadastrarCliente extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(632, 272, 89, 23);
+		btnNewButton.setBounds(948, 476, 111, 37);
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Cadastrar");
@@ -157,7 +158,7 @@ public class CadastrarCliente extends JFrame {
 				limparCampos();
 			}
 		});
-		btnNewButton_1.setBounds(10, 272, 102, 23);
+		btnNewButton_1.setBounds(26, 477, 132, 36);
 		contentPane.add(btnNewButton_1);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -188,11 +189,11 @@ public class CadastrarCliente extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(122, 272, 99, 23);
+		btnAlterar.setBounds(211, 476, 132, 37);
 		contentPane.add(btnAlterar);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(317, 85, 404, 150);
+		scrollPane.setBounds(550, 174, 524, 239);
 		contentPane.add(scrollPane);
 
 		tabelaClientes = new JTable();
@@ -234,18 +235,14 @@ public class CadastrarCliente extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(231, 272, 93, 23);
+		btnRemover.setBounds(390, 476, 132, 37);
 		contentPane.add(btnRemover);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 0, 0));
-		panel.setBounds(0, 0, 748, 50);
-		contentPane.add(panel);
-		
-		JLabel lblNewLabel = new JLabel("Cadastrar Clientes");
-		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setFont(new Font("Felix Titling", Font.BOLD, 30));
-		panel.add(lblNewLabel);
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\cadastrar_cliente.png"));
+		lblNewLabel.setBounds(0, 0, 1084, 538);
+		contentPane.add(lblNewLabel);
 	}
 
 	protected void atualizarJTable() {
