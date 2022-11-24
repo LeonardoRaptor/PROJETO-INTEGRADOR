@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import controle.BDFunc;
 import modelo.Funcionario;
+import javax.swing.ImageIcon;
 
 public class JanelaLogin extends JFrame {
 
@@ -46,7 +47,7 @@ public class JanelaLogin extends JFrame {
 	public JanelaLogin() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 336);
+		setBounds(100, 100, 858, 626);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(173, 216, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -55,22 +56,22 @@ public class JanelaLogin extends JFrame {
 		setLocationRelativeTo(null);
 
 		textLogin = new JTextField();
-		textLogin.setBounds(170, 122, 133, 20);
+		textLogin.setBounds(330, 231, 346, 42);
 		contentPane.add(textLogin);
 		textLogin.setColumns(10);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(170, 153, 133, 20);
+		passwordField.setBounds(329, 318, 347, 42);
 		contentPane.add(passwordField);
 
 		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblLogin.setBounds(114, 116, 46, 29);
+		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblLogin.setBounds(207, 230, 62, 37);
 		contentPane.add(lblLogin);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblSenha.setBounds(110, 156, 63, 14);
+		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblSenha.setBounds(207, 323, 76, 25);
 		contentPane.add(lblSenha);
 
 		JButton btnLogar = new JButton("Logar");
@@ -97,8 +98,8 @@ public class JanelaLogin extends JFrame {
 			}
 		});
 		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnLogar.setBackground(new Color(30, 144, 255));
-		btnLogar.setBounds(236, 263, 89, 23);
+		btnLogar.setBackground(Color.GRAY);
+		btnLogar.setBounds(527, 527, 125, 35);
 		contentPane.add(btnLogar);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -107,24 +108,14 @@ public class JanelaLogin extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnVoltar.setBackground(new Color(30, 144, 255));
+		btnVoltar.setBackground(Color.GRAY);
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnVoltar.setBounds(335, 263, 89, 23);
+		btnVoltar.setBounds(677, 527, 133, 35);
 		contentPane.add(btnVoltar);
-
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(135, 206, 250));
-		panel.setBounds(54, 52, 320, 200);
-		contentPane.add(panel);
-
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(new Color(0, 0, 139));
-		panel_1.setBounds(0, 0, 434, 47);
-		contentPane.add(panel_1);
-
-		JLabel lblNewLabel = new JLabel("LOGIN\r\n\r\n");
-		panel_1.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblNewLabel.setForeground(new Color(245, 255, 250));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\login.png"));
+		lblNewLabel.setBounds(0, 0, 851, 587);
+		contentPane.add(lblNewLabel);
 	}
 }

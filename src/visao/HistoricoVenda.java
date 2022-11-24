@@ -71,6 +71,7 @@ public class HistoricoVenda extends JFrame {
 		scrollPane.setViewportView(table);
 
 		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -81,6 +82,8 @@ public class HistoricoVenda extends JFrame {
 		contentPane.add(btnNewButton);
 
 		JButton btnNewButton_1 = new JButton("Excluir");
+		btnNewButton_1.setBackground(Color.GRAY);
+		btnNewButton_1.setForeground(Color.BLACK);
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
