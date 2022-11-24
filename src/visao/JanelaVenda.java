@@ -53,12 +53,7 @@ public class JanelaVenda extends JFrame {
 	private int qtdSelecionadaLivro;
 	private Livro livroSelecionado;
 
-	private boolean livroHasLista = true;
-
-	private int livroSelecionado2;
 	private Livro l2 = new Livro();
-
-	private BDLivro bdli;
 
 	/**
 	 * Launch the application.
@@ -67,7 +62,7 @@ public class JanelaVenda extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JanelaVenda frame = new JanelaVenda();
+					JanelaPrincipal frame = new JanelaPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -134,10 +129,12 @@ public class JanelaVenda extends JFrame {
 
 				String qtdLivroStr = txtQtdLivro.getText();
 
-				if (qtdSelecionadaLivro != 0) {
+				if (qtdSelecionadaLivro == 0) {
 					for (int i = 0; i < livros.size(); i++) {
 						Livro l1 = livros.get(i);
-						if (l1.getIdLi() != livroSelecionado.getIdLi()) {
+						if (l1.getIdLi() == livroSelecionado.getIdLi()) {
+							qtdSelecionadaLivro = -1;
+						} else {
 							qtdSelecionadaLivro = 0;
 						}
 					}
@@ -169,8 +166,6 @@ public class JanelaVenda extends JFrame {
 									livros.add(liVenda);
 									qtdSelecionadaLivro = qtdDesejada;
 
-									livroHasLista = false;
-
 									atualizarJTable();
 								}
 							} else {
@@ -183,6 +178,7 @@ public class JanelaVenda extends JFrame {
 						}
 					}
 				}
+				atualizarValorTotal();
 			}
 		});
 		btnAdicionarVenda.setBounds(464, 107, 89, 23);
@@ -194,6 +190,7 @@ public class JanelaVenda extends JFrame {
 				livros.remove(l2);
 				qtdSelecionadaLivro = 0;
 				atualizarJTable();
+				atualizarValorTotal();
 			}
 		});
 		btnRemoverVenda.setBounds(583, 107, 89, 23);
@@ -224,7 +221,6 @@ public class JanelaVenda extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				int row = table.getSelectedRow();
-				livroSelecionado2 = (int) table.getValueAt(row, 0);
 
 				l2 = livros.get(row);
 
@@ -381,4 +377,12 @@ public class JanelaVenda extends JFrame {
 		txtIdLivro.setText(String.valueOf(l2.getIdLi()));
 	}
 
+	protected void atualizarValorTotal() {
+		double valor = 0;
+		for (int i = 0; i < livros.size(); i++) {
+			Livro l3 = livros.get(i);
+			valor += Double.parseDouble(l3.getPreco()) * l3.getQtde();
+		}
+		textField.setText(String.valueOf(valor));
+	}
 }
