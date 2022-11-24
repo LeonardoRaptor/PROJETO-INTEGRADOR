@@ -83,31 +83,31 @@ public class CadastrarLivro extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel_1 = new JLabel("Quantidade:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_1.setBounds(57, 351, 115, 26);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Nome:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_2.setBounds(38, 150, 134, 19);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Gênero:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_3.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(86, 224, 85, 14);
+		lblNewLabel_3.setBounds(86, 217, 85, 21);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Autor:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_4.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_4.setBounds(97, 292, 75, 19);
 		contentPane.add(lblNewLabel_4);
 
 		JLabel lblNewLabel_5 = new JLabel("Preço:");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_5.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.RIGHT);
 		lblNewLabel_5.setBounds(38, 415, 133, 19);
 		contentPane.add(lblNewLabel_5);
@@ -143,6 +143,7 @@ public class CadastrarLivro extends JFrame {
 		textPrecoL.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
+		btnCancelar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnCancelar.setBounds(1059, 591, 134, 36);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -153,6 +154,7 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(btnCancelar);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNomeL.getText();
@@ -218,7 +220,7 @@ public class CadastrarLivro extends JFrame {
 		atualizarJTable();
 
 		JLabel lblFornecedor = new JLabel("Fornecedor:");
-		lblFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblFornecedor.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblFornecedor.setBounds(38, 480, 115, 22);
 		contentPane.add(lblFornecedor);
 
@@ -229,6 +231,7 @@ public class CadastrarLivro extends JFrame {
 		textFornecedorL.setColumns(10);
 
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdli.removeAqui(idProdutoSelecionado);
@@ -244,6 +247,7 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNomeL.getText();
@@ -295,13 +299,13 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(btnNewButton);
 
 		JLabel lblNewLabel_6 = new JLabel("ID:");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_6.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblNewLabel_6.setBounds(324, 477, 46, 37);
 		contentPane.add(lblNewLabel_6);
 
 		JLabel lblNewLabel_6_1 = new JLabel("Nome Fornecedor:");
 		lblNewLabel_6_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_6_1.setFont(new Font("Amiri", Font.PLAIN, 24));
 		lblNewLabel_6_1.setBounds(20, 531, 184, 19);
 		contentPane.add(lblNewLabel_6_1);
 		

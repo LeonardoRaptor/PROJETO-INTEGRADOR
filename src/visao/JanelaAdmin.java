@@ -102,7 +102,7 @@ public class JanelaAdmin extends JFrame {
 		atualizarJTable();
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+		lblNome.setFont(new Font("Amiri", Font.BOLD, 24));
 		lblNome.setBounds(75, 138, 76, 25);
 		contentPane.add(lblNome);
 
@@ -112,7 +112,7 @@ public class JanelaAdmin extends JFrame {
 		textNome.setColumns(10);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+		lblTelefone.setFont(new Font("Amiri", Font.BOLD, 24));
 		lblTelefone.setBounds(75, 264, 98, 27);
 		contentPane.add(lblTelefone);
 
@@ -221,7 +221,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnFechar);
 
 		JLabel lblEmail = new JLabel("E-mail:");
-		lblEmail.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+		lblEmail.setFont(new Font("Amiri", Font.BOLD, 24));
 		lblEmail.setBounds(75, 203, 87, 24);
 		contentPane.add(lblEmail);
 
@@ -253,12 +253,12 @@ public class JanelaAdmin extends JFrame {
 		textCPF.setColumns(10);
 
 		JLabel lblCPF = new JLabel("CPF:");
-		lblCPF.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+		lblCPF.setFont(new Font("Amiri", Font.BOLD, 24));
 		lblCPF.setBounds(75, 331, 87, 21);
 		contentPane.add(lblCPF);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Times New Roman", Font.PLAIN, 24));
+		lblSenha.setFont(new Font("Amiri", Font.BOLD, 24));
 		lblSenha.setBounds(75, 391, 87, 25);
 		contentPane.add(lblSenha);
 

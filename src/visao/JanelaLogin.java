@@ -66,13 +66,13 @@ public class JanelaLogin extends JFrame {
 
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setForeground(new Color(255, 255, 255));
-		lblLogin.setFont(new Font("Times New Roman", Font.PLAIN, 22));
-		lblLogin.setBounds(207, 230, 62, 37);
+		lblLogin.setFont(new Font("Amiri", Font.PLAIN, 26));
+		lblLogin.setBounds(207, 230, 76, 37);
 		contentPane.add(lblLogin);
 
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setForeground(new Color(255, 255, 255));
-		lblSenha.setFont(new Font("Times New Roman", Font.PLAIN, 22));
+		lblSenha.setFont(new Font("Amiri", Font.PLAIN, 26));
 		lblSenha.setBounds(207, 323, 76, 25);
 		contentPane.add(lblSenha);
 
