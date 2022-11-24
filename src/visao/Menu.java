@@ -39,7 +39,7 @@ public class Menu extends JFrame {
 	 */
 	public Menu() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1109, 587);
+		setBounds(100, 100, 1131, 587);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -56,12 +56,12 @@ public class Menu extends JFrame {
 				es.setVisible(true);
 			}
 		});
-		btnEstoque.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnEstoque.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnEstoque.setBounds(218, 176, 177, 79);
 		contentPane.add(btnEstoque);
 
 		JButton btnHistoricoVenda = new JButton("<html>HISTÓRICO<br /><center>DE VENDAS</center></html>");
-		btnHistoricoVenda.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnHistoricoVenda.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnHistoricoVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				HistoricoVenda hv = new HistoricoVenda();
@@ -78,7 +78,7 @@ public class Menu extends JFrame {
 				cadfor.setVisible(true);
 			}
 		});
-		btnCadastrarFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCadastrarFornecedor.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnCadastrarFornecedor.setBounds(484, 308, 177, 84);
 		contentPane.add(btnCadastrarFornecedor);
 
@@ -91,7 +91,7 @@ public class Menu extends JFrame {
 				cadcli.setVisible(true);
 			}
 		});
-		btnCadastrarClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnCadastrarClientes.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnCadastrarClientes.setBounds(218, 308, 177, 84);
 		contentPane.add(btnCadastrarClientes);
 
@@ -102,7 +102,7 @@ public class Menu extends JFrame {
 				cadliv.setVisible(true);
 			}
 		});
-		btnRegistrarLivro.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnRegistrarLivro.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnRegistrarLivro.setBounds(484, 176, 177, 79);
 		contentPane.add(btnRegistrarLivro);
 
@@ -113,23 +113,23 @@ public class Menu extends JFrame {
 				venda.setVisible(true);
 			}
 		});
-		btnRegistrarVenda.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnRegistrarVenda.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnRegistrarVenda.setBounds(750, 308, 183, 84);
 		contentPane.add(btnRegistrarVenda);
 		
 				JButton btnVoltarMenu = new JButton("Voltar");
-				btnVoltarMenu.setBounds(969, 484, 114, 37);
+				btnVoltarMenu.setBounds(965, 477, 128, 45);
 				contentPane.add(btnVoltarMenu);
 				btnVoltarMenu.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						setVisible(false);
 					}
 				});
-				btnVoltarMenu.setFont(new Font("Tahoma", Font.PLAIN, 18));
+				btnVoltarMenu.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 				
 				JLabel lblNewLabel = new JLabel("    ");
 				lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\menu.png"));
-				lblNewLabel.setBounds(0, 0, 1093, 548);
+				lblNewLabel.setBounds(0, 0, 1115, 548);
 				contentPane.add(lblNewLabel);
 	}
 }

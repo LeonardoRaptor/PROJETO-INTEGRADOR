@@ -102,7 +102,7 @@ public class JanelaAdmin extends JFrame {
 		atualizarJTable();
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNome.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblNome.setBounds(75, 138, 76, 25);
 		contentPane.add(lblNome);
 
@@ -112,7 +112,7 @@ public class JanelaAdmin extends JFrame {
 		textNome.setColumns(10);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTelefone.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblTelefone.setBounds(75, 264, 98, 27);
 		contentPane.add(lblTelefone);
 
@@ -122,6 +122,7 @@ public class JanelaAdmin extends JFrame {
 		textTelefone.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnCadastrar.setForeground(new Color(255, 255, 255));
 		btnCadastrar.setBackground(new Color(0, 0, 0));
 		btnCadastrar.addActionListener(new ActionListener() {
@@ -157,6 +158,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnCadastrar);
 
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnRemover.setForeground(new Color(255, 255, 255));
 		btnRemover.setBackground(new Color(0, 0, 0));
 		btnRemover.addActionListener(new ActionListener() {
@@ -174,6 +176,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnAlterar.setForeground(new Color(255, 255, 255));
 		btnAlterar.setBackground(new Color(0, 0, 0));
 		btnAlterar.addActionListener(new ActionListener() {
@@ -207,6 +210,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnFechar.setBackground(new Color(189, 183, 107));
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -217,7 +221,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnFechar);
 
 		JLabel lblEmail = new JLabel("E-mail:");
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblEmail.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblEmail.setBounds(75, 203, 87, 24);
 		contentPane.add(lblEmail);
 
@@ -227,6 +231,7 @@ public class JanelaAdmin extends JFrame {
 		textEmail.setColumns(10);
 
 		JButton btnNewButton_1 = new JButton("Limpar");
+		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -248,12 +253,12 @@ public class JanelaAdmin extends JFrame {
 		textCPF.setColumns(10);
 
 		JLabel lblCPF = new JLabel("CPF:");
-		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCPF.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblCPF.setBounds(75, 331, 87, 21);
 		contentPane.add(lblCPF);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblSenha.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblSenha.setBounds(75, 391, 87, 25);
 		contentPane.add(lblSenha);
 

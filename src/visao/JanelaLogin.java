@@ -65,15 +65,15 @@ public class JanelaLogin extends JFrame {
 		contentPane.add(passwordField);
 
 		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setForeground(Color.WHITE);
-		lblLogin.setFont(new Font("Amiri", Font.PLAIN, 30));
-		lblLogin.setBounds(207, 230, 90, 37);
+		lblLogin.setForeground(new Color(255, 255, 255));
+		lblLogin.setFont(new Font("Times New Roman", Font.PLAIN, 22));
+		lblLogin.setBounds(207, 230, 62, 37);
 		contentPane.add(lblLogin);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setForeground(Color.WHITE);
-		lblSenha.setFont(new Font("Amiri", Font.PLAIN, 30));
-		lblSenha.setBounds(207, 323, 90, 25);
+		lblSenha.setForeground(new Color(255, 255, 255));
+		lblSenha.setFont(new Font("Times New Roman", Font.PLAIN, 22));
+		lblSenha.setBounds(207, 323, 76, 25);
 		contentPane.add(lblSenha);
 
 		JButton btnLogar = new JButton("Logar");
@@ -100,7 +100,7 @@ public class JanelaLogin extends JFrame {
 				}
 			}
 		});
-		btnLogar.setFont(new Font("Amiri", Font.PLAIN, 20));
+		btnLogar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnLogar.setBackground(Color.GRAY);
 		btnLogar.setBounds(527, 527, 125, 35);
 		contentPane.add(btnLogar);
@@ -113,7 +113,7 @@ public class JanelaLogin extends JFrame {
 			}
 		});
 		btnVoltar.setBackground(Color.GRAY);
-		btnVoltar.setFont(new Font("Amiri", Font.PLAIN, 20));
+		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnVoltar.setBounds(677, 527, 133, 35);
 		contentPane.add(btnVoltar);
 		
