@@ -141,3 +141,13 @@ INSERT INTO Funcionarios (NomeFuncionario, EmailFunc, CPF,SenhaFunc, tipoAcesso)
 INSERT INTO Clientes (NomeClientel, CPFCliente, TelefoneCliente, EmailCliente) VALUES ("Alex", "081965", "8445-9495", "alexgabriel.araujo@hotmail.com");
 INSERT INTO Fornecedor (NomeFornecedor, TelefoneFornecedor, EmailFornecedor) VALUES ("JMS", "3397-4269", "jms@gmail.com");
 INSERT INTO Produtos (PreçoProduto, Nome, qt_estoque, Autor, Genero, Fornecedor_idFornecedor) VALUES ("100", "Alice", "5", "Lewis Carroll", "Terror","1");
+
+INSERT INTO Funcionarios (NomeFuncionario, EmailFunc, CPF,SenhaFunc, tipoAcesso) VALUES ("Carlos", "Carlinhos@hotmail.com", "310.121.146-08", "Carlinho666", "A");
+INSERT INTO Clientes (NomeClientel, CPFCliente, TelefoneCliente, EmailCliente) VALUES ("Lana", "676.397.089-00", "8790-5528", "LanaSilva@hotmail.com");
+INSERT INTO Fornecedor (NomeFornecedor, TelefoneFornecedor, EmailFornecedor) VALUES ("Disney", "9999-6578", "Disney@gmail.com");
+INSERT INTO Produtos (PreçoProduto, Nome, qt_estoque, Autor, Genero, Fornecedor_idFornecedor) VALUES ("100", "Mitologia", "5", "Jorge Amado", "Romance","2");
+
+INSERT INTO Funcionarios (NomeFuncionario, EmailFunc, CPF,SenhaFunc, tipoAcesso) VALUES ("Amado Batista", "Batista@hotmail.com", "000.289.220-00", "BatistaAmo", "A");
+INSERT INTO Clientes (NomeClientel, CPFCliente, TelefoneCliente, EmailCliente) VALUES ("Tifanny", "332.666.890-33", "9987-6660", "ChuckyLove@hotmail.com");
+INSERT INTO Fornecedor (NomeFornecedor, TelefoneFornecedor, EmailFornecedor) VALUES ("Brasil Cultura", "4324-7356", "Culture@gmail.com");
+INSERT INTO Produtos (PreçoProduto, Nome, qt_estoque, Autor, Genero, Fornecedor_idFornecedor) VALUES ("25", "A Beleza de Vênus", "6", "Jorge Guilherme", "Romance","3");
