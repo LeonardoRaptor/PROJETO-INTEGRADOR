@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -28,6 +29,7 @@ import modelo.Livro;
 import modelo.Venda;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.SimpleDateFormat;
 
 public class JanelaVenda extends JFrame {
 
@@ -52,6 +54,8 @@ public class JanelaVenda extends JFrame {
 
 	private int qtdSelecionadaLivro;
 	private Livro livroSelecionado;
+	private Funcionario funSelecionado;
+	private Cliente cliSelecionado;
 
 	private Livro l2 = new Livro();
 	private Livro liVenda = new Livro();
@@ -172,6 +176,7 @@ public class JanelaVenda extends JFrame {
 						int qtdEstoque = livroSelecionado.getQtde();
 						if (qtdEstoque >= qtdDesejada) {
 							if (qtdSelecionadaLivro == 0) {
+								//if(liVenda.getIdLi()!=)
 								int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
 
 								if ((validaQtd >= 0) && (realiza = true)) {
@@ -339,6 +344,13 @@ public class JanelaVenda extends JFrame {
 		JButton btnRealizarVenda = new JButton("Realizar venda");
 		btnRealizarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				Date data= new Date();
+				
+				v.setData(String.valueOf(data));
+				v.setFunId(funSelecionado.getId());
+				v.setCliId(cliSelecionado.getIdCli());
+				
 				bdv.cadastro(v);
 			}
 		});
@@ -372,12 +384,14 @@ public class JanelaVenda extends JFrame {
 	}
 
 	public void setCliente(Cliente s) {
+		this.cliSelecionado=s;
 		txtIdCli.setText(String.valueOf(s.getIdCli()));
 		textNomeCli.setText(s.getNomeCli());
 
 	}
 
 	public void setFun(Funcionario s) {
+		this.funSelecionado=s;
 		txtIdFunc.setText(String.valueOf(s.getId()));
 		textNomeFun.setText(s.getNomeFunc());
 

@@ -1,6 +1,6 @@
 package modelo;
 
-import java.util.Date;
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Venda {
@@ -8,7 +8,7 @@ public class Venda {
 	private int idVenda, qtdeVenda, funId, cliId;
 	private String formaPagamento;
 	private double valor;
-	private Date data;
+	private String data;
 	private ArrayList<Livro> produto;
 
 	public int getIdVenda() {
@@ -59,12 +59,12 @@ public class Venda {
 		this.valor = valor;
 	}
 
-	public Date getData() {
+	public String getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(String string) {
+		this.data = string;
 	}
 
 	public ArrayList<Livro> getProduto() {

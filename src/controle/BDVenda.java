@@ -27,7 +27,7 @@ public class BDVenda {
 				v.setFunId(rs.getInt("Funcionarios_idFuncionario"));
 				v.setCliId(rs.getInt("Clientes_idCLiente"));
 				v.setValor(rs.getDouble("valorVenda"));
-				v.setData(rs.getDate("dataVenda"));
+				v.setData(rs.getString("dataVenda"));
 				v.setFormaPagamento(rs.getString("formaPagamento"));
 				v.setQtdeVenda(rs.getInt("QuantidadeVenda"));
 			}
@@ -49,7 +49,7 @@ public class BDVenda {
 				v.setFunId(rs.getInt("Funcionarios_idFuncionario"));
 				v.setCliId(rs.getInt("Clientes_idCLiente"));
 				v.setValor(rs.getDouble("valorVenda"));
-				v.setData(rs.getDate("dataVenda"));
+				v.setData(rs.getString("dataVenda"));
 				v.setFormaPagamento(rs.getString("formaPagamento"));
 				v.setQtdeVenda(rs.getInt("QuantidadeVenda"));
 			}
@@ -105,7 +105,7 @@ public class BDVenda {
 				v.setFunId(rs1.getInt("Funcionarios_idFuncionario"));
 				v.setCliId(rs1.getInt("Clientes_idCLiente"));
 				v.setValor(rs1.getDouble("valorVenda"));
-				v.setData(rs1.getDate("dataVenda"));
+				v.setData(rs1.getString("dataVenda"));
 				v.setFormaPagamento(rs1.getString("formaPagamento"));
 				v.setQtdeVenda(rs1.getInt("QuantidadeVenda"));
 				listaVenda.add(v);
