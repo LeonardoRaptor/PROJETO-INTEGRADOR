@@ -72,11 +72,10 @@ public class CadastrarLivro extends JFrame {
 		setTitle("Cadastro de Livros");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 781, 385);
+		setBounds(100, 100, 1238, 677);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setLocationRelativeTo(null);
 
 		//cadastrarLivro.setExtendedState(JFrame. MAXIMIZED_BOTH);
 
@@ -84,44 +83,44 @@ public class CadastrarLivro extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel_1 = new JLabel("Quantidade:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(-2, 179, 87, 14);
+		lblNewLabel_1.setBounds(57, 351, 115, 26);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Nome:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(1, 85, 84, 14);
+		lblNewLabel_2.setBounds(38, 150, 134, 19);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Gênero:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(-2, 117, 85, 14);
+		lblNewLabel_3.setBounds(86, 224, 85, 14);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("Autor:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_4.setBounds(10, 149, 75, 14);
+		lblNewLabel_4.setBounds(97, 292, 75, 19);
 		contentPane.add(lblNewLabel_4);
 
 		JLabel lblNewLabel_5 = new JLabel("Preço:");
-		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_5.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		lblNewLabel_5.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_5.setBounds(39, 214, 46, 14);
+		lblNewLabel_5.setBounds(38, 415, 133, 19);
 		contentPane.add(lblNewLabel_5);
 
 		textNomeL = new JTextField();
-		textNomeL.setBounds(96, 84, 152, 20);
+		textNomeL.setBounds(214, 147, 226, 32);
 		contentPane.add(textNomeL);
 		textNomeL.setColumns(10);
 
 		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
 		boxGenero.setModel(new DefaultComboBoxModel(new String[] { "Terror", "Ação", "Romance", "Drama", "Fantasia",
 				"Poesia", "Conto", "Mangá", "Aventura" }));
-		boxGenero.setBounds(96, 115, 152, 22);
+		boxGenero.setBounds(214, 217, 226, 36);
 
 		// List<Genero> listaGeneros =
 		// for
@@ -129,22 +128,22 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(boxGenero);
 
 		textQntdL = new JTextField();
-		textQntdL.setBounds(95, 178, 152, 20);
+		textQntdL.setBounds(214, 351, 226, 30);
 		contentPane.add(textQntdL);
 		textQntdL.setColumns(10);
 
 		textAutorL = new JTextField();
-		textAutorL.setBounds(95, 148, 152, 20);
+		textAutorL.setBounds(214, 290, 226, 30);
 		contentPane.add(textAutorL);
 		textAutorL.setColumns(10);
 
 		textPrecoL = new JTextField();
-		textPrecoL.setBounds(96, 213, 151, 20);
+		textPrecoL.setBounds(214, 413, 226, 30);
 		contentPane.add(textPrecoL);
 		textPrecoL.setColumns(10);
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(258, 312, 101, 23);
+		btnCancelar.setBounds(1059, 591, 134, 36);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -186,12 +185,12 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(653, 323, 102, 23);
+		btnCadastrar.setBounds(324, 591, 134, 36);
 		contentPane.add(btnCadastrar);
 
 		JScrollPane scrollPane = new JScrollPane();
 
-		scrollPane.setBounds(263, 85, 492, 227);
+		scrollPane.setBounds(532, 178, 661, 372);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -219,13 +218,13 @@ public class CadastrarLivro extends JFrame {
 		atualizarJTable();
 
 		JLabel lblFornecedor = new JLabel("Fornecedor:");
-		lblFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblFornecedor.setBounds(10, 244, 102, 21);
+		lblFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblFornecedor.setBounds(38, 480, 115, 22);
 		contentPane.add(lblFornecedor);
 
 		textFornecedorL = new JTextField();
 		textFornecedorL.setEditable(false);
-		textFornecedorL.setBounds(232, 245, 23, 20);
+		textFornecedorL.setBounds(382, 480, 60, 30);
 		contentPane.add(textFornecedorL);
 		textFornecedorL.setColumns(10);
 
@@ -241,7 +240,7 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(10, 312, 102, 23);
+		btnRemover.setBounds(10, 591, 122, 33);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -275,13 +274,13 @@ public class CadastrarLivro extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(136, 312, 101, 23);
+		btnAlterar.setBounds(157, 591, 134, 35);
 		contentPane.add(btnAlterar);
 
 		textNome = new JTextField();
 		textNome.setEditable(false);
 		textNome.setColumns(10);
-		textNome.setBounds(96, 271, 150, 20);
+		textNome.setBounds(214, 528, 244, 33);
 		contentPane.add(textNome);
 
 		JButton btnNewButton = new JButton("Selecionar");
@@ -292,23 +291,23 @@ public class CadastrarLivro extends JFrame {
 				sf.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(95, 244, 108, 23);
+		btnNewButton.setBounds(156, 477, 122, 36);
 		contentPane.add(btnNewButton);
 
 		JLabel lblNewLabel_6 = new JLabel("ID:");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_6.setBounds(208, 246, 29, 14);
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_6.setBounds(324, 477, 46, 37);
 		contentPane.add(lblNewLabel_6);
 
-		JLabel lblNewLabel_6_1 = new JLabel("Nome:");
+		JLabel lblNewLabel_6_1 = new JLabel("Nome Fornecedor:");
 		lblNewLabel_6_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNewLabel_6_1.setBounds(27, 272, 58, 14);
+		lblNewLabel_6_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_6_1.setBounds(20, 531, 184, 19);
 		contentPane.add(lblNewLabel_6_1);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\cadastrolivro.png"));
-		lblNewLabel.setBounds(-2, 0, 775, 346);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\CadastroLIIVRO.png"));
+		lblNewLabel.setBounds(-2, 0, 1224, 638);
 		contentPane.add(lblNewLabel);
 	}
 
@@ -357,4 +356,5 @@ public class CadastrarLivro extends JFrame {
 		Fornecedor f = bdf.getFornecedorPorId(Integer.parseInt(textFornecedorL.getText()));
 		textNome.setText(f.getNomeFor());
 	}
+
 }
