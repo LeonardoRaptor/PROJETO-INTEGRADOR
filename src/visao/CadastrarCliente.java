@@ -76,27 +76,27 @@ public class CadastrarCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JLabel lblNewLabel_1 = new JLabel("Nome:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setFont(new Font("Amiri", Font.PLAIN, 30));
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_1.setBounds(166, 174, 70, 23);
+		lblNewLabel_1.setBounds(151, 174, 85, 23);
 		contentPane.add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel("Telefone:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setFont(new Font("Amiri", Font.PLAIN, 30));
 		lblNewLabel_2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_2.setBounds(151, 247, 85, 23);
+		lblNewLabel_2.setBounds(117, 247, 119, 23);
 		contentPane.add(lblNewLabel_2);
 
 		JLabel lblNewLabel_3 = new JLabel("Email:");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_3.setFont(new Font("Amiri", Font.PLAIN, 30));
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_3.setBounds(178, 308, 58, 23);
+		lblNewLabel_3.setBounds(117, 308, 119, 23);
 		contentPane.add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("CPF:");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_4.setFont(new Font("Amiri", Font.PLAIN, 30));
 		lblNewLabel_4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblNewLabel_4.setBounds(178, 383, 58, 25);
+		lblNewLabel_4.setBounds(151, 383, 85, 25);
 		contentPane.add(lblNewLabel_4);
 
 		textField_1 = new JTextField();

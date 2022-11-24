@@ -65,16 +65,19 @@ public class JanelaLogin extends JFrame {
 		contentPane.add(passwordField);
 
 		JLabel lblLogin = new JLabel("Login:");
-		lblLogin.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblLogin.setBounds(207, 230, 62, 37);
+		lblLogin.setForeground(Color.WHITE);
+		lblLogin.setFont(new Font("Amiri", Font.PLAIN, 30));
+		lblLogin.setBounds(207, 230, 90, 37);
 		contentPane.add(lblLogin);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblSenha.setBounds(207, 323, 76, 25);
+		lblSenha.setForeground(Color.WHITE);
+		lblSenha.setFont(new Font("Amiri", Font.PLAIN, 30));
+		lblSenha.setBounds(207, 323, 90, 25);
 		contentPane.add(lblSenha);
 
 		JButton btnLogar = new JButton("Logar");
+		btnLogar.setForeground(Color.WHITE);
 		btnLogar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String login = textLogin.getText();
@@ -97,19 +100,20 @@ public class JanelaLogin extends JFrame {
 				}
 			}
 		});
-		btnLogar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnLogar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnLogar.setBackground(Color.GRAY);
 		btnLogar.setBounds(527, 527, 125, 35);
 		contentPane.add(btnLogar);
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setForeground(Color.WHITE);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 			}
 		});
 		btnVoltar.setBackground(Color.GRAY);
-		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnVoltar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnVoltar.setBounds(677, 527, 133, 35);
 		contentPane.add(btnVoltar);
 		

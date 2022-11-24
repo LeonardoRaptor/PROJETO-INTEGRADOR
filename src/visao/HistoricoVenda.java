@@ -72,7 +72,7 @@ public class HistoricoVenda extends JFrame {
 
 		JButton btnNewButton = new JButton("Voltar");
 		btnNewButton.setBackground(Color.GRAY);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -84,7 +84,7 @@ public class HistoricoVenda extends JFrame {
 		JButton btnNewButton_1 = new JButton("Excluir");
 		btnNewButton_1.setBackground(Color.GRAY);
 		btnNewButton_1.setForeground(Color.BLACK);
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		btnNewButton_1.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdv.removeAq(idVenda);
