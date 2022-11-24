@@ -93,7 +93,7 @@ public class HistoricoVenda extends JFrame {
 	protected void atualizarJTable() {
 
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
-				new String[] { "ID", "Quantidade", "Valor", "Funcionário", "ID Cliente", "Data", "FrmaPagamento" });
+				new String[] { "ID", "Quantidade", "Valor", "Funcionário", "ID Cliente", "Data", "FormaPagamento" });
 
 		vendaPro = bdv.listarTodos();
 		for (Venda v : vendaPro) {
