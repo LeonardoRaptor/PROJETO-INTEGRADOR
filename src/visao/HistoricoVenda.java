@@ -75,30 +75,17 @@ public class HistoricoVenda extends JFrame {
 		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				dispose();
 			}
 		});
 		btnNewButton.setBounds(951, 481, 113, 40);
 		contentPane.add(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("Excluir");
-		btnNewButton_1.setBackground(Color.GRAY);
-		btnNewButton_1.setForeground(Color.BLACK);
-		btnNewButton_1.setFont(new Font("Amiri", Font.PLAIN, 20));
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				boolean sucesso = bdv.removeAq(idVenda);
-				if (sucesso == false) {
-					JOptionPane.showMessageDialog(null, "Funcionario excluido!");
-					atualizarJTable();
-				}
-			}
-		});
-		btnNewButton_1.setBounds(808, 481, 113, 40);
-		contentPane.add(btnNewButton_1);
 		
+		atualizarJTable();
+
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\historico de vendas.png"));
+		lblNewLabel.setIcon(
+				new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\historico de vendas.png"));
 		lblNewLabel.setBounds(0, 0, 1116, 545);
 		contentPane.add(lblNewLabel);
 	}
