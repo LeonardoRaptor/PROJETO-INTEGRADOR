@@ -57,7 +57,7 @@ public class Menu extends JFrame {
 			}
 		});
 		btnEstoque.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnEstoque.setBounds(224, 176, 171, 79);
+		btnEstoque.setBounds(218, 176, 177, 79);
 		contentPane.add(btnEstoque);
 
 		JButton btnHistoricoVenda = new JButton("<html>HISTÓRICO<br /><center>DE VENDAS</center></html>");
@@ -68,7 +68,7 @@ public class Menu extends JFrame {
 				hv.setVisible(true);
 			}
 		});
-		btnHistoricoVenda.setBounds(752, 176, 171, 79);
+		btnHistoricoVenda.setBounds(750, 176, 183, 79);
 		contentPane.add(btnHistoricoVenda);
 
 		JButton btnCadastrarFornecedor = new JButton("<html>CADASTRAR<br /><center>FORNECEDOR</center></html>\r\n");
@@ -79,7 +79,7 @@ public class Menu extends JFrame {
 			}
 		});
 		btnCadastrarFornecedor.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCadastrarFornecedor.setBounds(484, 308, 171, 79);
+		btnCadastrarFornecedor.setBounds(484, 308, 177, 84);
 		contentPane.add(btnCadastrarFornecedor);
 
 		JButton btnCadastrarClientes = new JButton("<html>CADASTRAR<br /><center>CLIENTES</center></html> \r\n");
@@ -92,7 +92,7 @@ public class Menu extends JFrame {
 			}
 		});
 		btnCadastrarClientes.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnCadastrarClientes.setBounds(224, 308, 171, 79);
+		btnCadastrarClientes.setBounds(218, 308, 177, 84);
 		contentPane.add(btnCadastrarClientes);
 
 		JButton btnRegistrarLivro = new JButton("<html>REGISTRAR<br /><center>LIVRO</center></html>");
@@ -103,7 +103,7 @@ public class Menu extends JFrame {
 			}
 		});
 		btnRegistrarLivro.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnRegistrarLivro.setBounds(484, 176, 171, 79);
+		btnRegistrarLivro.setBounds(484, 176, 177, 79);
 		contentPane.add(btnRegistrarLivro);
 
 		JButton btnRegistrarVenda = new JButton("<html>REGISTRAR<br /><center>VENDAS</center></html>");
@@ -114,7 +114,7 @@ public class Menu extends JFrame {
 			}
 		});
 		btnRegistrarVenda.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnRegistrarVenda.setBounds(762, 308, 171, 79);
+		btnRegistrarVenda.setBounds(750, 308, 183, 84);
 		contentPane.add(btnRegistrarVenda);
 		
 				JButton btnVoltarMenu = new JButton("Voltar");
@@ -127,7 +127,7 @@ public class Menu extends JFrame {
 				});
 				btnVoltarMenu.setFont(new Font("Tahoma", Font.PLAIN, 18));
 				
-				JLabel lblNewLabel = new JLabel("New label");
+				JLabel lblNewLabel = new JLabel("    ");
 				lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\menu.png"));
 				lblNewLabel.setBounds(0, 0, 1093, 548);
 				contentPane.add(lblNewLabel);

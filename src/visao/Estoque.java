@@ -16,6 +16,8 @@ import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class Estoque extends JFrame {
 
@@ -44,34 +46,24 @@ public class Estoque extends JFrame {
 	public Estoque() {
 		setTitle("Estoque");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 1259, 629);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 
 		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		contentPane.setLayout(null);
 		
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		contentPane.add(scrollPane, BorderLayout.CENTER);
+		scrollPane.setBounds(173, 138, 1022, 397);
+		contentPane.add(scrollPane);
 		
 		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
 			},
 			new String[] {
 				"ID", "Nome", "Autor", "Quantidade", "Pre\u00E7o"
@@ -81,20 +73,19 @@ public class Estoque extends JFrame {
 		table.setForeground(Color.BLACK);
 		table.setEnabled(false);
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
-		table.setBounds(10, 11, 414, 210);
-		scrollPane.setViewportView(table);
-		
-		JPanel panel = new JPanel();
-		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
-		flowLayout.setAlignment(FlowLayout.RIGHT);
-		contentPane.add(panel, BorderLayout.SOUTH);
 		
 		JButton btnNewButton = new JButton("Sair");
+		btnNewButton.setBounds(1129, 548, 104, 42);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\Estoque.png"));
+		lblNewLabel.setBounds(0, 0, 1243, 590);
+		contentPane.add(lblNewLabel);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
 			}
 		});
-		panel.add(btnNewButton);
 	}
 }
