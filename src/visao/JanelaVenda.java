@@ -20,11 +20,14 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
+import controle.BDLivro;
 import controle.BDVenda;
 import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Livro;
 import modelo.Venda;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class JanelaVenda extends JFrame {
 
@@ -51,6 +54,11 @@ public class JanelaVenda extends JFrame {
 	private Livro livroSelecionado;
 
 	private boolean livroHasLista = true;
+
+	private int livroSelecionado2;
+	private Livro l2 = new Livro();
+
+	private BDLivro bdli;
 
 	/**
 	 * Launch the application.
@@ -126,6 +134,15 @@ public class JanelaVenda extends JFrame {
 
 				String qtdLivroStr = txtQtdLivro.getText();
 
+				if (qtdSelecionadaLivro != 0) {
+					for (int i = 0; i < livros.size(); i++) {
+						Livro l1 = livros.get(i);
+						if (l1.getIdLi() != livroSelecionado.getIdLi()) {
+							qtdSelecionadaLivro = 0;
+						}
+					}
+				}
+
 				if (qtdLivroStr.isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Nenhuma quantidade inserida!");
 				} else {
@@ -145,32 +162,24 @@ public class JanelaVenda extends JFrame {
 
 						int qtdEstoque = livroSelecionado.getQtde();
 						if (qtdEstoque >= qtdDesejada) {
-							int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
-							if (!livros.isEmpty()) {
-								for (int i = 0; i <= livros.size(); i++) {
-									Livro l1 = livros.get(i);
-									if (l1.getIdLi() != liVenda.getIdLi()) {
-										livroHasLista = true;
-										i = 0;
-									} else {
-										
-										livroHasLista = false;
-									}
+							if (qtdSelecionadaLivro == 0) {
+								int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
+
+								if ((validaQtd >= 0)) {
+									livros.add(liVenda);
+									qtdSelecionadaLivro = qtdDesejada;
+
+									livroHasLista = false;
+
+									atualizarJTable();
 								}
-							}
-
-							if ((validaQtd >= 0) && (livroHasLista == true)) {
-								livros.add(liVenda);
-								qtdSelecionadaLivro = qtdDesejada;
-
-								livroHasLista = false;
-
-								atualizarJTable();
 							} else {
-								JOptionPane.showMessageDialog(null, "Quantidade selecionada acima do estoque!");
+								JOptionPane.showMessageDialog(null,
+										"Para adicionar mais do mesmo produto, remova primeiro");
 							}
+
 						} else {
-							JOptionPane.showMessageDialog(null, "Livro fora de estoque!");
+							JOptionPane.showMessageDialog(null, "Livro fora de estoque ou quantia acima do estoque!");
 						}
 					}
 				}
@@ -180,6 +189,13 @@ public class JanelaVenda extends JFrame {
 		panel_1.add(btnAdicionarVenda);
 
 		JButton btnRemoverVenda = new JButton("Remover");
+		btnRemoverVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				livros.remove(l2);
+				qtdSelecionadaLivro = 0;
+				atualizarJTable();
+			}
+		});
 		btnRemoverVenda.setBounds(583, 107, 89, 23);
 		panel_1.add(btnRemoverVenda);
 
@@ -204,8 +220,20 @@ public class JanelaVenda extends JFrame {
 		panel_1.add(scrollPane);
 
 		table = new JTable();
+		table.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				int row = table.getSelectedRow();
+				livroSelecionado2 = (int) table.getValueAt(row, 0);
+
+				l2 = livros.get(row);
+
+				recuperarValorT();
+
+			}
+		});
 		table.setModel(
-				new DefaultTableModel(new Object[][] {}, new String[] { "Nome", "QTD", "C\u00F3digo", "Pre\u00E7o" }));
+				new DefaultTableModel(new Object[][] {}, new String[] { "C\u00F3digo", "Nome", "QTD", "Pre\u00E7o" }));
 		scrollPane.setViewportView(table);
 
 		JLabel lblNewLabel_2_1_1 = new JLabel("Forma de Pagamento:");
@@ -314,13 +342,13 @@ public class JanelaVenda extends JFrame {
 	protected void atualizarJTable() {
 
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
-				new String[] { "Nome", "QTD", "Código", "Preço" });
+				new String[] { "Código", "Nome", "QTD", "Preço" });
 
 		// BDLivro bdl = new BDLivro();
 		// livros = bdl.listarTodos();
 		for (Livro livro : livros) {
 
-			modelo.addRow(new Object[] { livro.getNomeLi(), String.valueOf(livro.getQtde()), livro.getIdLi(),
+			modelo.addRow(new Object[] { livro.getIdLi(), livro.getNomeLi(), String.valueOf(livro.getQtde()),
 					String.valueOf(livro.getPreco()) });
 		}
 
@@ -345,6 +373,12 @@ public class JanelaVenda extends JFrame {
 		txtIdFunc.setText(String.valueOf(s.getId()));
 		textNomeFun.setText(s.getNomeFunc());
 
+	}
+
+	protected void recuperarValorT() {
+		livroSelecionado = l2;
+		textNomeLi.setText(l2.getNomeLi());
+		txtIdLivro.setText(String.valueOf(l2.getIdLi()));
 	}
 
 }
