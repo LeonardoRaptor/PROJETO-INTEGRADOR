@@ -6,6 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controle.BDLivro;
+import modelo.Livro;
+
 import javax.swing.ListSelectionModel;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
@@ -15,6 +19,7 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -23,6 +28,7 @@ public class Estoque extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private ArrayList<Livro> Estoque;
 
 	/**
 	 * Launch the application.
@@ -74,6 +80,8 @@ public class Estoque extends JFrame {
 		table.setEnabled(false);
 		table.setBorder(new LineBorder(new Color(0, 0, 0)));
 		
+		atualizarJTable();
+		
 		JButton btnNewButton = new JButton("Sair");
 		btnNewButton.setBounds(1129, 548, 104, 42);
 		contentPane.add(btnNewButton);
@@ -87,5 +95,20 @@ public class Estoque extends JFrame {
 				setVisible(false);
 			}
 		});
+	}
+	protected void atualizarJTable() {
+
+		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
+				new String[] { "ID", "Nome", "Gênero", "Autor", "Quantidade", "Preço", "Fornecedor" });
+
+		BDLivro bdl = new BDLivro();
+		Estoque = bdl.listarTodos();
+		for (Livro l : Estoque) {
+			modelo.addRow(new Object[] { l.getIdLi(), l.getNomeLi(), l.getGenero(), l.getAutor(), l.getQtde(),
+					l.getPreco(), l.getFornecedor() });
+		}
+
+		table.setModel(modelo);
+
 	}
 }
