@@ -21,7 +21,7 @@ public class Adicionado extends JFrame{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Adicionado frame = new Adicionado();
+					JanelaPrincipal frame = new JanelaPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,13 +39,14 @@ public class Adicionado extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 220, 107);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(175, 238, 238));
+		contentPane.setBackground(new Color(160, 82, 45));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Adicionado com sucesso");
-		lblNewLabel.setBounds(10, 11, 235, 14);
+		lblNewLabel.setForeground(new Color(245, 255, 250));
+		lblNewLabel.setBounds(47, 11, 235, 14);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("OK");

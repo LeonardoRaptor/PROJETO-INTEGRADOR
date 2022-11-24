@@ -31,7 +31,7 @@ public class Estoque extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Estoque frame = new Estoque();
+					JanelaPrincipal frame = new JanelaPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
