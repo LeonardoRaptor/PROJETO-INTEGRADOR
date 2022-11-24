@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controle.BDFunc;
 import modelo.Funcionario;
+import javax.swing.ImageIcon;
 
 public class JanelaAdmin extends JFrame {
 
@@ -56,7 +57,7 @@ public class JanelaAdmin extends JFrame {
 
 	public JanelaAdmin() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 718, 300);
+		setBounds(100, 100, 1068, 558);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(233, 150, 122));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -69,7 +70,7 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(panel_1);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(284, 67, 387, 134);
+		scrollPane.setBounds(455, 140, 575, 306);
 		contentPane.add(scrollPane);
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() {
@@ -101,22 +102,22 @@ public class JanelaAdmin extends JFrame {
 		atualizarJTable();
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNome.setBounds(13, 72, 58, 14);
+		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNome.setBounds(75, 138, 76, 25);
 		contentPane.add(lblNome);
 
 		textNome = new JTextField();
-		textNome.setBounds(81, 71, 167, 20);
+		textNome.setBounds(194, 138, 185, 32);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTelefone.setBounds(13, 120, 70, 14);
+		lblTelefone.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblTelefone.setBounds(75, 264, 98, 27);
 		contentPane.add(lblTelefone);
 
 		textTelefone = new JTextField();
-		textTelefone.setBounds(81, 119, 167, 20);
+		textTelefone.setBounds(194, 265, 185, 32);
 		contentPane.add(textTelefone);
 		textTelefone.setColumns(10);
 
@@ -152,7 +153,7 @@ public class JanelaAdmin extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(11, 230, 102, 23);
+		btnCadastrar.setBounds(0, 476, 118, 32);
 		contentPane.add(btnCadastrar);
 
 		JButton btnRemover = new JButton("Excluir");
@@ -169,7 +170,7 @@ public class JanelaAdmin extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(123, 230, 93, 23);
+		btnRemover.setBounds(128, 476, 120, 32);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -202,7 +203,7 @@ public class JanelaAdmin extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(226, 230, 99, 23);
+		btnAlterar.setBounds(254, 476, 114, 32);
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Fechar");
@@ -212,16 +213,16 @@ public class JanelaAdmin extends JFrame {
 				dispose();
 			}
 		});
-		btnFechar.setBounds(572, 230, 99, 23);
+		btnFechar.setBounds(916, 476, 114, 32);
 		contentPane.add(btnFechar);
 
 		JLabel lblEmail = new JLabel("E-mail:");
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEmail.setBounds(13, 97, 58, 13);
+		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblEmail.setBounds(75, 203, 87, 24);
 		contentPane.add(lblEmail);
 
 		textEmail = new JTextField();
-		textEmail.setBounds(81, 95, 167, 19);
+		textEmail.setBounds(194, 203, 185, 32);
 		contentPane.add(textEmail);
 		textEmail.setColumns(10);
 
@@ -238,40 +239,33 @@ public class JanelaAdmin extends JFrame {
 
 			}
 		});
-		btnNewButton_1.setBounds(335, 231, 99, 21);
+		btnNewButton_1.setBounds(378, 476, 114, 32);
 		contentPane.add(btnNewButton_1);
 
 		textCPF = new JTextField();
-		textCPF.setBounds(81, 144, 167, 20);
+		textCPF.setBounds(194, 329, 185, 32);
 		contentPane.add(textCPF);
 		textCPF.setColumns(10);
 
 		JLabel lblCPF = new JLabel("CPF:");
-		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblCPF.setBounds(13, 145, 70, 14);
+		lblCPF.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblCPF.setBounds(75, 331, 87, 21);
 		contentPane.add(lblCPF);
 
 		JLabel lblSenha = new JLabel("Senha:");
-		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblSenha.setBounds(13, 170, 70, 14);
+		lblSenha.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblSenha.setBounds(75, 391, 87, 25);
 		contentPane.add(lblSenha);
 
 		textSenha = new JTextField();
-		textSenha.setBounds(81, 170, 167, 20);
+		textSenha.setBounds(194, 391, 185, 32);
 		contentPane.add(textSenha);
 		textSenha.setColumns(10);
-
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 0, 0));
-		panel.setBounds(0, 0, 702, 40);
-		contentPane.add(panel);
-		panel.setLayout(null);
-
-		JLabel lblJanelaCadastrar = new JLabel("CADASTRAR FUNCIONÁRIO");
-		lblJanelaCadastrar.setBounds(141, 5, 536, 37);
-		panel.add(lblJanelaCadastrar);
-		lblJanelaCadastrar.setForeground(new Color(245, 255, 250));
-		lblJanelaCadastrar.setFont(new Font("Felix Titling", Font.BOLD, 30));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\CadastroFuncionario.png"));
+		lblNewLabel.setBounds(0, 0, 1052, 519);
+		contentPane.add(lblNewLabel);
 	}
 
 	protected void limparCampos() {
