@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controle.BDFornecedor;
 import modelo.Fornecedor;
+import javax.swing.ImageIcon;
 
 public class JanelaFornecedor extends JFrame {
 
@@ -54,19 +55,15 @@ public class JanelaFornecedor extends JFrame {
 
 	public JanelaFornecedor() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 718, 280);
+		setBounds(100, 100, 1171, 577);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(0, 0, 10, 10);
-		contentPane.add(panel_1);
-
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(284, 67, 387, 134);
+		scrollPane.setBounds(422, 131, 723, 355);
 		contentPane.add(scrollPane);
 		table = new JTable();
 		table.addMouseListener(new MouseAdapter() {
@@ -93,26 +90,27 @@ public class JanelaFornecedor extends JFrame {
 		atualizarJTable();
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNome.setBounds(13, 72, 58, 14);
+		lblNome.setFont(new Font("Amiri", Font.PLAIN, 30));
+		lblNome.setBounds(44, 219, 89, 29);
 		contentPane.add(lblNome);
 
 		textNome = new JTextField();
-		textNome.setBounds(81, 71, 167, 20);
+		textNome.setBounds(143, 223, 241, 29);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
-		lblTelefone.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblTelefone.setBounds(13, 120, 70, 14);
+		lblTelefone.setFont(new Font("Amiri", Font.PLAIN, 30));
+		lblTelefone.setBounds(14, 338, 119, 24);
 		contentPane.add(lblTelefone);
 
 		textTelefone = new JTextField();
-		textTelefone.setBounds(81, 119, 167, 20);
+		textTelefone.setBounds(142, 338, 242, 29);
 		contentPane.add(textTelefone);
 		textTelefone.setColumns(10);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNome.getText();
@@ -138,10 +136,11 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(13, 150, 102, 23);
+		btnCadastrar.setBounds(81, 420, 126, 29);
 		contentPane.add(btnCadastrar);
 
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdfu.removeAq(idFornecedorSelecionado);
@@ -153,10 +152,11 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(13, 184, 102, 23);
+		btnRemover.setBounds(81, 470, 126, 29);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNome.getText();
@@ -180,29 +180,31 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(149, 150, 99, 23);
+		btnAlterar.setBounds(258, 420, 126, 29);
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Fechar");
+		btnFechar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		btnFechar.setBounds(572, 212, 99, 23);
+		btnFechar.setBounds(1012, 497, 133, 30);
 		contentPane.add(btnFechar);
 
 		JLabel lblEmail = new JLabel("E-mail:");
-		lblEmail.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblEmail.setBounds(13, 97, 58, 13);
+		lblEmail.setFont(new Font("Amiri", Font.PLAIN, 30));
+		lblEmail.setBounds(35, 274, 119, 36);
 		contentPane.add(lblEmail);
 
 		textEmail = new JTextField();
-		textEmail.setBounds(81, 95, 167, 19);
+		textEmail.setBounds(142, 282, 242, 29);
 		contentPane.add(textEmail);
 		textEmail.setColumns(10);
 
 		JButton btnNewButton_1 = new JButton("Limpar");
+		btnNewButton_1.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textNome.setText("");
@@ -211,20 +213,13 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnNewButton_1.setBounds(149, 184, 99, 21);
+		btnNewButton_1.setBounds(258, 472, 126, 29);
 		contentPane.add(btnNewButton_1);
-
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(0, 0, 139));
-		panel.setBounds(0, 0, 702, 40);
-		contentPane.add(panel);
-		panel.setLayout(null);
-
-		JLabel lblJanelaCadastrar = new JLabel("CADASTRAR FORNECEDOR");
-		lblJanelaCadastrar.setBounds(141, 5, 420, 37);
-		panel.add(lblJanelaCadastrar);
-		lblJanelaCadastrar.setForeground(new Color(245, 255, 250));
-		lblJanelaCadastrar.setFont(new Font("Tahoma", Font.BOLD, 30));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\cadastrar_fornecedor.png"));
+		lblNewLabel.setBounds(0, 0, 1226, 545);
+		contentPane.add(lblNewLabel);
 	}
 
 	protected void limparCampos() {
