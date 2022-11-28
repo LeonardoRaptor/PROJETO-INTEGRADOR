@@ -89,7 +89,7 @@ public class JanelaVenda extends JFrame {
 		contentPane.setLayout(null);
 		JanelaVenda estajanela = this;
 
-		JButton btnVoltar = new JButton("Cancelar Venda");
+		JButton btnVoltar = new JButton("Voltar");
 		btnVoltar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
