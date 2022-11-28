@@ -39,7 +39,7 @@ public class verCompra extends JFrame {
 	 */
 	public verCompra() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 686, 404);
+		setBounds(100, 100, 908, 383);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -47,7 +47,7 @@ public class verCompra extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(42, 32, 583, 178);
+		scrollPane.setBounds(37, 10, 812, 262);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -55,7 +55,7 @@ public class verCompra extends JFrame {
 			new Object[][] {
 			},
 			new String[] {
-				"New column", "New column"
+				"ID Livro", "Nome Livro", "Nome Funcionário", "Nome Cliente"
 			}
 		));
 		scrollPane.setViewportView(table);
@@ -67,7 +67,7 @@ public class verCompra extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnNewButton.setBounds(10, 310, 164, 33);
+		btnNewButton.setBounds(10, 303, 164, 33);
 		contentPane.add(btnNewButton);
 	}
 }

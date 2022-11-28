@@ -120,7 +120,7 @@ public class CadastrarCliente extends JFrame {
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 
-		JButton btnNewButton = new JButton("Cancelar");
+		JButton btnNewButton = new JButton("Voltar");
 		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton.setBackground(new Color(189, 183, 107));
 		btnNewButton.addActionListener(new ActionListener() {

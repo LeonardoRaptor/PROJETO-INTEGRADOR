@@ -63,7 +63,7 @@ public class SelecionarFornecedor extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JButton btnCancelar = new JButton("Cancelar");
+		JButton btnCancelar = new JButton("Voltar");
 		btnCancelar.setBounds(679, 205, 89, 23);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

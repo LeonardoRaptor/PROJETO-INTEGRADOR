@@ -209,7 +209,7 @@ public class JanelaAdmin extends JFrame {
 		btnAlterar.setBounds(254, 476, 114, 32);
 		contentPane.add(btnAlterar);
 
-		JButton btnFechar = new JButton("Fechar");
+		JButton btnFechar = new JButton("Voltar");
 		btnFechar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnFechar.setBackground(new Color(189, 183, 107));
 		btnFechar.addActionListener(new ActionListener() {

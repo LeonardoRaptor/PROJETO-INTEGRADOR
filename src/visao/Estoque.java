@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class Estoque extends JFrame {
 
@@ -82,13 +83,14 @@ public class Estoque extends JFrame {
 		
 		atualizarJTable();
 		
-		JButton btnNewButton = new JButton("Sair");
+		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(1129, 548, 104, 42);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\Estoque.png"));
-		lblNewLabel.setBounds(0, 0, 1243, 590);
+		lblNewLabel.setBounds(396, 0, 1243, 590);
 		contentPane.add(lblNewLabel);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

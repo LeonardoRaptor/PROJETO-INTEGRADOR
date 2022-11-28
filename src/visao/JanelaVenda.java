@@ -96,7 +96,7 @@ public class JanelaVenda extends JFrame {
 				dispose();
 			}
 		});
-		btnVoltar.setBounds(10, 507, 158, 38);
+		btnVoltar.setBounds(10, 507, 189, 38);
 		contentPane.add(btnVoltar);
 
 		JButton btnRealizarVenda = new JButton("Realizar venda");
@@ -113,7 +113,7 @@ public class JanelaVenda extends JFrame {
 				bdv.cadastro(v);
 			}
 		});
-		btnRealizarVenda.setBounds(963, 507, 163, 38);
+		btnRealizarVenda.setBounds(953, 507, 173, 38);
 		contentPane.add(btnRealizarVenda);
 
 		textNomeFun = new JTextField();

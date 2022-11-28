@@ -38,7 +38,7 @@ public class Adicionado extends JFrame{
 		setTitle("Msg");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 305, 128);
+		setBounds(100, 100, 356, 188);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(160, 82, 45));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -48,7 +48,7 @@ public class Adicionado extends JFrame{
 		JLabel lblNewLabel = new JLabel("Adicionado com sucesso");
 		lblNewLabel.setFont(new Font("Amiri", Font.PLAIN, 22));
 		lblNewLabel.setForeground(new Color(245, 255, 250));
-		lblNewLabel.setBounds(44, 24, 235, 14);
+		lblNewLabel.setBounds(53, 10, 258, 46);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("OK");
@@ -59,7 +59,7 @@ public class Adicionado extends JFrame{
 				setVisible(false);
 			}
 		});
-		btnNewButton.setBounds(53, 49, 184, 29);
+		btnNewButton.setBounds(79, 84, 184, 29);
 		contentPane.add(btnNewButton);
 	}
 
