@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
 import controle.BDFornecedor;
 import modelo.Fornecedor;
 import modelo.Genero;
+import java.awt.Color;
 
 public class SelecionarFornecedor extends JFrame{
 
@@ -57,6 +58,7 @@ public class SelecionarFornecedor extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 794, 276);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(119, 136, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 

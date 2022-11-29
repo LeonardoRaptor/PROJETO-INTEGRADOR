@@ -28,6 +28,7 @@ public class ProdutoHasVenda {
 				pv = new ProVenda();
 				pv.setIdProduto(rs.getInt("Produtos_idProdutos"));
 				pv.setIdVenda(rs.getInt("Venda_idVenda"));
+				pv.setQuantiVenda(rs.getInt("QuantVenda"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -52,6 +53,7 @@ public class ProdutoHasVenda {
 				ProVenda pv = new ProVenda();
 				pv.setIdProduto(rs2.getInt("Produtos_idProdutos"));
 				pv.setIdVenda(rs2.getInt("Venda_idVenda"));
+				pv.setQuantiVenda(rs2.getInt("QuantVenda"));
 				listaProV.add(pv);
 			}
 
@@ -93,8 +95,8 @@ public class ProdutoHasVenda {
 
 			System.out.println("Conectado � base de dados com sucesso.");
 			idCadastradoProVen = st
-					.executeUpdate("Insert into Produtos_has_Venda (Produtos_idProdutos,Venda_idVenda) values " + "('"
-							+ pv.getIdProduto() + "', '" + pv.getIdVenda() + "')");
+					.executeUpdate("Insert into Produtos_has_Venda (Produtos_idProdutos,Venda_idVenda, QuantVenda) values " + "('"
+							+ pv.getIdProduto() + "', '" + pv.getIdVenda() + "', '" + pv.getQuantiVenda() + "')");
 
 			if (idCadastradoProVen == 0) {
 				throw new SQLException("Creating book failed, no rows affected.");

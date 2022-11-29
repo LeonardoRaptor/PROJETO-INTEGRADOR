@@ -45,10 +45,10 @@ public class Adicionado extends JFrame{
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Adicionado com sucesso");
+		JLabel lblNewLabel = new JLabel("Adicionado com sucesso!");
 		lblNewLabel.setFont(new Font("Amiri", Font.PLAIN, 22));
 		lblNewLabel.setForeground(new Color(245, 255, 250));
-		lblNewLabel.setBounds(53, 10, 258, 46);
+		lblNewLabel.setBounds(65, 11, 230, 46);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("OK");
