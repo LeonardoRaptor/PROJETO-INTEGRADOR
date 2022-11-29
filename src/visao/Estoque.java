@@ -90,7 +90,7 @@ public class Estoque extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\Estoque.png"));
-		lblNewLabel.setBounds(396, 0, 1243, 590);
+		lblNewLabel.setBounds(0, 0, 1243, 590);
 		contentPane.add(lblNewLabel);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

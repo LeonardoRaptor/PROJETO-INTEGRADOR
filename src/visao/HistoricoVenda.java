@@ -12,9 +12,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import controle.BDVenda;
+import modelo.Cliente;
 import modelo.Venda;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -78,6 +81,15 @@ public class HistoricoVenda extends JFrame {
 				dispose();
 			}
 		});
+		
+		table.addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				int row = table.getSelectedRow();
+				verCompra ver = new verCompra();
+				ver.setVisible(true);
+
+			}
+		});
 		btnNewButton.setBounds(1054, 522, 123, 45);
 		contentPane.add(btnNewButton);
 
@@ -104,4 +116,5 @@ public class HistoricoVenda extends JFrame {
 		table.setModel(modelo);
 
 	}
+	
 }

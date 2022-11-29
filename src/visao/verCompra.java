@@ -12,6 +12,8 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class verCompra extends JFrame {
 
@@ -38,8 +40,9 @@ public class verCompra extends JFrame {
 	 * Create the frame.
 	 */
 	public verCompra() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 908, 383);
+		setBounds(100, 100, 1077, 516);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -47,7 +50,7 @@ public class verCompra extends JFrame {
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(37, 10, 812, 262);
+		scrollPane.setBounds(106, 148, 867, 262);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -67,7 +70,12 @@ public class verCompra extends JFrame {
 			}
 		});
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 20));
-		btnNewButton.setBounds(10, 303, 164, 33);
+		btnNewButton.setBounds(887, 433, 164, 33);
 		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\detalhe venda.png"));
+		lblNewLabel.setBounds(0, 0, 1061, 487);
+		contentPane.add(lblNewLabel);
 	}
 }
