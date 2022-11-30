@@ -87,12 +87,7 @@ public class HistoricoVenda extends JFrame {
 				int row = table.getSelectedRow();
 				idVenda = (int) table.getValueAt(row, 0);
 				
-				
-				Venda v1 = bdv.getVendaPorId(idVenda);
-				
-				verCompra ver = new verCompra();
-				
-				ver.setIDVen(v1);
+				verCompra ver = new verCompra(idVenda);
 				
 				ver.setVisible(true);
 

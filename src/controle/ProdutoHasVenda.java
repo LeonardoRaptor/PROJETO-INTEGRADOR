@@ -47,7 +47,7 @@ public class ProdutoHasVenda {
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			st = conexao.createStatement();
-			ResultSet rs2 = st.executeQuery("select * from Produtos_has_Venda order by idVenda");
+			ResultSet rs2 = st.executeQuery("select * from Produtos_has_Venda order by Venda_idVenda");
 
 			while (rs2.next()) {
 				ProVenda pv = new ProVenda();
@@ -110,6 +110,33 @@ public class ProdutoHasVenda {
 			System.out.println("Erro ao conectar � base de dados.");
 		}
 
+	}
+
+	public ArrayList<ProVenda> listarPorIDVenda(int idDaquelaVenda) {
+		try {
+			conexao = Conexao.ligar();
+			System.out.println("Conectado � base de dados com sucesso.");
+
+			st = conexao.createStatement();
+			ResultSet rs2 = st.executeQuery("select * from Produtos_has_Venda where Venda_idVenda = "+idDaquelaVenda+" order by Venda_idVenda");
+
+			while (rs2.next()) {
+				ProVenda pv = new ProVenda();
+				pv.setIdProduto(rs2.getInt("Produtos_idProdutos"));
+				pv.setIdVenda(rs2.getInt("Venda_idVenda"));
+				pv.setQuantiVenda(rs2.getInt("QuantVenda"));
+				listaProV.add(pv);
+			}
+
+			Conexao.desligar();
+
+		} catch (SQLException a) {
+			System.out.println(a.getMessage());
+			System.out.println("Erro ao conectar � base de dados.");
+
+		}
+
+		return listaProV;
 	}
 
 }

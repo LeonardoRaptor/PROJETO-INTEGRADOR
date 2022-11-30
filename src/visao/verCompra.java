@@ -9,8 +9,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import controle.BDCliente;
+import controle.BDFunc;
+import controle.BDLivro;
 import controle.BDVenda;
 import controle.ProdutoHasVenda;
+import modelo.Cliente;
+import modelo.Funcionario;
+import modelo.Livro;
 import modelo.ProVenda;
 import modelo.Venda;
 
@@ -30,6 +36,9 @@ public class verCompra extends JFrame {
 	private ProdutoHasVenda bdpv = new ProdutoHasVenda();
 	private int idDaquelaVenda;
 	private BDVenda bdv = new BDVenda();
+	private BDCliente bdc = new BDCliente();
+	private BDFunc bdf = new BDFunc();
+	private BDLivro bdl = new BDLivro();
 	// private int idDaVenda;
 
 	/**
@@ -50,8 +59,9 @@ public class verCompra extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @param idVenda 
 	 */
-	public verCompra() {
+	public verCompra(int idVenda) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1077, 516);
@@ -86,6 +96,8 @@ public class verCompra extends JFrame {
 		lblNewLabel.setBounds(0, 0, 1061, 487);
 		contentPane.add(lblNewLabel);
 		
+		idDaquelaVenda=idVenda;
+		
 		atualizarJTable();
 	}
 
@@ -94,18 +106,19 @@ public class verCompra extends JFrame {
 		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
 				new String[] { "ID Livro", "Nome Livro", "Quantidade", "Nome Funcionário", "Nome Cliente" });
 
-		vendaPro = bdpv.listarTodos();
+		vendaPro = bdpv.listarPorIDVenda(idDaquelaVenda);
 		for (ProVenda pv : vendaPro) {
 			Venda v = bdv.getVendaPorId(idDaquelaVenda);
+			int idCli = v.getCliId();
+			int idFunc = v.getFunId();
+			Cliente c = bdc.getClientePorId(idCli);
+			Funcionario f = bdf.getFuncionarioPorId(idFunc);
+			Livro l = bdl.getLivroPorId(pv.getIdProduto());
 			modelo.addRow(
-					new Object[] { pv.getIdProduto(), v.getValor(), pv.getQuantiVenda(), v.getFunId(), v.getCliId() });
+					new Object[] { pv.getIdProduto(), l.getNomeLi(), pv.getQuantiVenda(), f.getNomeFunc(), c.getNomeCli() });
 		}
 
 		table.setModel(modelo);
 
-	}
-
-	protected void setIDVen(Venda v) {
-		idDaquelaVenda = v.getIdVenda();
 	}
 }
