@@ -23,9 +23,11 @@ import javax.swing.table.DefaultTableModel;
 
 import controle.BDLivro;
 import controle.BDVenda;
+import controle.ProdutoHasVenda;
 import modelo.Cliente;
 import modelo.Funcionario;
 import modelo.Livro;
+import modelo.ProVenda;
 import modelo.Venda;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -63,12 +65,14 @@ public class JanelaVenda extends JFrame {
 
 	private int quantidadeTotal = 0;
 
+	private ProVenda provenda = new ProVenda();
+	private ProdutoHasVenda phv = new ProdutoHasVenda();
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					// JanelaPrincipal frame = new JanelaPrincipal();
-					JanelaVenda frame = new JanelaVenda();
+					JanelaPrincipal frame = new JanelaPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -336,26 +340,39 @@ public class JanelaVenda extends JFrame {
 		btnRealizarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				Date data = new Date();
-
-				v.setData(String.valueOf(data));
-				v.setFunId(funSelecionado.getId());
-				v.setCliId(cliSelecionado.getIdCli());
-				v.setQtdeVenda(quantidadeTotal);
-				v.setValor(Double.parseDouble(textField.getText()));
-
-				String forma = (String) comboBox.getSelectedItem();
-
-				v.setFormaPagamento(forma);
-
-				int fator = bdv.cadastro(v);
-
-				if (fator != 0) {
-					JOptionPane.showMessageDialog(btnRealizarVenda, "Venda realizada com sucesso");
+				if (livros.isEmpty() || txtIdFunc.getText().isEmpty() || txtIdCli.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(btnRealizarVenda,
+							"Impossivel realizar venda, verifique se há produtos e todos os campos preenchidos");
 				} else {
-					JOptionPane.showMessageDialog(btnRealizarVenda, "Venda não realizada");
-				}
 
+					Date data = new Date();
+
+					v.setData(String.valueOf(data));
+					v.setFunId(funSelecionado.getId());
+					v.setCliId(cliSelecionado.getIdCli());
+					v.setQtdeVenda(quantidadeTotal);
+					v.setValor(Double.parseDouble(textField.getText()));
+
+					String forma = (String) comboBox.getSelectedItem();
+
+					v.setFormaPagamento(forma);
+
+					int fator = bdv.cadastro(v);
+
+					for (int i = 0; i < livros.size(); i++) {
+						Livro l4 = livros.get(i);
+						provenda.setIdProduto(l4.getIdLi());
+						provenda.setQuantiVenda(l4.getQtde());
+						provenda.setIdVenda(v.getIdVenda());
+						phv.cadastroProVenda(provenda);
+					}
+
+					if (fator != 0) {
+						JOptionPane.showMessageDialog(btnRealizarVenda, "Venda realizada com sucesso");
+					} else {
+						JOptionPane.showMessageDialog(btnRealizarVenda, "Venda não realizada");
+					}
+				}
 			}
 		});
 		btnRealizarVenda.setBounds(953, 507, 173, 38);
@@ -384,21 +401,21 @@ public class JanelaVenda extends JFrame {
 
 	}
 
-	public void setLivro(Livro livroSelecionado) {
+	protected void setLivro(Livro livroSelecionado) {
 		this.livroSelecionado = livroSelecionado;
 		txtIdLivro.setText(String.valueOf(this.livroSelecionado.getIdLi()));
 		textNomeLi.setText(this.livroSelecionado.getNomeLi());
 
 	}
 
-	public void setCliente(Cliente s) {
+	protected void setCliente(Cliente s) {
 		this.cliSelecionado = s;
 		txtIdCli.setText(String.valueOf(s.getIdCli()));
 		textNomeCli.setText(s.getNomeCli());
 
 	}
 
-	public void setFun(Funcionario s) {
+	protected void setFun(Funcionario s) {
 		this.funSelecionado = s;
 		txtIdFunc.setText(String.valueOf(s.getId()));
 		textNomeFun.setText(s.getNomeFunc());

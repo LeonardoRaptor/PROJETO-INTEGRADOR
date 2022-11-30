@@ -117,9 +117,6 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Produtos_has_Venda` (
   `Produtos_idProdutos` INT NOT NULL,
   `Venda_idVenda` INT NOT NULL,
   `QuantVenda` Int NOT NULL,
-  PRIMARY KEY (`Produtos_idProdutos`, `Venda_idVenda`),
-  INDEX `fk_Produtos_has_Venda_Venda1_idx` (`Venda_idVenda` ASC),
-  INDEX `fk_Produtos_has_Venda_Produtos1_idx` (`Produtos_idProdutos` ASC),
   CONSTRAINT `fk_Produtos_has_Venda_Produtos1`
     FOREIGN KEY (`Produtos_idProdutos`)
     REFERENCES `mydb`.`Produtos` (`idProdutos`)
