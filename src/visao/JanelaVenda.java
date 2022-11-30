@@ -61,6 +61,8 @@ public class JanelaVenda extends JFrame {
 	private Livro l2 = new Livro();
 	private Livro liVenda = new Livro();
 
+	private int quantidadeTotal = 0;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -99,23 +101,6 @@ public class JanelaVenda extends JFrame {
 		btnVoltar.setBounds(10, 507, 189, 38);
 		contentPane.add(btnVoltar);
 
-		JButton btnRealizarVenda = new JButton("Realizar venda");
-		btnRealizarVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
-		btnRealizarVenda.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				Date data = new Date();
-
-				v.setData(String.valueOf(data));
-				v.setFunId(funSelecionado.getId());
-				v.setCliId(cliSelecionado.getIdCli());
-
-				bdv.cadastro(v);
-			}
-		});
-		btnRealizarVenda.setBounds(953, 507, 173, 38);
-		contentPane.add(btnRealizarVenda);
-
 		textNomeFun = new JTextField();
 		textNomeFun.setFont(new Font("Amiri", Font.PLAIN, 20));
 		textNomeFun.setBounds(621, 95, 505, 32);
@@ -140,11 +125,81 @@ public class JanelaVenda extends JFrame {
 		JButton btnRemoverVenda = new JButton("Remover");
 		btnRemoverVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemoverVenda.setBounds(296, 308, 128, 41);
+		btnRemoverVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				livros.remove(l2);
+				qtdSelecionadaLivro = 0;
+				atualizarJTable();
+				atualizarValorTotal();
+			}
+		});
 		contentPane.add(btnRemoverVenda);
 
 		JButton btnAdicionarVenda = new JButton("Adicionar");
 		btnAdicionarVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnAdicionarVenda.setBounds(110, 308, 134, 41);
+		btnAdicionarVenda.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				liVenda = new Livro();
+				String qtdLivroStr = txtQtdLivro.getText();
+
+				// boolean realiza;
+
+				for (int i = 0; i < livros.size(); i++) {
+					Livro l3 = livros.get(i);
+					if (l3.getIdLi() == livroSelecionado.getIdLi()) {
+						// realiza = false;
+						qtdSelecionadaLivro = l3.getQtde();
+						break;
+					} else {
+						qtdSelecionadaLivro = 0;
+					}
+				}
+
+				if (qtdLivroStr.isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Nenhuma quantidade inserida!");
+				} else {
+					if (txtIdLivro.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Livro não selecionado!");
+					} else {
+
+						liVenda.setAutor(livroSelecionado.getAutor());
+						liVenda.setFornecedor(livroSelecionado.getFornecedor());
+						liVenda.setGenero(livroSelecionado.getGenero());
+						liVenda.setIdLi(livroSelecionado.getIdLi());
+						liVenda.setNomeLi(livroSelecionado.getNomeLi());
+						liVenda.setPreco(livroSelecionado.getPreco());
+
+						int qtdDesejada = Integer.valueOf(qtdLivroStr);
+						liVenda.setQtde(qtdDesejada);
+
+						// qtdSelecionadaLivro = 0;
+
+						int qtdEstoque = livroSelecionado.getQtde();
+						if (qtdEstoque >= qtdDesejada) {
+							if (qtdSelecionadaLivro == 0) {
+								// if(liVenda.getIdLi()!=)
+								int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
+
+								if ((validaQtd >= 0) /* && (realiza = true) */) {
+									livros.add(liVenda);
+									qtdSelecionadaLivro = qtdDesejada;
+
+									atualizarJTable();
+								}
+							} else {
+								JOptionPane.showMessageDialog(null,
+										"Para adicionar mais do mesmo produto, remova primeiro");
+							}
+
+						} else {
+							JOptionPane.showMessageDialog(null, "Livro fora de estoque ou quantia acima do estoque!");
+						}
+					}
+				}
+				atualizarValorTotal();
+			}
+		});
 		contentPane.add(btnAdicionarVenda);
 
 		txtQtdLivro = new JTextField();
@@ -181,16 +236,34 @@ public class JanelaVenda extends JFrame {
 		JButton btnNewButton_1_1 = new JButton("Selecionar");
 		btnNewButton_1_1.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton_1_1.setBounds(209, 95, 211, 32);
+		btnNewButton_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelecionarFuncionario sf = new SelecionarFuncionario(estajanela);
+				sf.setVisible(true);
+			}
+		});
 		contentPane.add(btnNewButton_1_1);
 
 		JButton btnNewButton_1 = new JButton("Selecionar");
 		btnNewButton_1.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(209, 138, 211, 32);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelecionarCliente sc = new SelecionarCliente(estajanela);
+				sc.setVisible(true);
+			}
+		});
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton = new JButton("Selecionar");
 		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton.setBounds(209, 180, 211, 32);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelecionarLivro sl = new SelecionarLivro(estajanela);
+				sl.setVisible(true);
+			}
+		});
 		contentPane.add(btnNewButton);
 
 		JLabel lblNewLabel_1_1 = new JLabel("Funcionário:");
@@ -258,99 +331,40 @@ public class JanelaVenda extends JFrame {
 		contentPane.add(lblNewLabel_2_1_1);
 		lblNewLabel_2_1_1.setFont(new Font("Amiri", Font.PLAIN, 24));
 
-		JLabel lblNewLabel_3 = new JLabel("New label");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\venda.png"));
-		lblNewLabel_3.setBounds(0, 0, 1156, 567);
-		contentPane.add(lblNewLabel_3);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SelecionarLivro sl = new SelecionarLivro(estajanela);
-				sl.setVisible(true);
-			}
-		});
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SelecionarCliente sc = new SelecionarCliente(estajanela);
-				sc.setVisible(true);
-			}
-		});
-		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SelecionarFuncionario sf = new SelecionarFuncionario(estajanela);
-				sf.setVisible(true);
-			}
-		});
-		btnAdicionarVenda.addActionListener(new ActionListener() {
+		JButton btnRealizarVenda = new JButton("Realizar venda");
+		btnRealizarVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
+		btnRealizarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				String qtdLivroStr = txtQtdLivro.getText();
+				Date data = new Date();
 
-				// boolean realiza;
+				v.setData(String.valueOf(data));
+				v.setFunId(funSelecionado.getId());
+				v.setCliId(cliSelecionado.getIdCli());
+				v.setQtdeVenda(quantidadeTotal);
+				v.setValor(Double.parseDouble(textField.getText()));
 
-				for (int i = 0; i < livros.size(); i++) {
-					Livro l3 = livros.get(i);
-					if (l3.getIdLi() == livroSelecionado.getIdLi()) {
-						// realiza = false;
-						qtdSelecionadaLivro = l3.getQtde();
-						break;
-					} else {
-						qtdSelecionadaLivro = 0;
-					}
-				}
+				String forma = (String) comboBox.getSelectedItem();
 
-				if (qtdLivroStr.isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Nenhuma quantidade inserida!");
+				v.setFormaPagamento(forma);
+
+				int fator = bdv.cadastro(v);
+
+				if (fator != 0) {
+					JOptionPane.showMessageDialog(btnRealizarVenda, "Venda realizada com sucesso");
 				} else {
-					if (txtIdLivro.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(null, "Livro não selecionado!");
-					} else {
-
-						liVenda.setAutor(livroSelecionado.getAutor());
-						liVenda.setFornecedor(livroSelecionado.getFornecedor());
-						liVenda.setGenero(livroSelecionado.getGenero());
-						liVenda.setIdLi(livroSelecionado.getIdLi());
-						liVenda.setNomeLi(livroSelecionado.getNomeLi());
-						liVenda.setPreco(livroSelecionado.getPreco());
-
-						int qtdDesejada = Integer.valueOf(qtdLivroStr);
-						liVenda.setQtde(qtdDesejada);
-
-						// qtdSelecionadaLivro = 0;
-
-						int qtdEstoque = livroSelecionado.getQtde();
-						if (qtdEstoque >= qtdDesejada) {
-							if (qtdSelecionadaLivro == 0) {
-								// if(liVenda.getIdLi()!=)
-								int validaQtd = qtdEstoque - qtdDesejada - qtdSelecionadaLivro;
-
-								if ((validaQtd >= 0) /* && (realiza = true) */) {
-									livros.add(liVenda);
-									qtdSelecionadaLivro = qtdDesejada;
-
-									atualizarJTable();
-								}
-							} else {
-								JOptionPane.showMessageDialog(null,
-										"Para adicionar mais do mesmo produto, remova primeiro");
-							}
-
-						} else {
-							JOptionPane.showMessageDialog(null, "Livro fora de estoque ou quantia acima do estoque!");
-						}
-					}
+					JOptionPane.showMessageDialog(btnRealizarVenda, "Venda não realizada");
 				}
-				atualizarValorTotal();
-			}
-		});
-		btnRemoverVenda.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				livros.remove(l2);
-				qtdSelecionadaLivro = 0;
-				atualizarJTable();
-				atualizarValorTotal();
-			}
-		});
 
+			}
+		});
+		btnRealizarVenda.setBounds(953, 507, 173, 38);
+		contentPane.add(btnRealizarVenda);
+
+		JLabel fundo = new JLabel("New label");
+		fundo.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\venda.png"));
+		fundo.setBounds(0, 0, 1156, 567);
+		contentPane.add(fundo);
 	}
 
 	protected void atualizarJTable() {
@@ -399,9 +413,11 @@ public class JanelaVenda extends JFrame {
 
 	protected void atualizarValorTotal() {
 		double valor = 0;
+		quantidadeTotal = 0;
 		for (int i = 0; i < livros.size(); i++) {
 			Livro l3 = livros.get(i);
 			valor += Double.parseDouble(l3.getPreco()) * l3.getQtde();
+			quantidadeTotal += l3.getQtde();
 		}
 		textField.setText(String.valueOf(valor));
 	}
