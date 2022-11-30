@@ -133,6 +133,8 @@ public class Menu extends JFrame {
 				btnVoltarMenu.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						setVisible(false);
+						JanelaLogin jap = new JanelaLogin();
+						jap.setVisible(true);
 					}
 				});
 				btnVoltarMenu.setFont(new Font("Times New Roman", Font.PLAIN, 20));

@@ -215,6 +215,8 @@ public class JanelaAdmin extends JFrame {
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
+				JanelaPrincipal jap = new JanelaPrincipal();
+				jap.setVisible(true);
 			}
 		});
 		btnFechar.setBounds(916, 476, 114, 32);

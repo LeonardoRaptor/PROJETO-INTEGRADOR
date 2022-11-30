@@ -47,7 +47,7 @@ public class JanelaLogin extends JFrame {
 	public JanelaLogin() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 858, 626);
+		setBounds(100, 100, 1118, 549);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(173, 216, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -56,24 +56,24 @@ public class JanelaLogin extends JFrame {
 		setLocationRelativeTo(null);
 
 		textLogin = new JTextField();
-		textLogin.setBounds(330, 231, 346, 42);
+		textLogin.setBounds(479, 191, 346, 42);
 		contentPane.add(textLogin);
 		textLogin.setColumns(10);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(329, 318, 347, 42);
+		passwordField.setBounds(478, 303, 347, 42);
 		contentPane.add(passwordField);
 
 		JLabel lblLogin = new JLabel("Login:");
 		lblLogin.setForeground(new Color(255, 255, 255));
 		lblLogin.setFont(new Font("Amiri", Font.PLAIN, 26));
-		lblLogin.setBounds(207, 230, 76, 37);
+		lblLogin.setBounds(342, 191, 76, 37);
 		contentPane.add(lblLogin);
 
 		JLabel lblSenha = new JLabel("Senha:");
 		lblSenha.setForeground(new Color(255, 255, 255));
 		lblSenha.setFont(new Font("Amiri", Font.PLAIN, 26));
-		lblSenha.setBounds(207, 323, 76, 25);
+		lblSenha.setBounds(342, 309, 76, 25);
 		contentPane.add(lblSenha);
 
 		JButton btnLogar = new JButton("Logar");
@@ -87,8 +87,7 @@ public class JanelaLogin extends JFrame {
 					Funcionario funcionario = bdf.logarConta(login, senha);
 					if (funcionario != null) {
 						if (funcionario.getNomeFunc().equals(login) && funcionario.getSenhaFunc().equals(senha)) {
-							JanelaLogin jl = new JanelaLogin();
-							jl.setVisible(false);
+							setVisible(false);
 							Menu m = new Menu();
 							m.setVisible(true);
 						}
@@ -102,7 +101,7 @@ public class JanelaLogin extends JFrame {
 		});
 		btnLogar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnLogar.setBackground(Color.GRAY);
-		btnLogar.setBounds(527, 527, 125, 35);
+		btnLogar.setBounds(779, 447, 125, 35);
 		contentPane.add(btnLogar);
 
 		JButton btnVoltar = new JButton("Voltar");
@@ -110,16 +109,18 @@ public class JanelaLogin extends JFrame {
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
+				JanelaPrincipal jap = new JanelaPrincipal();
+				jap.setVisible(true);
 			}
 		});
 		btnVoltar.setBackground(Color.GRAY);
 		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnVoltar.setBounds(677, 527, 133, 35);
+		btnVoltar.setBounds(929, 447, 133, 35);
 		contentPane.add(btnVoltar);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\login.png"));
-		lblNewLabel.setBounds(0, 0, 851, 587);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\loginnn.png"));
+		lblNewLabel.setBounds(0, 0, 1102, 510);
 		contentPane.add(lblNewLabel);
 	}
 }

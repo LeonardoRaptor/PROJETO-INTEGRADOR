@@ -50,7 +50,7 @@ public class JanelaPrincipal extends JFrame {
 	public JanelaPrincipal() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 907, 501);
+		setBounds(100, 100, 1118, 548);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(102, 205, 170));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -61,7 +61,7 @@ public class JanelaPrincipal extends JFrame {
 		btnLogin.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				if (e.getKeyChar() == 'a') {
+				if (e.getKeyChar() == 'p') {
 					JanelaAdmin ja = new JanelaAdmin();
 					ja.setVisible(true);
 				}
@@ -71,12 +71,13 @@ public class JanelaPrincipal extends JFrame {
 			}
 		});
 
-		btnLogin.setBounds(229, 189, 160, 63);
+		btnLogin.setBounds(283, 224, 160, 63);
 		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JanelaLogin j2 = new JanelaLogin();
 				j2.setVisible(true);
+				setVisible(false);
 			}
 		});
 		contentPane.setLayout(null);
@@ -86,20 +87,21 @@ public class JanelaPrincipal extends JFrame {
 
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setForeground(new Color(255, 255, 255));
-		btnCadastrar.setBounds(452, 189, 160, 63);
+		btnCadastrar.setBounds(536, 224, 160, 63);
 		btnCadastrar.setBackground(new Color(102, 51, 0));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				JanelaAdmin ja = new JanelaAdmin();
 				ja.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnCadastrar.setFont(new Font("Tempus Sans ITC", Font.BOLD, 26));
 		contentPane.add(btnCadastrar);
 
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\login.cadastro.png"));
-		lblNewLabel.setBounds(0, 0, 891, 462);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\JanelPrincipal.png"));
+		lblNewLabel.setBounds(0, 0, 1102, 509);
 		contentPane.add(lblNewLabel);
 	}
 
