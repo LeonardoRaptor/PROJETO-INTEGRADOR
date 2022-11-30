@@ -64,6 +64,7 @@ public class JanelaPrincipal extends JFrame {
 				if (e.getKeyChar() == 'p') {
 					JanelaAdmin ja = new JanelaAdmin();
 					ja.setVisible(true);
+					setVisible(false);
 				}
 			}
 
