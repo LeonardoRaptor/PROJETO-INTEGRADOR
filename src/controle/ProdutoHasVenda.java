@@ -84,23 +84,24 @@ public class ProdutoHasVenda {
 		}
 	}
 
-	public int cadastroProVenda(ProVenda pv) {
+	public void cadastroProVenda(ProVenda pv) {
 
-		int idCadastradoProVen = 0;
 		try {
 
-			Statement st;
+			PreparedStatement st;
 			conexao = Conexao.ligar();
-			st = conexao.createStatement();
+
+			String comandSql = "Insert into Produtos_has_Venda (Produtos_idProdutos,Venda_idVenda, QuantVenda) values (?, ?, ?)";
+
+			st = conexao.prepareStatement(comandSql);
+
+			st.setInt(1, pv.getIdProduto());
+			st.setInt(2, pv.getIdVenda());
+			st.setInt(3, pv.getQuantiVenda());
+
+			st.executeUpdate();
 
 			System.out.println("Conectado � base de dados com sucesso.");
-			idCadastradoProVen = st
-					.executeUpdate("Insert into Produtos_has_Venda (Produtos_idProdutos,Venda_idVenda, QuantVenda) values " + "('"
-							+ pv.getIdProduto() + "', '" + pv.getIdVenda() + "', '" + pv.getQuantiVenda() + "')");
-
-			if (idCadastradoProVen == 0) {
-				throw new SQLException("Creating book failed, no rows affected.");
-			}
 
 			Conexao.desligar();
 
@@ -109,7 +110,6 @@ public class ProdutoHasVenda {
 			System.out.println("Erro ao conectar � base de dados.");
 		}
 
-		return idCadastradoProVen;
 	}
 
 }

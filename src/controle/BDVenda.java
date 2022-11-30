@@ -1,6 +1,7 @@
 package controle;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -66,15 +67,29 @@ public class BDVenda {
 		int idCadastradoVenda = 0;
 		try {
 
-			Statement st;
+			PreparedStatement st;
 			conexao = Conexao.ligar();
-			st = conexao.createStatement();
+			String comandoSQL= "Insert into Venda (QuantidadeVenda, valorVenda, formaPagamento, DataVenda, Funcionarios_idFuncionario, Clientes_idCliente) values (?,?,?,?,?,?)";
+			st = conexao.prepareStatement(comandoSQL, Statement.RETURN_GENERATED_KEYS);
+			
+			st.setInt(1, v.getQtdeVenda());
+			st.setDouble(2, v.getValor());
+			st.setString(3, v.getFormaPagamento());
+			st.setString(4, v.getData());
+			st.setInt(5, v.getFunId());
+			st.setInt(6, v.getCliId());
 
 			System.out.println("Conectado � base de dados com sucesso.");
-			idCadastradoVenda = st.executeUpdate(
-					"Insert into Venda (QuantidadeVenda, valorVenda, formaPagamento, DataVenda, Funcionarios_idFuncionario, Clientes_idCliente) values "
-							+ "('" + v.getQtdeVenda() + "', '" + v.getValor() + "','" + v.getFormaPagamento() + "', '"
-							+ v.getData() + "', " + "'" + v.getFunId() + "', '" + v.getCliId() + "')");
+			idCadastradoVenda = st.executeUpdate();
+			
+			 try (ResultSet generatedKeys = st.getGeneratedKeys()) {
+		            if (generatedKeys.next()) {
+		                v.setIdVenda(generatedKeys.getInt(1));
+		            }
+		            else {
+		                throw new SQLException("Creating Venda failed, no ID obtained.");
+		            }
+		        }
 
 			if (idCadastradoVenda == 0) {
 				throw new SQLException("Creating Venda failed, no rows affected.");

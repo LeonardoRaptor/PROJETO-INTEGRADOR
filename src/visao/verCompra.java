@@ -8,9 +8,16 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import controle.BDVenda;
+import controle.ProdutoHasVenda;
+import modelo.ProVenda;
+import modelo.Venda;
+
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -19,6 +26,11 @@ public class verCompra extends JFrame {
 
 	private JPanel contentPane;
 	private JTable table;
+	private ArrayList<ProVenda> vendaPro;
+	private ProdutoHasVenda bdpv = new ProdutoHasVenda();
+	private int idDaquelaVenda;
+	private BDVenda bdv = new BDVenda();
+	// private int idDaVenda;
 
 	/**
 	 * Launch the application.
@@ -27,7 +39,7 @@ public class verCompra extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					verCompra frame = new verCompra();
+					JanelaPrincipal frame = new JanelaPrincipal();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,21 +60,16 @@ public class verCompra extends JFrame {
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(106, 148, 867, 262);
 		contentPane.add(scrollPane);
-		
+
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"ID Livro", "Nome Livro", "Nome Funcionário", "Nome Cliente"
-			}
-		));
+		table.setModel(new DefaultTableModel(new Object[][] {},
+				new String[] { "ID Livro", "Nome Livro", "Quantidade", "Nome Funcionário", "Nome Cliente" }));
 		scrollPane.setViewportView(table);
-		
+
 		JButton btnNewButton = new JButton("Voltar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -72,10 +79,33 @@ public class verCompra extends JFrame {
 		btnNewButton.setFont(new Font("Arial", Font.PLAIN, 20));
 		btnNewButton.setBounds(887, 433, 164, 33);
 		contentPane.add(btnNewButton);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\detalhe venda.png"));
+		lblNewLabel
+				.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\detalhe venda.png"));
 		lblNewLabel.setBounds(0, 0, 1061, 487);
 		contentPane.add(lblNewLabel);
+		
+		atualizarJTable();
+	}
+
+	protected void atualizarJTable() {
+
+		DefaultTableModel modelo = new DefaultTableModel(new Object[][] {},
+				new String[] { "ID Livro", "Nome Livro", "Quantidade", "Nome Funcionário", "Nome Cliente" });
+
+		vendaPro = bdpv.listarTodos();
+		for (ProVenda pv : vendaPro) {
+			Venda v = bdv.getVendaPorId(idDaquelaVenda);
+			modelo.addRow(
+					new Object[] { pv.getIdProduto(), v.getValor(), pv.getQuantiVenda(), v.getFunId(), v.getCliId() });
+		}
+
+		table.setModel(modelo);
+
+	}
+
+	protected void setIDVen(Venda v) {
+		idDaquelaVenda = v.getIdVenda();
 	}
 }

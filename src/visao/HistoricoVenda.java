@@ -85,7 +85,15 @@ public class HistoricoVenda extends JFrame {
 		table.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				int row = table.getSelectedRow();
+				idVenda = (int) table.getValueAt(row, 0);
+				
+				
+				Venda v1 = bdv.getVendaPorId(idVenda);
+				
 				verCompra ver = new verCompra();
+				
+				ver.setIDVen(v1);
+				
 				ver.setVisible(true);
 
 			}
