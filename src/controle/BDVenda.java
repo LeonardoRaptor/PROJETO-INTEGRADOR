@@ -69,9 +69,9 @@ public class BDVenda {
 
 			PreparedStatement st;
 			conexao = Conexao.ligar();
-			String comandoSQL= "Insert into Venda (QuantidadeVenda, valorVenda, formaPagamento, DataVenda, Funcionarios_idFuncionario, Clientes_idCliente) values (?,?,?,?,?,?)";
+			String comandoSQL = "Insert into Venda (QuantidadeVenda, valorVenda, formaPagamento, DataVenda, Funcionarios_idFuncionario, Clientes_idCliente) values (?,?,?,?,?,?)";
 			st = conexao.prepareStatement(comandoSQL, Statement.RETURN_GENERATED_KEYS);
-			
+
 			st.setInt(1, v.getQtdeVenda());
 			st.setDouble(2, v.getValor());
 			st.setString(3, v.getFormaPagamento());
@@ -81,15 +81,14 @@ public class BDVenda {
 
 			System.out.println("Conectado � base de dados com sucesso.");
 			idCadastradoVenda = st.executeUpdate();
-			
-			 try (ResultSet generatedKeys = st.getGeneratedKeys()) {
-		            if (generatedKeys.next()) {
-		                v.setIdVenda(generatedKeys.getInt(1));
-		            }
-		            else {
-		                throw new SQLException("Creating Venda failed, no ID obtained.");
-		            }
-		        }
+
+			try (ResultSet generatedKeys = st.getGeneratedKeys()) {
+				if (generatedKeys.next()) {
+					v.setIdVenda(generatedKeys.getInt(1));
+				} else {
+					throw new SQLException("Creating Venda failed, no ID obtained.");
+				}
+			}
 
 			if (idCadastradoVenda == 0) {
 				throw new SQLException("Creating Venda failed, no rows affected.");
@@ -151,21 +150,5 @@ public class BDVenda {
 			System.out.println("Erro ao conectar � base de dados.");
 
 		}
-	}
-
-	public boolean removeAq(int idVenda) {
-		boolean sucesso = true;
-		try {
-
-			conexao = Conexao.ligar();
-			System.out.println("Conectado � base de dados com sucesso.");
-			st = conexao.createStatement();
-			sucesso = st.execute("delete from Venda where idVenda=" + idVenda);
-			Conexao.desligar();
-		} catch (SQLException a) {
-			System.out.println(a.getMessage());
-		}
-
-		return sucesso;
 	}
 }

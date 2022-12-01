@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import modelo.Cliente;
 import modelo.Livro;
 import modelo.ProVenda;
 
@@ -15,6 +14,8 @@ public class ProdutoHasVenda {
 	Connection conexao;
 	private Statement st;
 	private ArrayList<ProVenda> listaProV = new ArrayList<>();
+	private BDLivro bdl = new BDLivro();
+	private Livro l = new Livro();
 
 	public ProVenda getProVendaPorId(int idVenda) {
 
@@ -101,6 +102,13 @@ public class ProdutoHasVenda {
 
 			st.executeUpdate();
 
+			l = bdl.getLivroPorId(pv.getIdProduto());
+			
+			l.setQtde(l.getQtde()-pv.getQuantiVenda());
+			
+			
+			bdl.removeQtdeLivro(l);
+
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			Conexao.desligar();
@@ -118,7 +126,8 @@ public class ProdutoHasVenda {
 			System.out.println("Conectado � base de dados com sucesso.");
 
 			st = conexao.createStatement();
-			ResultSet rs2 = st.executeQuery("select * from Produtos_has_Venda where Venda_idVenda = "+idDaquelaVenda+" order by Venda_idVenda");
+			ResultSet rs2 = st.executeQuery("select * from Produtos_has_Venda where Venda_idVenda = " + idDaquelaVenda
+					+ " order by Venda_idVenda");
 
 			while (rs2.next()) {
 				ProVenda pv = new ProVenda();

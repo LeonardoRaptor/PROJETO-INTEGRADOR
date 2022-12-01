@@ -171,4 +171,22 @@ public class BDLivro {
 
 		return sucesso;
 	}
+	
+	public boolean removeQtdeLivro(Livro l) {
+		boolean sucesso = true;
+		try {
+
+			conexao = Conexao.ligar();
+			System.out.println("Conectado � base de dados com sucesso.");
+			st = conexao.createStatement();
+			sucesso = st.execute("update produtos set nome = '" + l.getNomeLi() + "', PreçoProduto='"
+					+ l.getPreco() + "', autor='" + l.getAutor() + "', genero='" + l.getGenero()
+					+ "', qt_estoque='" + l.getQtde() + "', Fornecedor_idFornecedor='"+ l.getFornecedor() +"' where idProdutos=" + l.getIdLi());
+			Conexao.desligar();
+		} catch (SQLException a) {
+			System.out.println(a.getMessage());
+		}
+
+		return sucesso;
+	}
 }

@@ -21,7 +21,6 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import controle.BDLivro;
 import controle.BDVenda;
 import controle.ProdutoHasVenda;
 import modelo.Cliente;
@@ -31,7 +30,6 @@ import modelo.ProVenda;
 import modelo.Venda;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
 
 public class JanelaVenda extends JFrame {
@@ -384,6 +382,8 @@ public class JanelaVenda extends JFrame {
 						phv.cadastroProVenda(provenda);
 					}
 
+					limparCampos();
+
 					if (fator != 0) {
 						JOptionPane.showMessageDialog(btnRealizarVenda, "Venda realizada com sucesso");
 					} else {
@@ -454,5 +454,26 @@ public class JanelaVenda extends JFrame {
 			quantidadeTotal += l3.getQtde();
 		}
 		textField.setText(String.valueOf(valor));
+	}
+
+	protected void limparCampos() {
+		this.livroSelecionado = null;
+		txtIdLivro.setText("");
+		textNomeLi.setText("");
+
+		this.funSelecionado = null;
+		txtIdFunc.setText("");
+		textNomeFun.setText("");
+
+		this.cliSelecionado = null;
+		txtIdCli.setText("");
+		textNomeCli.setText("");
+
+		textField.setText("");
+
+		txtQtdLivro.setText("");
+
+		livros.removeAll(livros);
+		atualizarJTable();
 	}
 }
