@@ -85,6 +85,8 @@ public class Estoque extends JFrame {
 		atualizarJTable();
 		
 		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnNewButton.setBounds(1129, 548, 104, 42);
 		contentPane.add(btnNewButton);

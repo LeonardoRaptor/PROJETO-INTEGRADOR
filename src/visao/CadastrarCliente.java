@@ -121,8 +121,9 @@ public class CadastrarCliente extends JFrame {
 		textField_4.setColumns(10);
 
 		JButton btnNewButton = new JButton("Voltar");
+		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
-		btnNewButton.setBackground(new Color(189, 183, 107));
+		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Menu men = new Menu();
@@ -169,7 +170,7 @@ public class CadastrarCliente extends JFrame {
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnAlterar.setForeground(new Color(255, 255, 255));
-		btnAlterar.setBackground(new Color(0, 0, 0));
+		btnAlterar.setBackground(Color.GRAY);
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textField_1.getText();
@@ -230,7 +231,7 @@ public class CadastrarCliente extends JFrame {
 		JButton btnRemover = new JButton("Excluir");
 		btnRemover.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemover.setForeground(new Color(255, 255, 255));
-		btnRemover.setBackground(new Color(0, 0, 0));
+		btnRemover.setBackground(Color.GRAY);
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdcl.removeAq(idClienteSelecionado);
