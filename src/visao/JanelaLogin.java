@@ -86,10 +86,21 @@ public class JanelaLogin extends JFrame {
 					BDFunc bdf = new BDFunc();
 					Funcionario funcionario = bdf.logarConta(login, senha);
 					if (funcionario != null) {
-						if (funcionario.getNomeFunc().equals(login) && funcionario.getSenhaFunc().equals(senha)) {
-							setVisible(false);
+						if (funcionario.getNomeFunc().equals(login) && funcionario.getSenhaFunc().equals(senha)&& funcionario.getTipoAcesso()==null) {
+							dispose();
 							Menu m = new Menu();
 							m.setVisible(true);
+						} else if (funcionario.getNomeFunc().equals(login) && funcionario.getSenhaFunc().equals(senha)&& funcionario.getTipoAcesso().equals("A")){
+							int selecionado = JOptionPane.showConfirmDialog(null, "Você deseja acessar a janela de cadastro?");
+							if(selecionado==0) {
+								dispose();
+								JanelaAdmin ja = new JanelaAdmin();
+								ja.setVisible(true);
+							} else {
+								dispose();
+								Menu m = new Menu();
+								m.setVisible(true);
+							}
 						}
 					} else {
 						JOptionPane.showMessageDialog(btnLogar, "Usuário e/ou senha incorretos");
