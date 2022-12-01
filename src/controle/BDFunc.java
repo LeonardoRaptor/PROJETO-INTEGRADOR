@@ -30,6 +30,7 @@ public class BDFunc {
 				f.setNomeFunc(rs.getString("nomeFuncionario"));
 				f.setSenhaFunc(rs.getString("senhaFunc"));
 				f.setTelefone(rs.getString("telefone"));
+				f.setTipoAcesso(rs.getString("tipoAcesso"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -51,6 +52,7 @@ public class BDFunc {
 				f.setNomeFunc(rs.getString("nomeFuncionario"));
 				f.setSenhaFunc(rs.getString("senhaFunc"));
 				f.setTelefone(rs.getString("telefone"));
+				f.setTipoAcesso(rs.getString("tipoAcesso"));
 			}
 		} catch (SQLException a) {
 			System.out.println(a.getMessage());
@@ -106,6 +108,7 @@ public class BDFunc {
 				f.setNomeFunc(rs1.getString("nomeFuncionario"));
 				f.setSenhaFunc(rs1.getString("senhaFunc"));
 				f.setTelefone(rs1.getString("telefone"));
+				f.setTipoAcesso(rs1.getString("tipoAcesso"));
 				lista.add(f);
 			}
 
@@ -139,6 +142,7 @@ public class BDFunc {
 				funcionario.setNomeFunc(rs1.getString("nomeFuncionario"));
 				funcionario.setSenhaFunc(rs1.getString("senhaFunc"));
 				funcionario.setTelefone(rs1.getString("telefone"));
+				funcionario.setTipoAcesso(rs1.getString("tipoAcesso"));
 			}
 
 			Conexao.desligar();

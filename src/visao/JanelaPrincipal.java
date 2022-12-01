@@ -58,27 +58,13 @@ public class JanelaPrincipal extends JFrame {
 		setLocationRelativeTo(null);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.addKeyListener(new KeyAdapter() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-				if (e.getKeyChar() == 'p') {
-					JanelaAdmin ja = new JanelaAdmin();
-					ja.setVisible(true);
-					setVisible(false);
-				}
-			}
-
-			public void keyPressed(KeyEvent e) {
-			}
-		});
-
 		btnLogin.setBounds(283, 224, 160, 63);
 		btnLogin.setForeground(new Color(255, 255, 255));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				JanelaLogin j2 = new JanelaLogin();
 				j2.setVisible(true);
-				setVisible(false);
+				dispose();
 			}
 		});
 		contentPane.setLayout(null);
@@ -92,9 +78,9 @@ public class JanelaPrincipal extends JFrame {
 		btnCadastrar.setBackground(new Color(102, 51, 0));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				JanelaAdmin ja = new JanelaAdmin();
-				ja.setVisible(true);
-				setVisible(false);
+				JanelaLogin j2 = new JanelaLogin();
+				j2.setVisible(true);
+				dispose();
 			}
 		});
 		btnCadastrar.setFont(new Font("Tempus Sans ITC", Font.BOLD, 26));

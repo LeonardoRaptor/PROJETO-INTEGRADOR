@@ -1,7 +1,7 @@
 package modelo;
 
 public class Funcionario {
-	private String emailFunc, nomeFunc, cpfFunc, senhaFunc, telefone;
+	private String emailFunc, nomeFunc, cpfFunc, senhaFunc, telefone, tipoAcesso;
 	private int id;
 
 	public int getId() {
@@ -36,6 +36,14 @@ public class Funcionario {
 		this.cpfFunc = cpfFunc;
 	}
 
+	public String getTipoAcesso() {
+		return tipoAcesso;
+	}
+
+	public void setTipoAcesso(String tipoAcesso) {
+		this.tipoAcesso = tipoAcesso;
+	}
+
 	public String getSenhaFunc() {
 		return senhaFunc;
 	}
@@ -51,5 +59,6 @@ public class Funcionario {
 	public String getTelefone() {
 		return telefone;
 	}
+	
 
 }
