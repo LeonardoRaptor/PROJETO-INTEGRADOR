@@ -38,12 +38,14 @@ public class Menu extends JFrame {
 	 * Create the frame.
 	 */
 	public Menu() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1131, 587);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
+		
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -55,6 +57,7 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Estoque es = new Estoque();
 				es.setVisible(true);
+				setVisible(false);
 			}
 		});
 		btnEstoque.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -69,6 +72,7 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				HistoricoVenda hv = new HistoricoVenda();
 				hv.setVisible(true);
+				dispose();
 			}
 		});
 		btnHistoricoVenda.setBounds(750, 176, 183, 79);
@@ -81,6 +85,7 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JanelaFornecedor cadfor = new JanelaFornecedor();
 				cadfor.setVisible(true);
+				dispose();
 			}
 		});
 		btnCadastrarFornecedor.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -94,6 +99,7 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CadastrarCliente cadcli = new CadastrarCliente();
 				cadcli.setVisible(true);
+				dispose();
 			}
 		});
 		btnCadastrarClientes.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -107,6 +113,7 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				CadastrarLivro cadliv = new CadastrarLivro();
 				cadliv.setVisible(true);
+				dispose();
 			}
 		});
 		btnRegistrarLivro.setFont(new Font("Times New Roman", Font.PLAIN, 20));
@@ -120,6 +127,7 @@ public class Menu extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JanelaVenda venda = new JanelaVenda();
 				venda.setVisible(true);
+				dispose();
 			}
 		});
 		btnRegistrarVenda.setFont(new Font("Times New Roman", Font.PLAIN, 20));

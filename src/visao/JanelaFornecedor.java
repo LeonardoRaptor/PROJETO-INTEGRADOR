@@ -54,6 +54,7 @@ public class JanelaFornecedor extends JFrame {
 	}
 
 	public JanelaFornecedor() {
+		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1171, 577);
 		contentPane = new JPanel();
@@ -61,6 +62,7 @@ public class JanelaFornecedor extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		setLocationRelativeTo(null);
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(422, 131, 723, 355);
@@ -186,7 +188,7 @@ public class JanelaFornecedor extends JFrame {
 		btnAlterar.setBounds(258, 420, 126, 29);
 		contentPane.add(btnAlterar);
 
-		JButton btnFechar = new JButton("Fechar");
+		JButton btnFechar = new JButton("Voltar");
 		btnFechar.setBackground(Color.LIGHT_GRAY);
 		btnFechar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnFechar.addActionListener(new ActionListener() {

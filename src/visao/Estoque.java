@@ -51,6 +51,7 @@ public class Estoque extends JFrame {
 	 * Create the frame.
 	 */
 	public Estoque() {
+		setResizable(false);
 		setTitle("Estoque");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1254, 629);
@@ -94,6 +95,8 @@ public class Estoque extends JFrame {
 		contentPane.add(lblNewLabel);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Menu mer = new Menu();
+				mer.setVisible(true);
 				setVisible(false);
 			}
 		});

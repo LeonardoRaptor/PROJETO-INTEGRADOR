@@ -61,6 +61,7 @@ public class SelecionarCliente extends JFrame {
 		contentPane.setBackground(new Color(119, 136, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
+		
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

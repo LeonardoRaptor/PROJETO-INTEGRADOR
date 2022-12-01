@@ -142,12 +142,14 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(textPrecoL);
 		textPrecoL.setColumns(10);
 
-		JButton btnCancelar = new JButton("Cancelar");
+		JButton btnCancelar = new JButton("Voltar");
 		btnCancelar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnCancelar.setBounds(1059, 591, 134, 36);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				setVisible(false);
+				Menu men = new Menu();
+				men.setVisible(true);
+				dispose();
 
 			}
 		});
