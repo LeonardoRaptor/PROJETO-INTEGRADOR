@@ -133,7 +133,7 @@ public class JanelaVenda extends JFrame {
 		btnRemoverVenda.setBackground(Color.GRAY);
 		btnRemoverVenda.setForeground(Color.WHITE);
 		btnRemoverVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
-		btnRemoverVenda.setBounds(296, 377, 128, 41);
+		btnRemoverVenda.setBounds(265, 284, 128, 41);
 		btnRemoverVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				livros.remove(l2);
@@ -148,7 +148,7 @@ public class JanelaVenda extends JFrame {
 		btnAdicionarVenda.setForeground(Color.WHITE);
 		btnAdicionarVenda.setBackground(Color.GRAY);
 		btnAdicionarVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
-		btnAdicionarVenda.setBounds(110, 377, 134, 41);
+		btnAdicionarVenda.setBounds(109, 284, 134, 41);
 		btnAdicionarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				liVenda = new Livro();
@@ -214,12 +214,12 @@ public class JanelaVenda extends JFrame {
 		contentPane.add(btnAdicionarVenda);
 
 		txtQtdLivro = new JTextField();
-		txtQtdLivro.setBounds(256, 316, 168, 32);
+		txtQtdLivro.setBounds(244, 229, 153, 32);
 		contentPane.add(txtQtdLivro);
 		txtQtdLivro.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
-		lblNewLabel_2.setBounds(110, 309, 135, 43);
+		lblNewLabel_2.setBounds(109, 212, 135, 61);
 		contentPane.add(lblNewLabel_2);
 		lblNewLabel_2.setFont(new Font("Amiri", Font.PLAIN, 26));
 
@@ -319,7 +319,7 @@ public class JanelaVenda extends JFrame {
 		scrollPane.setViewportView(table);
 
 		JLabel lblSumario = new JLabel("Sumário:");
-		lblSumario.setBounds(405, 225, 96, 32);
+		lblSumario.setBounds(407, 229, 96, 32);
 		contentPane.add(lblSumario);
 		lblSumario.setFont(new Font("Amiri", Font.PLAIN, 26));
 
