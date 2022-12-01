@@ -103,10 +103,10 @@ public class JanelaLogin extends JFrame {
 							}
 						}
 					} else {
-						JOptionPane.showMessageDialog(btnLogar, "Usuário e/ou senha incorretos");
+						JOptionPane.showMessageDialog(null, "Usuário e/ou senha incorretos");
 					}
 				} else {
-					JOptionPane.showMessageDialog(btnLogar, "Usuário inexistente");
+					JOptionPane.showMessageDialog(null, "Usuário inexistente");
 				}
 			}
 		});
