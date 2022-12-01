@@ -40,7 +40,7 @@ public class Menu extends JFrame {
 	public Menu() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1131, 587);
+		setBounds(100, 100, 1117, 548);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(176, 224, 230));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -136,7 +136,7 @@ public class Menu extends JFrame {
 		
 				JButton btnVoltarMenu = new JButton("Voltar");
 				btnVoltarMenu.setBackground(Color.GRAY);
-				btnVoltarMenu.setBounds(965, 477, 128, 45);
+				btnVoltarMenu.setBounds(963, 464, 128, 45);
 				contentPane.add(btnVoltarMenu);
 				btnVoltarMenu.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -148,7 +148,7 @@ public class Menu extends JFrame {
 				btnVoltarMenu.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 				
 				JLabel lblNewLabel = new JLabel("    ");
-				lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\menu.png"));
+				lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\Telas redimencionadas\\menu.png"));
 				lblNewLabel.setBounds(0, 0, 1115, 548);
 				contentPane.add(lblNewLabel);
 	}
