@@ -56,7 +56,7 @@ public class HistoricoVenda extends JFrame {
 	public HistoricoVenda() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1116, 547);
+		setBounds(100, 100, 1116, 545);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(175, 238, 238));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -79,6 +79,8 @@ public class HistoricoVenda extends JFrame {
 		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Menu men = new Menu();
+				men.setVisible(true);
 				dispose();
 			}
 		});
@@ -94,7 +96,7 @@ public class HistoricoVenda extends JFrame {
 
 			}
 		});
-		btnNewButton.setBounds(1054, 522, 123, 45);
+		btnNewButton.setBounds(949, 461, 116, 45);
 		contentPane.add(btnNewButton);
 
 		atualizarJTable();

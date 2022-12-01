@@ -125,6 +125,8 @@ public class CadastrarCliente extends JFrame {
 		btnNewButton.setBackground(new Color(189, 183, 107));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Menu men = new Menu();
+				men.setVisible(true);
 				setVisible(false);
 			}
 		});

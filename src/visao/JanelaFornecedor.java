@@ -193,6 +193,8 @@ public class JanelaFornecedor extends JFrame {
 		btnFechar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Menu men = new Menu();
+				men.setVisible(true);
 				dispose();
 			}
 		});

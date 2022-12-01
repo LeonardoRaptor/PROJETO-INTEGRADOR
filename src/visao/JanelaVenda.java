@@ -100,6 +100,8 @@ public class JanelaVenda extends JFrame {
 		btnVoltar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Menu men = new Menu();
+				men.setVisible(true);
 				dispose();
 			}
 		});
