@@ -66,7 +66,7 @@ public class HistoricoVenda extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(79, 132, 997, 287);
+		scrollPane.setBounds(77, 163, 988, 272);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
@@ -105,7 +105,7 @@ public class HistoricoVenda extends JFrame {
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(
 				new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\Telas redimencionadas\\Tela Venda.png"));
-		lblNewLabel.setBounds(0, 0, 1100, 511);
+		lblNewLabel.setBounds(0, 0, 1100, 552);
 		contentPane.add(lblNewLabel);
 	}
 
