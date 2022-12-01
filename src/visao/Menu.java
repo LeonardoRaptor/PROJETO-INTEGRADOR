@@ -135,7 +135,7 @@ public class Menu extends JFrame {
 		contentPane.add(btnRegistrarVenda);
 		
 				JButton btnVoltarMenu = new JButton("Voltar");
-				btnVoltarMenu.setBackground(Color.GRAY);
+				btnVoltarMenu.setBackground(Color.LIGHT_GRAY);
 				btnVoltarMenu.setBounds(963, 464, 128, 45);
 				contentPane.add(btnVoltarMenu);
 				btnVoltarMenu.addActionListener(new ActionListener() {

@@ -116,7 +116,7 @@ public class JanelaLogin extends JFrame {
 		contentPane.add(btnLogar);
 
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.setForeground(Color.BLACK);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);
@@ -124,7 +124,7 @@ public class JanelaLogin extends JFrame {
 				jap.setVisible(true);
 			}
 		});
-		btnVoltar.setBackground(Color.GRAY);
+		btnVoltar.setBackground(Color.LIGHT_GRAY);
 		btnVoltar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnVoltar.setBounds(929, 447, 133, 35);
 		contentPane.add(btnVoltar);

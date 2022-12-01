@@ -25,6 +25,7 @@ import controle.BDCliente;
 import modelo.Genero;
 import modelo.Cliente;
 import java.awt.Color;
+import java.awt.Font;
 
 public class SelecionarCliente extends JFrame {
 
@@ -67,7 +68,9 @@ public class SelecionarCliente extends JFrame {
 		contentPane.setLayout(null);
 
 		JButton btnCancelar = new JButton("Voltar");
-		btnCancelar.setBounds(679, 205, 89, 23);
+		btnCancelar.setBackground(Color.LIGHT_GRAY);
+		btnCancelar.setFont(new Font("Amiri", Font.PLAIN, 20));
+		btnCancelar.setBounds(667, 198, 101, 30);
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisible(false);

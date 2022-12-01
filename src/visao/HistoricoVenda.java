@@ -75,7 +75,8 @@ public class HistoricoVenda extends JFrame {
 		scrollPane.setViewportView(table);
 
 		JButton btnNewButton = new JButton("Voltar");
-		btnNewButton.setBackground(Color.GRAY);
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

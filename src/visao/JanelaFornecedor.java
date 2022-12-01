@@ -93,21 +93,21 @@ public class JanelaFornecedor extends JFrame {
 
 		JLabel lblNome = new JLabel("Nome:");
 		lblNome.setFont(new Font("Amiri", Font.PLAIN, 30));
-		lblNome.setBounds(44, 219, 89, 29);
+		lblNome.setBounds(44, 169, 89, 29);
 		contentPane.add(lblNome);
 
 		textNome = new JTextField();
-		textNome.setBounds(143, 223, 241, 29);
+		textNome.setBounds(143, 169, 241, 29);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
 		JLabel lblTelefone = new JLabel("Telefone:");
 		lblTelefone.setFont(new Font("Amiri", Font.PLAIN, 30));
-		lblTelefone.setBounds(14, 338, 119, 24);
+		lblTelefone.setBounds(14, 305, 119, 24);
 		contentPane.add(lblTelefone);
 
 		textTelefone = new JTextField();
-		textTelefone.setBounds(142, 338, 242, 29);
+		textTelefone.setBounds(143, 307, 242, 29);
 		contentPane.add(textTelefone);
 		textTelefone.setColumns(10);
 
@@ -140,7 +140,7 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnCadastrar.setBounds(81, 420, 126, 29);
+		btnCadastrar.setBounds(60, 420, 126, 29);
 		contentPane.add(btnCadastrar);
 
 		JButton btnRemover = new JButton("Excluir");
@@ -158,7 +158,7 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnRemover.setBounds(81, 470, 126, 29);
+		btnRemover.setBounds(60, 472, 126, 29);
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
@@ -188,12 +188,12 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnAlterar.setBounds(258, 420, 126, 29);
+		btnAlterar.setBounds(230, 420, 126, 29);
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Voltar");
-		btnFechar.setForeground(Color.WHITE);
-		btnFechar.setBackground(Color.GRAY);
+		btnFechar.setForeground(Color.BLACK);
+		btnFechar.setBackground(Color.LIGHT_GRAY);
 		btnFechar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -207,11 +207,11 @@ public class JanelaFornecedor extends JFrame {
 
 		JLabel lblEmail = new JLabel("E-mail:");
 		lblEmail.setFont(new Font("Amiri", Font.PLAIN, 30));
-		lblEmail.setBounds(35, 274, 119, 36);
+		lblEmail.setBounds(39, 235, 119, 36);
 		contentPane.add(lblEmail);
 
 		textEmail = new JTextField();
-		textEmail.setBounds(142, 282, 242, 29);
+		textEmail.setBounds(142, 235, 242, 29);
 		contentPane.add(textEmail);
 		textEmail.setColumns(10);
 
@@ -227,7 +227,7 @@ public class JanelaFornecedor extends JFrame {
 
 			}
 		});
-		btnNewButton_1.setBounds(258, 472, 126, 29);
+		btnNewButton_1.setBounds(230, 472, 126, 29);
 		contentPane.add(btnNewButton_1);
 		
 		JLabel lblNewLabel = new JLabel("New label");

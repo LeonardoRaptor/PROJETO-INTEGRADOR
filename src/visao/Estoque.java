@@ -54,7 +54,7 @@ public class Estoque extends JFrame {
 		setResizable(false);
 		setTitle("Estoque");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1254, 629);
+		setBounds(100, 100, 1118, 548);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
@@ -65,7 +65,7 @@ public class Estoque extends JFrame {
 		
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(173, 138, 1022, 397);
+		scrollPane.setBounds(138, 121, 861, 334);
 		contentPane.add(scrollPane);
 		
 		table = new JTable();
@@ -85,15 +85,15 @@ public class Estoque extends JFrame {
 		atualizarJTable();
 		
 		JButton btnNewButton = new JButton("Voltar");
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setBackground(Color.GRAY);
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnNewButton.setBounds(1129, 548, 104, 42);
+		btnNewButton.setForeground(Color.BLACK);
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
+		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
+		btnNewButton.setBounds(969, 466, 104, 42);
 		contentPane.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\Estoque.png"));
-		lblNewLabel.setBounds(0, 0, 1243, 590);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\Telas redimencionadas\\Estoque.png"));
+		lblNewLabel.setBounds(0, 0, 1243, 509);
 		contentPane.add(lblNewLabel);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
