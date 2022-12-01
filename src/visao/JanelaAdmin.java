@@ -125,7 +125,7 @@ public class JanelaAdmin extends JFrame {
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnCadastrar.setForeground(new Color(255, 255, 255));
-		btnCadastrar.setBackground(new Color(0, 0, 0));
+		btnCadastrar.setBackground(Color.GRAY);
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNome.getText();
@@ -161,7 +161,7 @@ public class JanelaAdmin extends JFrame {
 		JButton btnRemover = new JButton("Excluir");
 		btnRemover.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnRemover.setForeground(new Color(255, 255, 255));
-		btnRemover.setBackground(new Color(0, 0, 0));
+		btnRemover.setBackground(Color.GRAY);
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean sucesso = bdfu.removeAq(idFuncionarioSelecionado);
@@ -179,7 +179,7 @@ public class JanelaAdmin extends JFrame {
 		JButton btnAlterar = new JButton("Alterar");
 		btnAlterar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnAlterar.setForeground(new Color(255, 255, 255));
-		btnAlterar.setBackground(new Color(0, 0, 0));
+		btnAlterar.setBackground(Color.GRAY);
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String nome = textNome.getText();
@@ -211,8 +211,9 @@ public class JanelaAdmin extends JFrame {
 		contentPane.add(btnAlterar);
 
 		JButton btnFechar = new JButton("Voltar");
+		btnFechar.setForeground(Color.BLACK);
 		btnFechar.setFont(new Font("Times New Roman", Font.PLAIN, 20));
-		btnFechar.setBackground(new Color(189, 183, 107));
+		btnFechar.setBackground(Color.LIGHT_GRAY);
 		btnFechar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -236,7 +237,7 @@ public class JanelaAdmin extends JFrame {
 		JButton btnNewButton_1 = new JButton("Limpar");
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		btnNewButton_1.setForeground(new Color(255, 255, 255));
-		btnNewButton_1.setBackground(new Color(0, 0, 0));
+		btnNewButton_1.setBackground(Color.GRAY);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				textNome.setText("");

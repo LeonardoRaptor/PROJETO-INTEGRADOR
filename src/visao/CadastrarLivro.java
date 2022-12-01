@@ -119,6 +119,7 @@ public class CadastrarLivro extends JFrame {
 		textNomeL.setColumns(10);
 
 		JComboBox<Genero> boxGenero = new JComboBox<Genero>();
+		boxGenero.setFont(new Font("Amiri", Font.PLAIN, 20));
 		boxGenero.setModel(new DefaultComboBoxModel(new String[] { "Terror", "Ação", "Romance", "Drama", "Fantasia",
 				"Poesia", "Conto", "Mangá", "Aventura" }));
 		boxGenero.setBounds(214, 217, 226, 36);
@@ -144,6 +145,8 @@ public class CadastrarLivro extends JFrame {
 		textPrecoL.setColumns(10);
 
 		JButton btnCancelar = new JButton("Voltar");
+		btnCancelar.setBackground(Color.GRAY);
+		btnCancelar.setForeground(Color.WHITE);
 		btnCancelar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnCancelar.setBounds(1059, 591, 134, 36);
 		btnCancelar.addActionListener(new ActionListener() {
@@ -157,6 +160,8 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(btnCancelar);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setForeground(Color.WHITE);
+		btnCadastrar.setBackground(Color.GRAY);
 		btnCadastrar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -234,6 +239,8 @@ public class CadastrarLivro extends JFrame {
 		textFornecedorL.setColumns(10);
 
 		JButton btnRemover = new JButton("Excluir");
+		btnRemover.setForeground(Color.WHITE);
+		btnRemover.setBackground(Color.GRAY);
 		btnRemover.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -250,6 +257,8 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnAlterar = new JButton("Alterar");
+		btnAlterar.setBackground(Color.GRAY);
+		btnAlterar.setForeground(Color.WHITE);
 		btnAlterar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnAlterar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -291,6 +300,9 @@ public class CadastrarLivro extends JFrame {
 		contentPane.add(textNome);
 
 		JButton btnNewButton = new JButton("Selecionar");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.GRAY);
+		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		CadastrarLivro estajanelaL = this;
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
