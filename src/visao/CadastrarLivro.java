@@ -78,7 +78,7 @@ public class CadastrarLivro extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLocationRelativeTo(null);
 
-		//cadastrarLivro.setExtendedState(JFrame. MAXIMIZED_BOTH);
+		// cadastrarLivro.setExtendedState(JFrame. MAXIMIZED_BOTH);
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -244,7 +244,14 @@ public class CadastrarLivro extends JFrame {
 		btnRemover.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				boolean sucesso = bdli.removeAqui(idProdutoSelecionado);
+				boolean sucesso = true;
+				int i = JOptionPane.showConfirmDialog(null, "excluir livro?");
+				if (i == 0) {
+					sucesso = bdli.removeAqui(idProdutoSelecionado);
+
+				} else {
+					JOptionPane.showMessageDialog(null, "Livro não excluído");
+				}
 				if (sucesso == false) {
 					JOptionPane.showMessageDialog(null, "Produto excluido!");
 					atualizarJTable();
@@ -323,9 +330,10 @@ public class CadastrarLivro extends JFrame {
 		lblNewLabel_6_1.setFont(new Font("Amiri", Font.PLAIN, 26));
 		lblNewLabel_6_1.setBounds(-2, 531, 206, 19);
 		contentPane.add(lblNewLabel_6_1);
-		
+
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\CadastroLIIVRO.png"));
+		lblNewLabel.setIcon(
+				new ImageIcon("C:\\Users\\Aluno\\Desktop\\PROJETO-INTEGRADOR\\Interfaces\\CadastroLIIVRO.png"));
 		lblNewLabel.setBounds(-2, 0, 1224, 638);
 		contentPane.add(lblNewLabel);
 	}
@@ -355,14 +363,14 @@ public class CadastrarLivro extends JFrame {
 	}
 
 	protected void recuperarValorTotal() {
-		
+
 		textNomeL.setText(l.getNomeLi());
 		// boxGenero.setSelectedItem((String)l.getGenero());
 		textAutorL.setText(l.getAutor());
 		textQntdL.setText(String.valueOf(l.getQtde()));
 		textPrecoL.setText(l.getPreco());
 		textFornecedorL.setText(String.valueOf(l.getFornecedor()));
-		//txtNome.setText();
+		// txtNome.setText();
 	}
 
 	public void setFornecedor(Fornecedor sc) {
