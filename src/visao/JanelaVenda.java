@@ -95,8 +95,8 @@ public class JanelaVenda extends JFrame {
 		JanelaVenda estajanela = this;
 
 		JButton btnVoltar = new JButton("Voltar");
-		btnVoltar.setForeground(Color.WHITE);
-		btnVoltar.setBackground(Color.GRAY);
+		btnVoltar.setForeground(Color.BLACK);
+		btnVoltar.setBackground(Color.LIGHT_GRAY);
 		btnVoltar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -133,7 +133,7 @@ public class JanelaVenda extends JFrame {
 		btnRemoverVenda.setBackground(Color.GRAY);
 		btnRemoverVenda.setForeground(Color.WHITE);
 		btnRemoverVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
-		btnRemoverVenda.setBounds(296, 308, 128, 41);
+		btnRemoverVenda.setBounds(296, 377, 128, 41);
 		btnRemoverVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				livros.remove(l2);
@@ -148,7 +148,7 @@ public class JanelaVenda extends JFrame {
 		btnAdicionarVenda.setForeground(Color.WHITE);
 		btnAdicionarVenda.setBackground(Color.GRAY);
 		btnAdicionarVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
-		btnAdicionarVenda.setBounds(110, 308, 134, 41);
+		btnAdicionarVenda.setBounds(110, 377, 134, 41);
 		btnAdicionarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				liVenda = new Livro();
@@ -214,14 +214,14 @@ public class JanelaVenda extends JFrame {
 		contentPane.add(btnAdicionarVenda);
 
 		txtQtdLivro = new JTextField();
-		txtQtdLivro.setBounds(256, 256, 168, 32);
+		txtQtdLivro.setBounds(256, 316, 168, 32);
 		contentPane.add(txtQtdLivro);
 		txtQtdLivro.setColumns(10);
 
 		JLabel lblNewLabel_2 = new JLabel("Quantidade:");
-		lblNewLabel_2.setBounds(110, 249, 135, 43);
+		lblNewLabel_2.setBounds(110, 309, 135, 43);
 		contentPane.add(lblNewLabel_2);
-		lblNewLabel_2.setFont(new Font("Amiri", Font.PLAIN, 24));
+		lblNewLabel_2.setFont(new Font("Amiri", Font.PLAIN, 26));
 
 		txtIdFunc = new JTextField();
 		txtIdFunc.setFont(new Font("Amiri", Font.PLAIN, 20));
@@ -286,17 +286,17 @@ public class JanelaVenda extends JFrame {
 		JLabel lblNewLabel_1_1 = new JLabel("Funcionário:");
 		lblNewLabel_1_1.setBounds(64, 96, 135, 27);
 		contentPane.add(lblNewLabel_1_1);
-		lblNewLabel_1_1.setFont(new Font("Amiri", Font.PLAIN, 24));
+		lblNewLabel_1_1.setFont(new Font("Amiri", Font.PLAIN, 26));
 
 		JLabel lblNewLabel_1 = new JLabel("Cliente:");
 		lblNewLabel_1.setBounds(110, 141, 89, 23);
 		contentPane.add(lblNewLabel_1);
-		lblNewLabel_1.setFont(new Font("Amiri", Font.PLAIN, 24));
+		lblNewLabel_1.setFont(new Font("Amiri", Font.PLAIN, 26));
 
 		JLabel lblNewLabel = new JLabel("Livro:");
 		lblNewLabel.setBounds(124, 186, 65, 19);
 		contentPane.add(lblNewLabel);
-		lblNewLabel.setFont(new Font("Amiri", Font.PLAIN, 24));
+		lblNewLabel.setFont(new Font("Amiri", Font.PLAIN, 26));
 
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(511, 229, 610, 230);
@@ -321,7 +321,7 @@ public class JanelaVenda extends JFrame {
 		JLabel lblSumario = new JLabel("Sumário:");
 		lblSumario.setBounds(405, 225, 96, 32);
 		contentPane.add(lblSumario);
-		lblSumario.setFont(new Font("Amiri", Font.PLAIN, 24));
+		lblSumario.setFont(new Font("Amiri", Font.PLAIN, 26));
 
 		textField = new JTextField();
 		textField.setFont(new Font("Amiri", Font.PLAIN, 22));
@@ -344,7 +344,7 @@ public class JanelaVenda extends JFrame {
 				new String[] { "Cartão de Crédito", "Cartão de Débito", "Dinheiro (Papel)", "" }));
 
 		JLabel lblNewLabel_2_1_1 = new JLabel("Forma de Pagamento:");
-		lblNewLabel_2_1_1.setBounds(464, 515, 211, 21);
+		lblNewLabel_2_1_1.setBounds(456, 515, 219, 21);
 		contentPane.add(lblNewLabel_2_1_1);
 		lblNewLabel_2_1_1.setFont(new Font("Amiri", Font.PLAIN, 24));
 
