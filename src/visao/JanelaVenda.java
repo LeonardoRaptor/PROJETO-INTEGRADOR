@@ -97,6 +97,8 @@ public class JanelaVenda extends JFrame {
 		JanelaVenda estajanela = this;
 
 		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.setForeground(Color.WHITE);
+		btnVoltar.setBackground(Color.GRAY);
 		btnVoltar.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -130,6 +132,8 @@ public class JanelaVenda extends JFrame {
 		textNomeLi.setColumns(10);
 
 		JButton btnRemoverVenda = new JButton("Remover");
+		btnRemoverVenda.setBackground(Color.GRAY);
+		btnRemoverVenda.setForeground(Color.WHITE);
 		btnRemoverVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRemoverVenda.setBounds(296, 308, 128, 41);
 		btnRemoverVenda.addActionListener(new ActionListener() {
@@ -143,6 +147,8 @@ public class JanelaVenda extends JFrame {
 		contentPane.add(btnRemoverVenda);
 
 		JButton btnAdicionarVenda = new JButton("Adicionar");
+		btnAdicionarVenda.setForeground(Color.WHITE);
+		btnAdicionarVenda.setBackground(Color.GRAY);
 		btnAdicionarVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnAdicionarVenda.setBounds(110, 308, 134, 41);
 		btnAdicionarVenda.addActionListener(new ActionListener() {
@@ -241,6 +247,8 @@ public class JanelaVenda extends JFrame {
 		txtIdLivro.setColumns(10);
 
 		JButton btnNewButton_1_1 = new JButton("Selecionar");
+		btnNewButton_1_1.setBackground(Color.GRAY);
+		btnNewButton_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton_1_1.setBounds(209, 95, 211, 32);
 		btnNewButton_1_1.addActionListener(new ActionListener() {
@@ -252,6 +260,8 @@ public class JanelaVenda extends JFrame {
 		contentPane.add(btnNewButton_1_1);
 
 		JButton btnNewButton_1 = new JButton("Selecionar");
+		btnNewButton_1.setForeground(Color.WHITE);
+		btnNewButton_1.setBackground(Color.GRAY);
 		btnNewButton_1.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(209, 138, 211, 32);
 		btnNewButton_1.addActionListener(new ActionListener() {
@@ -263,6 +273,8 @@ public class JanelaVenda extends JFrame {
 		contentPane.add(btnNewButton_1);
 
 		JButton btnNewButton = new JButton("Selecionar");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnNewButton.setBounds(209, 180, 211, 32);
 		btnNewButton.addActionListener(new ActionListener() {
@@ -339,6 +351,8 @@ public class JanelaVenda extends JFrame {
 		lblNewLabel_2_1_1.setFont(new Font("Amiri", Font.PLAIN, 24));
 
 		JButton btnRealizarVenda = new JButton("Realizar venda");
+		btnRealizarVenda.setForeground(Color.WHITE);
+		btnRealizarVenda.setBackground(Color.GRAY);
 		btnRealizarVenda.setFont(new Font("Amiri", Font.PLAIN, 20));
 		btnRealizarVenda.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
