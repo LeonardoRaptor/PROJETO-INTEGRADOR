@@ -149,3 +149,5 @@ INSERT INTO Funcionarios (NomeFuncionario, EmailFunc, CPF,SenhaFunc, tipoAcesso)
 INSERT INTO Clientes (NomeClientel, CPFCliente, TelefoneCliente, EmailCliente) VALUES ("Tifanny", "332.666.890-33", "9987-6660", "ChuckyLove@hotmail.com");
 INSERT INTO Fornecedor (NomeFornecedor, TelefoneFornecedor, EmailFornecedor) VALUES ("Brasil Cultura", "4324-7356", "Culture@gmail.com");
 INSERT INTO Produtos (PreçoProduto, Nome, qt_estoque, Autor, Genero, Fornecedor_idFornecedor) VALUES ("25", "A Beleza de Vênus", "6", "Jorge Guilherme", "Romance","3");
+
+INSERT INTO Produtos (PreçoProduto, Nome, qt_estoque, Autor, Genero, Fornecedor_idFornecedor) VALUES ("50", "Anne de Green Gables", "1", "L. M. Montgomery", "Romance","1");
