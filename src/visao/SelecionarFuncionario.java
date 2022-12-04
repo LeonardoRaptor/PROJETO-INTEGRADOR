@@ -54,7 +54,7 @@ public class SelecionarFuncionario extends JFrame {
 	
 	public SelecionarFuncionario(JanelaVenda jv) {
 
-		setTitle("Selecionar Livro");
+		setTitle("Selecionar Funcionário");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 794, 276);
